@@ -1,0 +1,68 @@
+---
+import { twMerge } from 'tailwind-merge';
+import type { ImageProps } from '~/utils/images-optimization';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import Image from '../common/Image.astro';
+import Button from '../ui/Button.astro';
+
+interface Item {
+  image: ImageProps;
+  title: string;
+  description?: string;
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  items: Item[];
+  columns?: 1 | 2 | 3 | 4;
+  id?: string;
+  isDark?: boolean;
+}
+
+const { title, subtitle, items = [], columns = 3, id, isDark = false } = Astro.props as Props;
+---
+
+<WidgetWrapper id={id} isDark={isDark}>
+  {title && (
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight dark:text-white">{title}</h2>
+      {subtitle && <p class="mt-4 text-xl text-muted">{subtitle}</p>}
+    </div>
+  )}
+---
+  {items && items.length > 0 && (
+    <div
+      class={twMerge(
+        'grid gap-8 md:gap-12',
+        columns === 4 ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2' :
+        columns === 3 ? 'lg:grid-cols-3 md:grid-cols-2' :
+        columns === 2 ? 'md:grid-cols-2' :
+        'grid-cols-1'
+      )}
+    >
+      {items.map(({ image, title, description, link }) => (
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 motion-safe:hover:scale-105">
+          <div class="aspect-video overflow-hidden rounded-t-2xl">
+            <Image {...image} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6 bg-white dark:bg-gray-900">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">{title}</h3>
+            {description && (
+              <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{description}</p>
+            )}
+            {link && (
+              <Button variant="primary" href={link.href} class="w-full">
+                {link.text}
+              </Button>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</WidgetWrapper>

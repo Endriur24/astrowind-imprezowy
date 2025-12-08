@@ -1,0 +1,30 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Pracuj z nami - ImprezowyFotograf',
+  description: 'Chcesz z nami pracować? Fotografować, filmować lub obrabiać materiały? Skontaktuj się z nami!',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Wyślij aplikację',
+        href: '#contact'
+      }
+    ]}
+  >
+    <Fragment slot="title">
+      Zacznij pracować z naszym zespołem!
+    </Fragment>
+    <Fragment slot="subtitle">
+      Chcesz z nami pracować? Fotografować, filmować, a może zajmować się obróbką zdjęć, bądź montażem filmów?<br>
+      Napisz do nas, zobaczymy, co da się zrobić!
+    </Fragment>
+  </Hero>
+
+</Layout>

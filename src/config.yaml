@@ -1,34 +1,34 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Imprezowy Fotograf
+  site: 'https://imprezowyfotograf.pl'
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: ''
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Imprezowy Fotograf
+    template: '%s — Imprezowy Fotograf'
+  description: 'Profesjonalny fotograf eventowy Kraków. Fotografia studniówkowa, koncerty, imprezy firmowe, zdjęcia live i wideo.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Imprezowy Fotograf
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/fb_share.webp'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: ''
+    site: ''
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: pl
   textDirection: ltr
 
 apps:

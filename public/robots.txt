@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://imprezowyfotograf.pl/sitemap-index.xml
