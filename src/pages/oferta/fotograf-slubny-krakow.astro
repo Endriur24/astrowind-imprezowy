@@ -1,0 +1,321 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Fotograf Ślubny Kraków - Profesjonalna Fotografia Ślubna',
+  description: 'Profesjonalny fotograf ślubny w Krakowie. Reportaż ślubny, plener i sesja narzeczeńska. Niezapomniane zdjęcia ślubne.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj termin',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+    image={{ 
+      src: 'https://images.unsplash.com/photo-1519741497674-611481e3d46e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
+      alt: 'Fotograf ślubny' 
+    }}
+  >
+    <Fragment slot="title">
+      Fotograf Ślubny Kraków
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Profesjonalna fotografia ślubna, która uwieczni najpiękniejszy dzień Waszego życia. Emocje, miłość i piękno w każdym kadrze.
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Wasz wyjątkowy dzień</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Artystyczne podejście</h3>
+                <p class="text-gray-600 dark:text-gray-400">Unikalne i artystyczne kadry, które opowiadają Waszą historię miłości.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Emocje w kadrze</h3>
+                <p class="text-gray-600 dark:text-gray-400">Uchwycenie naturalnych emocji, łez wzruszenia i szczerych uśmiechów.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Pełna dokumentacja</h3>
+                <p class="text-gray-600 dark:text-gray-400">Od przygotowań po wesele - każdy ważny moment uwieczniony.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="https://images.unsplash.com/photo-1519229920150-8e18f4ebb116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia ślubna" class="rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Details -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Nasza oferta ślubna</h2>
+      
+      <Features
+        items={[
+          {
+            title: 'Reportaż ślubny',
+            description: 'Pełna dokumentacja ceremonii ślubnej i przyjęcia weselnego w stylu reportażowym.',
+            icon: 'tabler:heart-handshake',
+          },
+          {
+            title: 'Sesja narzeczeńska',
+            description: 'Romantyczna sesja narzeczeńska w plenerze lub studio przed ślubem.',
+            icon: 'tabler:flowers',
+          },
+          {
+            title: 'Sesja plenerowa',
+            description: 'Artystyczna sesja plenerowa dla Młodej Pary w pięknych sceneriach.',
+            icon: 'tabler:sun',
+          },
+          {
+            title: 'Przygotowania',
+            description: 'Fotografowanie przygotowań Panny Młodej i Pana Młodego.',
+            icon: 'tabler:sparkles',
+          },
+          {
+            title: 'Sesja rodzinna',
+            description: 'Zdjęcia rodzinne i grupowe z bliskimi podczas wesela.',
+            icon: 'tabler:users',
+          },
+          {
+            title: 'Teledysk ślubny',
+            description: 'Profesjonalny teledysk z najpiękniejszych chwil Waszego ślubu.',
+            icon: 'tabler:video',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Wedding Process -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Przebieg dnia ślubu</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Przygotowania</h3>
+          <p class="text-gray-600 dark:text-gray-400">Rozpoczynamy od przygotowań, emocji i detali dnia.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Ceremonia</h3>
+          <p class="text-gray-600 dark:text-gray-400">Uwieczniamy przysięgę, emocje i wzruszenia podczas ceremonii.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Przyjęcie</h3>
+          <p class="text-gray-600 dark:text-gray-400">Dokumentujemy radość, zabawę i wszystkie weselne momenty.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Plener</h3>
+          <p class="text-gray-600 dark:text-gray-400">Romantyczna sesja plenerowa tylko dla Waszego piękna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Nasze śluby</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="relative overflow-hidden rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1511285560929-80a454c57af7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ślubny moment" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481e3d46e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ślubna ceremonia" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+        
+        <div class="relative overflow-hidden rounded-lg shadow-lg">
+          <img src="https://images.unsplash.com/photo-1469371670267-497965669a56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Weselna zabawa" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Pakiety ślubne</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Silver</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Podstawowa obsługa ślubna</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              8 godzin obsługi
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              300 zdjęć po obróbce
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Sesja plenerowa 2h
+            </li>
+          </ul>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">3500 zł</p>
+        </div>
+        
+        <div class="bg-pink-600 text-white rounded-lg p-8 border-2 border-pink-600 relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-pink-600 text-white px-3 py-1 text-sm rounded-full">
+            Najpopularniejszy
+          </div>
+          <h3 class="text-xl font-bold mb-4">Gold</h3>
+          <p class="mb-6 opacity-90">Kompleksowa obsługa ślubna</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              12 godzin obsługi
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              500 zdjęć po obróbce
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Sesja plenerowa 4h
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              20 zdjęć retuszowanych
+            </li>
+          </ul>
+          <p class="text-2xl font-bold mb-4">5000 zł</p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Platinum</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Luksusowa obsługa ślubna</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Cały dzień ślubu
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              800+ zdjęć po obróbce
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Sesja narzeczeńska
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Album ślubny premium
+            </li>
+          </ul>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">7000 zł</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    title="Zarezerwuj fotografa na swój ślub"
+    subtitle="Skontaktuj się z nami i zarezerwuj termin na swój wymarzony ślub. Ograniczona liczba terminów!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj teraz',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,262 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Oferta - ImprezowyFotograf',
+  description: 'Zrobimy dla Ciebie zdjęcia na każdej imprezie! Wykonujemy zdjęcia na studniówkach, balach, dyskotekach, konferencjach oraz innych wydarzeniach.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Skontaktuj się z nami',
+        href: '/kontakt',
+      },
+    ]}
+    image={{ 
+      src: '/assets/portfolio/covers/studniowki_cover.jpg', 
+      alt: 'Nasza oferta' 
+    }}
+  >
+    <Fragment slot="title">
+      Oferta
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Zrobimy dla Ciebie zdjęcia na każdej imprezie! Nie boimy się nowych doświadczeń. Lubimy te bardziej dynamiczne wydarzenia, ale część naszej ekipy trochę zamula, więc konferencje też są spoko. A, i wideo robimy też!
+    </Fragment>
+  </Hero>
+
+  <!-- Main Services Grid -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-na-studniowke" class="block">
+            <img src="/assets/portfolio/studniowka/zdjecia_studniowkowe_032_thumbnail.jpg" alt="Fotograf na studniówkę" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf na studniówkę /<br>Fotograf na komers
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Fotografujemy i nagrywamy materiały wideo na studniówkach, komersach oraz innych podobnych wydarzeniach organizowanych w szkołach.
+            </p>
+            <a href="/oferta/fotograf-na-studniowke" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-na-wydarzenia-studenckie" class="block">
+            <img src="/assets/portfolio/studenckie/zdjecia_imprezy_studenckie_072_thumbnail.jpg" alt="Fotograf na imprezę studencką" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf na imprezę studencką <br>(bal, dyskotekę, rajd, itp.)
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Współpracujemy z Uczelnianymi i Wydziałowymi Radami Samorządu Studenckiego, tworząc reportaże z różnego rodzaju imprez studenckich.
+            </p>
+            <a href="/oferta/fotograf-na-wydarzenia-studenckie" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-klubowy-koncertowy-krakow" class="block">
+            <img src="/assets/portfolio/dyskoteka/zdjecia_klubowe_058_thumbnail.jpg" alt="Fotograf klubowy" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf do klubu / <br>Fotograf koncertowy
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Fotografia klubowa zdecydowanie wpisuje się na listę naszych ulubionych zleceń. Fotografujemy też koncerty - i zdarza się robić jedno i drugie naraz!
+            </p>
+            <a href="/oferta/fotograf-klubowy-koncertowy-krakow" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-na-konferencje-krakow" class="block">
+            <img src="/assets/portfolio/konferencje/zdjecia_z_konferencji_016_thumbnail.jpg" alt="Fotograf na konferencję" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf na konferencję / <br>&nbsp;wydarzenie branżowe
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Potrzebujesz reportaż z konferencji lub innego eventu branżowego? Nie ma sprawy, zajmiemy się tym! Zdjęcia, filmy, streamingi i inne usługi specjalne!
+            </p>
+            <a href="/oferta/fotograf-na-konferencje-krakow" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-eventowy-krakow" class="block">
+            <img src="/assets/portfolio/covers/eventowy_cover_thumbnail.jpg" alt="Fotograf na event firmowy" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf na event firmowy
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Tworzymy relacje fotograficzne oraz materiały wideo dla klienta biznesowego - z różnego rodzaju wydarzeń, takich jak np. urodziny firmy, otwarcie biura, szkolenia, prelekcje, spotkania firmowe itp.
+            </p>
+            <a href="/oferta/fotograf-eventowy-krakow" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/fotograf-na-urodziny-krakow" class="block">
+            <img src="/assets/portfolio/covers/urodzinowe_cover_thumbnail.jpg" alt="Fotograf na urodziny" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Fotograf na osiemnastkę / <br>urodziny
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Wykonujemy reportaże na imprezach okolicznościowych - m.in. osiemnastkach oraz innych imprezach organizowanych w gronie znajomych, rodziny.
+            </p>
+            <a href="/oferta/fotograf-na-urodziny-krakow" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/zdjecia-live" class="block">
+            <img src="/assets/portfolio/covers/zdjecia_live_cover_thumbnail.jpg" alt="Zdjęcia live" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Zdjęcia "live"<br>(dostarczane w czasie rzeczywistym)
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Dostarczamy zdjęcia w czasie trwania eventu. Oferujemy różne rozwiązania i indywidualne podejście w zależności od wymagań konkretnego projektu.
+            </p>
+            <a href="/oferta/zdjecia-live" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/reportaze-i-projekty-specjalne" class="block">
+            <img src="/assets/portfolio/specjalne/repo_specjalne_023_thumbnail.jpg" alt="Reportaże specjalne" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Reportaże i projekty specjalne
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Robimy "repo" z bardzo różnego rodzaju wydarzeń, wliczając w to m.in. konkursy studenckich zespołów konstruktorskich (tzw. kół naukowych), zawodów sportowych, zjazdów samochodowych i wielu innych.
+            </p>
+            <a href="/oferta/reportaze-i-projekty-specjalne" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/dodatkowe-uslugi-fotograficzne" class="block">
+            <img src="/assets/portfolio/covers/dodatkowe_uslugi_cover_thumbnail.jpg" alt="Dodatkowe usługi" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Dodatkowe usługi foto/wideo
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Jeśli na swoje wydarzenie potrzebujesz np. fotobudki, ścianki fotograficznej z oświetleniem lub jakieś "dziwnej" usługi foto/wideo (np. nagranie VHS) to prawdopodobnie możemy Ci pomóc.
+            </p>
+            <a href="/oferta/dodatkowe-uslugi-fotograficzne" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/video-eventowe" class="block">
+            <img src="/assets/portfolio/covers/video_eventowe_cover_thumbnail.jpg" alt="Wideo eventowe" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Wideo eventowe (i nie tylko)
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Robimy nie tylko zdjęcia! Jesteśmy również otwarci na potrzeby marketingu wideo. Nagrywamy i montujemy relacje z różnego rodzaju wydarzeń, a także przygotowujemy spoty promocyjne.
+            </p>
+            <a href="/oferta/video-eventowe" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/streaming-video" class="block">
+            <img src="/assets/portfolio/covers/streaming_video_cover_thumbnail.jpg" alt="Streaming wideo" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Streaming wideo
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Jeśli wideo, to również live! Realizujemy na żywo wydarzenia w formie online i hybrydowej - webinary, prelekcje, konferencje, wywiady. Jeśli tego trzeba, to ogarniamy również realizację audio.
+            </p>
+            <a href="/oferta/streaming-video" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <a href="/oferta/szkolenia-foto-wideo" class="block">
+            <img src="/assets/portfolio/covers/szkolenia_cover_thumbnail.jpg" alt="Szkolenia foto/wideo" class="w-full h-48 object-cover">
+          </a>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              Szkolenia dla fotografów i filmowców
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Szkolimy m.in. z zakresu błysku reporterskiego, edycji zdjęć w LrC, montażu wideo, oświetlania planów zdjęciowych, procesu zimnego i C-41 oraz innych tematów foto/wideo.
+            </p>
+            <a href="/oferta/szkolenia-foto-wideo" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+              Sprawdź ofertę!
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Masz pytania?</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Skontaktuj się z nami, aby omówić szczegóły oferty dopasowanej do Twoich potrzeb</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/kontakt" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          Napisz do nas
+        </a>
+        <a href="tel:+48885195599" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+          Zadzwoń: +48 885 195 599
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

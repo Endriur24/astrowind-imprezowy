@@ -1,0 +1,196 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Contact from '~/components/widgets/Contact.astro';
+
+const metadata = {
+  title: 'Fotograf na Studniówkę Kraków - ImprezowyFotograf',
+  description: 'Potrzebujesz profesjonalnego fotografa na studniówkę? Oferujemy zdjęcia pełne energii i nowoczesności! Najlepsza oferta na wasz studniówkowy wieczór',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Sprawdź naszą ofertę!',
+        href: '#studniowka-1',
+      },
+    ]}
+    image={{ 
+      src: '/assets/img/portfolio/covers/studniowki_cover.jpg', 
+      alt: 'Fotograf na studniówka',
+      width: 1200,
+      height: 600
+    }}
+  >
+------- END SEARCH
+
+    <Fragment slot="title">
+      Fotograf na studniówkę / komers
+    </Fragment>
+    <Fragment slot="subtitle">
+      (+ wideo studniówkowe)
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content Section -->
+  <Content
+    tagline="Wybór fotografa na studniówkę"
+    title="Na co zwrócić uwagę przy wyborze fotografa na studniówkę?"
+    items={[
+      {
+        title: 'Sprawdź portfolio fotografa',
+        description: 'Po pierwsze, ważne jest, aby sprawdzić portfolio potencjalnego fotografa. Przeglądając jego wcześniejsze prace, można ocenić jego styl i umiejętności. To pozwoli określić, czy jego prace po prostu wam odpowiadają. Starannie przeglądając portfolio, można również zidentyfikować, czy fotograf posiada doświadczenie w fotografowaniu imprez okolicznościowych, takich jak studniówki. Ponadto warto zaglądnąć do przykładowych realizacji również z innych dziedzin, często będzie to fotografia ślubna, klubowa, reklamowa czy jeszcze inna.',
+      },
+      {
+        title: 'Dobry kontakt to podstawa',
+        description: 'Kolejnym super ważnym aspektem jest komunikacja. Studniówka to przede wszystkim dobra zabawa i ważne abyście Wy dobrze czuli się w obecności swoich fotografów. Potrzebne jest do tego trochę zaufania jak również ekipa foto/video musi czuć ten studniówkowy nastrój. Dobry fotograf powinien być otwarty na Wasze sugestie i pytania oraz służyć radą na przykład w kwestii tego jak wykonać zdjęcia grupowe. Dlatego warto spotkać się z fotografem osobiście lub przynajmniej przeprowadzić rozmowę telefoniczną, aby omówić szczegóły związane z planem studniówki i wyrazić swoje oczekiwania.',
+      },
+      {
+        title: 'Przejrzysty cennik',
+        description: 'Fotografia studniówkowa może być wyceniana na różne sposoby. Jedni fotografowie przedstawiają wyceny w przeliczeniu na osobę a inni tak jak my oferują pakiety oparte na ilości fotografów dostarczających daną ilość zdjęć. W naszej ocenie jest to bardziej sprawiedliwa wycena zdjęć studniówkowych natomiast zdajemy sobie sprawę, że oferta przedstawiona w ten sposób może być na początku dla was nieco kłopotliwa dlatego w razie wątpliwości zapraszamy do kontaktu.',
+      },
+    ]}
+  />
+
+  <!-- Why Us Section -->
+  <Content
+    isReversed
+    tagline="Dlaczego my?"
+    title="Dlaczego fotograf na studniówkę z imprezowyfotograf.pl?"
+    items={[
+      {
+        title: 'Średni czas oczekiwania na zdjęcia',
+        description: 'Doskonale zdajemy sobie sprawę z tego, jak ważną rolę ma dla Was czas przekazania zdjęć. Staramy się pracować sprawnie i szybko, jednocześnie zachowując najwyższą możliwą jakość. W przypadku zdjęć ze studniówek standardowy czas dostarczenia zdjęć to zazwyczaj 5-7 dni roboczych. Mamy również w ofercie możliwość wykonania tzw. zdjęć live - wtedy zabieramy ze sobą na lokację fotoedytora.',
+      },
+      {
+        title: 'Retuszujemy zdjęcia!',
+        description: 'Wielu fotografów na polskim rynku nie wykonuje retuszu skóry na zdjęciach reportażowych. Dlaczego? Ponieważ retusz zabiera dużo czasu, a obrobione w ten sposób zdjęcia sporo przestrzeni dyskowej. My jednak idziemy pod prąd tego nurtu i retuszujemy wszystkie zdjęcia z Waszych studniówek! Robimy to, ponieważ wiemy, że jest to dla Was ważne - w końcu studniówkę ma się tylko raz!',
+      },
+      {
+        title: 'Gdzie działamy',
+        description: 'Naszym rodzimym miastem jest Kraków dlatego najczęściej fotografujemy na terenie województwa małopolskiego, podkarpackiego, śląskiego oraz świętokrzyskiego jednak dojeżdżamy na terenie całej Polski, a jeśli tego wymaga wydarzenie - dojedziemy lub dolecimy gdzie trzeba!',
+      },
+    ]}
+  >
+    <Fragment slot="subtitle">
+      Nasi profesjonalni fotografowie zadbają o giga czadowe utrwalenie Waszego pożegnania się ze szkołą!
+    </Fragment>
+  </Content>
+
+  <!-- Portfolio Gallery -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Poniżej wrzucamy trochę kadrów pokazujących, jak mogą wyglądać zdjęcia z Waszej studniówki!</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_001.jpg" class="block overflow-hidden rounded-lg">
+          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_001_thumbnail.jpg" alt="Zdjęcie ze studniówki 1" class="w-full h-48 object-cover hover:scale-105 transition-transform">
+        </a>
+        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_002.jpg" class="block overflow-hidden rounded-lg">
+          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_002_thumbnail.jpg" alt="Zdjęcie ze studniówki 2" class="w-full h-48 object-cover hover:scale-105 transition-transform">
+        </a>
+        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_003.jpg" class="block overflow-hidden rounded-lg">
+          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_003_thumbnail.jpg" alt="Zdjęcie ze studniówki 3" class="w-full h-48 object-cover hover:scale-105 transition-transform">
+        </a>
+        <!-- Add more images - up to 60 as in old site, but truncate for now -->
+        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_004.jpg" class="block overflow-hidden rounded-lg">
+          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_004_thumbnail.jpg" alt="Fotograf na studniówkę" class="w-full h-48 object-cover hover:scale-105 transition-transform">
+        </a>
+        <!-- ... continue for all images ... -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="studniowka-1" class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Oferta</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Przyszedł czas na naszą ofertę. Wybierzcie pakiet, który odpowiada Waszym oczekiwaniom albo skontaktujcie się z nami w celu ułożenia lub dopasowania pakietu specjalnie dla Was!</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
+          <div class="text-center mb-6">
+            <h4 class="text-2xl font-bold">PODSTAWOWY</h4>
+            <div class="inline-block bg-amber-500 text-white px-3 py-1 rounded-full text-sm mt-2">Brązowy</div>
+          </div>
+          <p class="text-center text-lg mb-6">1 fotograf</p>
+          <ul class="space-y-2 mb-8">
+            <li>Zdjęć po obróbce: <strong>500</strong></li>
+            <li>Godzin reportażu: <strong>5h</strong></li>
+            <li>Retusz w cenie: <strong>Tak</strong></li>
+            <li>Zdjęcia grupowe klas: <strong>Tak</strong></li>
+            <li>Ścianka: <strong>Nie</strong></li>
+            <li>Teledysk wideo: <strong>Nie</strong></li>
+          </ul>
+          <a href="#kontakt" class="block w-full bg-blue-600 text-white py-3 px-6 rounded-md text-center hover:bg-blue-700 transition-colors">Zapytaj o termin!</a>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
+          <div class="text-center mb-6">
+            <div class="inline-block bg-gray-400 text-white px-3 py-1 rounded-full text-sm mt-2">Srebrny</div>
+            <h4 class="text-2xl font-bold">ROZSZERZONY</h4>
+          </div>
+          <p class="text-center text-lg mb-6">2 fotografów</p>
+          <ul class="space-y-2 mb-8">
+            <li>Zdjęć po obróbce: <strong>1000</strong></li>
+            <li>Godzin reportażu: <strong>5h</strong></li>
+            <li>Retusz w cenie: <strong>Tak</strong></li>
+            <li>Zdjęcia grupowe klas: <strong>Tak</strong></li>
+            <li>Ścianka: <strong>Nie</strong></li>
+            <li>Teledysk wideo: <strong>Nie</strong></li>
+          </ul>
+          <a href="#kontakt" class="block w-full bg-blue-600 text-white py-3 px-6 rounded-md text-center hover:bg-blue-700 transition-colors">Zapytaj o termin!</a>
+        </div>
+        <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-8 rounded-lg relative">
+          <div class="text-center mb-6">
+            <h4 class="text-2xl font-bold">IMPREZOWY+</h4>
+            <div class="inline-block bg-yellow-700 text-white px-3 py-1 rounded-full text-sm mt-2">Złoty</div>
+          </div>
+          <p class="text-center text-lg mb-6">3 fotografów (lub więcej)<br>1 operator kamery</p>
+          <ul class="space-y-2 mb-8">
+            <li>Zdjęć po obróbce: <strong>1500+</strong></li>
+            <li>Godzin reportażu: <strong>5h</strong></li>
+            <li>Retusz w cenie: <strong>Tak</strong></li>
+            <li>Zdjęcia grupowe klas: <strong>Tak</strong></li>
+            <li>Ścianka: <strong>Tak</strong></li>
+            <li>Teledysk wideo: <strong>Tak</strong></li>
+          </ul>
+          <a href="#kontakt" class="block w-full bg-white text-yellow-600 py-3 px-6 rounded-md text-center font-bold hover:bg-gray-100 transition-colors">Zapytaj o termin!</a>
+        </div>
+      </div>
+      <div class="mt-12">
+        <h4 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">Opcje dodatkowe</h4>
+        <div class="max-w-4xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 text-center">Oprócz podstawowego zakresu, do pakietów można dobrać opcje dodatkowe. Istnieje również możliwość skomponowania oferty od podstaw bazując na Waszych oczekiwaniach i konkretnych wytycznych.</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <li>• dodatkowy fotograf, czyli +500 zdjęć</li>
+            <li>• ścianka - zdjęcia na jednolitym lub zaaranżowanym tle</li>
+            <li>• ścianka live - zdjęcia "w czasie rzeczywistym" na udostępnionym serwerze</li>
+            <li>• fotoedytor na miejscu - zdjęcia z wydarzenia "w czasie rzeczywistym" na serwerze</li>
+            <li>• film na studniówkę - materiał nagrany wcześniej, który pokażecie podczas części artystycznej wydarzenia</li>
+            <li>• nagrania / zdjęcia drona - np. jako dodatek do teledysku wideo albo zdjęcia grupowe w plenerze</li>
+            <li>• fotobudka</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <Contact id="kontakt">
+    <Fragment slot="title">
+      Zapraszamy do kontaktu!
+    </Fragment>
+    <Fragment slot="subtitle">
+      Jeżeli nasza oferta przypadła Wam do gustu i chcecie nawiązać z nami współpracę - piszcie śmiało! W wiadomości opiszcie swoje oczekiwania i krótko wydarzenie, czas jego trwania, godzinę rozpoczęcia (jeśli już jest znana) oraz inne ważne detale.
+    </Fragment>
+  </Contact>
+</Layout>

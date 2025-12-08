@@ -1,0 +1,354 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Fotograf na Urodziny i 18-tkę Kraków - Profesjonalna Fotografia Imprezowa',
+  description: 'Profesjonalny fotograf na urodziny, osiemnastki i imprezy prywatne w Krakowie. Uwiecznij najważniejsze chwile!',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj fotografa',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+    image={{ 
+      src: 'https://images.unsplash.com/photo-1469444163033-ef3cab2f0c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
+      alt: 'Fotograf na urodziny' 
+    }}
+  >
+    <Fragment slot="title">
+      Fotograf na Urodziny i 18-tkę
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Profesjonalna fotografia na urodziny, osiemnastki i imprezy prywatne. Uwiecznij radość i emocje tych wyjątkowych chwil!
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Niepowtarzalne wspomnienia</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Radość i emocje</h3>
+                <p class="text-gray-600 dark:text-gray-400">Uchwycenie autentycznych emocji, śmiechu i radości z urodzin lub osiemnastki.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Naturalne kadry</h3>
+                <p class="text-gray-600 dark:text-gray-400">Reportażowa fotografia, która pokazuje naturalną atmosferę imprezy.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Grupowe chwile</h3>
+                <p class="text-gray-600 dark:text-gray-400">Organizacja zdjęć grupowych z rodziną i przyjaciółmi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722623c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia urodzinowa" class="rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Details -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Nasza oferta urodzinowa</h2>
+      
+      <Features
+        items={[
+          {
+            title: 'Osiemnastki',
+            description: 'Profesjonalna fotografia na osiemnastki - ważny dzień pełen emocji i radości.',
+            icon: 'tabler:gift',
+          },
+          {
+            title: 'Urodziny dziecięce',
+            description: 'Urocze zdjęcia z dziecięcych urodzin z balonami, tortem i zabawą.',
+            icon: 'tabler:cake',
+          },
+          {
+            title: 'Urodziny dla dorosłych',
+            description: 'Elegancka fotografia urodzinowa w stylu dopasowanym do charakteru imprezy.',
+            icon: 'tabler:celebration',
+          },
+          {
+            title: 'Zdjęcia grupowe',
+            description: 'Organizacja i zdjęcia grupowe z rodziną i przyjaciółmi solenizanta.',
+            icon: 'tabler:users',
+          },
+          {
+            title: 'Sesja z gośćmi',
+            description: 'Indywidualne sesje zdjęciowe z bliskimi na urodzinach.',
+            icon: 'tabler:user-heart',
+          },
+          {
+            title: 'Retusz zdjęć',
+            description: 'Profesjonalny retusz najważniejszych zdjęć z uroczystości.',
+            icon: 'tabler:brush',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Jak przebiega sesja?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-green-600 dark:text-green-400">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Przygotowania</h3>
+          <p class="text-gray-600 dark:text-gray-400">Przygotowanie dekoracji, tortu i scenerii przed rozpoczęciem urodzin.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-green-600 dark:text-green-400">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Przybycie gości</h3>
+          <p class="text-gray-600 dark:text-gray-400">Fotografowanie przybycia gości i pierwszych emocji solenizanta.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-green-600 dark:text-green-400">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Główna impreza</h3>
+          <p class="text-gray-600 dark:text-gray-400">Dokumentacja głównej części urodzin, tortu i życzeń.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-green-600 dark:text-green-400">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Zdjęcia grupowe</h3>
+          <p class="text-gray-600 dark:text-gray-400">Organizowane sesje grupowe z rodziną i przyjaciółmi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Types of Parties -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Rodzaje imprez</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg">
+          <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13v8m0 0l3-3m-3 3l-3-3m3 3v5m-3-5h6"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Osiemnastki</h3>
+          <p class="text-gray-600 dark:text-gray-400">Profesjonalna dokumentacja osiemnastek - bal, studniówka i przyjęcie. Specjalne podejście do tego wyjątkowego dnia.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• Sesja przed przyjęciem</li>
+            <li>• Dokumentacja balu</li>
+            <li>• Zdjęcia z rodzicami</li>
+            <li>• Portrety solenizanta</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg">
+          <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-3A3 3 0 0014 11V5a1 1 0 00-1-1H4a1 1 0 00-1 1v6a3 3 0 003 3h1"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Urodziny dziecięce</h3>
+          <p class="text-gray-600 dark:text-gray-400">Barwne, radosne urodziny z balonami, zabawami i tortem. Fotografia dopasowana do dziecięcej energii.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• Zdjęcia z zabawami</li>
+            <li>• Ugaszanie świeczek</li>
+            <li>• Rozpakowywanie prezentów</li>
+            <li>• Zdjęcia z innymi dziećmi</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-lg">
+          <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.458a2.378 2.378 0 01-3.106 1.583l-4.17 4.17a2.378 2.378 0 01-1.583 3.106L5 21v-7.546z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Urodziny dorosłych</h3>
+          <p class="text-gray-600 dark:text-gray-400">Eleganckie urodziny dla dorosłych z odpowiednim podejściem do charakteru imprezy i gości.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>• Styl reportażowy</li>
+            <li>• Zdjęcia grupowe</li>
+            <li>• Detale dekoracji</li>
+            <li>• Naturalne emocje</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Pakiety urodzinowe</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Mini</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Małe przyjęcie domowe</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              2 godziny dokumentacji
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              50 zdjęć po obróbce
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Galeria online
+            </li>
+          </ul>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">600 zł</p>
+        </div>
+        
+        <div class="bg-green-600 text-white rounded-lg p-8 border-2 border-green-600 relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-3 py-1 text-sm rounded-full">
+            Najpopularniejszy
+          </div>
+          <h3 class="text-xl font-bold mb-4">Standard</h3>
+          <p class="mb-6 opacity-90">Kompleksowa obsługa urodzin</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              4 godziny dokumentacji
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              150 zdjęć po obróbce
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              5 zdjęć retuszowanych
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Krótki film z imprezy
+            </li>
+          </ul>
+          <p class="text-2xl font-bold mb-4">1200 zł</p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Premium</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Luksusowe urodziny</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              6 godzin dokumentacji
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              250+ zdjęć po obróbce
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              15 zdjęć retuszowanych
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Sesje z gośćmi
+            </li>
+          </ul>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2000 zł</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    title="Zarezerwuj fotografa na swoje urodziny"
+    subtitle="Skontaktuj się z nami i zarezerwuj profesjonalnego fotografa na urodziny, osiemnastkę lub przyjęcie prywatne."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj teraz',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+  />
+</Layout>

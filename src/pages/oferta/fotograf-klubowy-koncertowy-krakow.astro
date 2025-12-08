@@ -1,0 +1,310 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Fotograf Klubowy i Koncertowy Kraków - Profesjonalna Fotografia Eventowa',
+  description: 'Profesjonalny fotograf na koncerty, imprezy klubowe i festiwale w Krakowie. Dynamiczne zdjęcia z wydarzeń muzycznych.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj fotografa',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+    image={{ 
+      src: 'https://images.unsplash.com/photo-1533174072545-7a4b7b09688c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
+      alt: 'Fotograf klubowy koncertowy' 
+    }}
+  >
+    <Fragment slot="title">
+      Fotograf Klubowy i Koncertowy
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Profesjonalna fotografia z koncertów, festiwali i imprez klubowych. Uchwyć energię live i emocje muzyki na zdjęciach!
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Fotografia na żywo</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Doświadczenie klubowe</h3>
+                <p class="text-gray-600 dark:text-gray-400">Wieloletnie doświadczenie w fotografii klubowej i koncertowej w trudnych warunkach oświetleniowych.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Dynamiczne kadry</h3>
+                <p class="text-gray-600 dark:text-gray-400">Uchwycenie ruchu, energii i emocji koncertu w dynamicznych, artystycznych kadrach.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Szybka realizacja</h3>
+                <p class="text-gray-600 dark:text-gray-400">Zdjęcia z koncertu gotowe w ciągu 24-48 godzin dla mediów i promocji.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="https://images.unsplash.com/photo-1459749401171-048e6886ab1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia koncertowa" class="rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Details -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Nasze usługi koncertowe</h2>
+      
+      <Features
+        items={[
+          {
+            title: 'Koncerty live',
+            description: 'Profesjonalna dokumentacja koncertów od małych klubów po duże festiwale.',
+            icon: 'tabler:music',
+          },
+          {
+            title: 'Imprezy klubowe',
+            description: 'Fotografia z wydarzeń klubowych, house parties i eventów muzycznych.',
+            icon: 'tabler:brand-telegram',
+          },
+          {
+            title: 'Festiwale',
+            description: 'Kompleksowa obsługa fotograficzna festiwali muzycznych.',
+            icon: 'tabler:campfire',
+          },
+          {
+            title: 'Zdjęcia za kulisami',
+            description: 'Wyjątkowe ujęcia z backstage przed koncertem i podczas przygotowań.',
+            icon: 'tabler:camera-off',
+          },
+          {
+            title: 'Portrety artystów',
+            description: 'Profesjonalne portrety muzyków i zespołów przed występem.',
+            icon: 'tabler:user-circle',
+          },
+          {
+            title: 'Public relations',
+            description: 'Zdjęcia dla mediów, prasy i materiały promocyjne.',
+            icon: 'tabler:news',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Equipment -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Nasz sprzęt</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0118.07 6H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Aparaty</h3>
+          <p class="text-gray-600 dark:text-gray-400">Profesjonalne lustrzanki Full Frame do fotografii w trudnych warunkach.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Obiektywy</h3>
+          <p class="text-gray-600 dark:text-gray-400">Jasne obiektywy f/1.4-2.8 idealne na koncerty i klubowe warunki.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Oświetlenie</h3>
+          <p class="text-gray-600 dark:text-gray-400">Profesjonalne lampy reporterskie i studyjne do doskonałego oświetlenia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Jak pracujemy?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-purple-600 dark:text-purple-400">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Konsultacja</h3>
+          <p class="text-gray-600 dark:text-gray-400">Omawiamy szczegóły wydarzenia i wymagania organizatora.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-purple-600 dark:text-purple-400">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Przygotowanie</h3>
+          <p class="text-gray-600 dark:text-gray-400">Sprzęt gotowy przed rozpoczęciem wydarzenia.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-purple-600 dark:text-purple-400">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Dokumentacja</h3>
+          <p class="text-gray-600 dark:text-gray-400">Profesjonalna fotografia podczas całego wydarzenia.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-purple-600 dark:text-purple-400">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Postprodukcja</h3>
+          <p class="text-gray-600 dark:text-gray-400">Szybka obróbka i dostarczenie materiałów.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Cennik usług</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Pakiet Standard</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Dokumentacja koncertu lub imprezy</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Do 4 godzin dokumentacji
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              150 zdjęć po obróbce
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Podstawowa obróbka
+            </li>
+          </ul>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">800 zł</p>
+        </div>
+        
+        <div class="bg-purple-600 text-white rounded-lg p-8 border-2 border-purple-600 relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-3 py-1 text-sm rounded-full">
+            Polecany
+          </div>
+          <h3 class="text-xl font-bold mb-4">Pakiet Premium</h3>
+          <p class="mb-6 opacity-90">Pełna obsługa wydarzenia muzycznego</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Do 8 godzin dokumentacji
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              300+ zdjęć po obróbce
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Zaawansowana obróbka
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Zdjęcia za kulisami
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Priorytetowa realizacja
+            </li>
+          </ul>
+          <p class="text-2xl font-bold mb-4">1500 zł</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    title="Zarezerwuj fotografa na swoje wydarzenie"
+    subtitle="Skontaktuj się z nami i zarezerwuj profesjonalnego fotografa na koncert, festiwal lub imprezę klubową."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj teraz',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+  />
+</Layout>

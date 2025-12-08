@@ -39,9 +39,25 @@ if (!props.decoding) {
 
 const _image = await findImage(props.src);
 
+
 let image: ImageType | undefined = undefined;
 
-if (
+if (typeof _image === 'string' && _image.startsWith('/')) {
+  image = {
+    src: _image,
+    attributes: {
+      class: props.class,
+      style: props.style,
+      alt: props.alt!,
+      width: props.width,
+      height: props.height,
+      sizes: props.sizes,
+      loading: props.loading,
+      decoding: props.decoding,
+      fetchpriority: props.fetchpriority,
+    }
+  };
+} else if (
   typeof _image === 'string' &&
   (_image.startsWith('http://') || _image.startsWith('https://')) &&
   isUnpicCompatible(_image)

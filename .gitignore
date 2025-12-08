@@ -1,7 +1,8 @@
 # build output
 dist/
 .output/
-
+Old_website_reference_no_delete/
+public/assets/
 # dependencies
 node_modules/
 
