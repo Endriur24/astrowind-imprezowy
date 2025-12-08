@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Dodatkowe usługi fotograficzne - ImprezowyFotograf',
+  description: 'Nasza wszechstronna wiedza i doświadczenie pozwalają nam na bardzo szerokie rozszerzanie usług. Pytaj śmiało o nietypowe realizacje!',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    image={{ 
+      src: '/assets/portfolio/covers/dodatkowe_uslugi_cover.jpg', 
+      alt: 'Dodatkowe usługi foto/wideo'
+    }}
+  >
+    <Fragment slot="title">
+      Dodatkowe usługi foto/wideo
+    </Fragment>
+  </Hero>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Ożywiamy imprezy niecodziennym podejściem</h2>
+        <p>Fotograf to człowiek z aparatem cyfrowym. Operator / filmowiec - z cyfrową kamerą. Ale czy zawsze? My pokazujemy, że niekoniecznie! Oprócz standardowego reportażu w naszej ofercie znajdują się trochę mniej lub bardziej oczywiste pozycje, m.in.:</p>
+        <ul>
+          <li><strong>zdjęcia i filmy z drona</strong>,</li>
+          <li><strong>ścianka fotograficzna</strong>, czyli zdjęcia na jednolitym lub zaaranżowanym tle, światło błyskowe lub ciągłe,</li>
+          <li><strong>ścianka fotograficzna "live"</strong> - zdjęcia "w czasie rzeczywistym" na udostępnionym serwerze,</li>
+          <li><strong>ścianka fotograficzna z wydrukiem</strong> - zdjęcia w druku na następny dzień (lub w czasie rzeczywistym),</li>
+          <li><strong>fotoedytor na miejscu</strong> - zdjęcia z wydarzenia "w czasie rzeczywistym" na serwerze,</li>
+          <li><strong>zdjęcia instant</strong> - fotograf z aparatem typu Instax lub możliwość wydruku zdjęć cyfrowych na nośnikach Instax,</li>
+          <li><strong>nagrania kamerą VHS</strong> - specyficzny typ realizacji, bardzo ograniczony ze względu na małą dostępność działającego sprzętu,</li>
+          <li><strong>zdjęcia na błonie filmowej</strong> - również charakterystyczny rodzaj realizacji, także ograniczony ze względu na dostępność działającego sprzętu oraz materiałów światłoczułych,</li>
+          <li><strong>streaming wideo live do internetu</strong> - realizacje live z prelekcji, wykładów, konferencji itp.,</li>
+          <li><strong>fotobudka</strong>.</li>
+        </ul>
+        <p>Zachęcamy do kontaktu i wcześniejszego zamawiania tego typu usług ze względu na ograniczenia w dostępności sprzętu, materiałów i zasobów kadrowych.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-2xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Jeżeli nasza oferta przypadła Ci do gustu i chcesz nawiązać z nami współpracę - pisz śmiało!</p>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
+          <input type="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
+          <input type="tel" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Miejsce wydarzenia</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data wydarzenia</label>
+          <input type="date" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Wiadomość do nas</label>
+          <textarea rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+          </textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
+      </form>
+    </div>
+  </section>
+</Layout>

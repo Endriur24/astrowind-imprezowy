@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Fotograf na Wydarzenie studenckie - ImprezowyFotograf',
+  description: 'Profesjonalne zdjęcia i filmy z imprez studenckich. Retuszowane zdjęcia, szybka dostawa a nawet zdjęcia live. Sprawdź kompleksową ofertę!',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    image={{ 
+      src: '/assets/portfolio/covers/imprezy_studenckie_cover.jpg', 
+      alt: 'Fotograf na imprezę studencką'
+    }}
+  >
+    <Fragment slot="title">
+      Fotograf na imprezę studencką
+    </Fragment>
+    <Fragment slot="subtitle">
+      (BAL, DYSKOTEKĘ, wydziałówkę, RAJD, itp.)
+    </Fragment>
+  </Hero>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Studia to najbardziej imprezowy okres w życiu człowieka</h2>
+        <p>Nie oszukujmy się - studia są nie tylko po to, by się uczyć, ale też (a nawet przede wszystkim) po to, żeby poznawać nowych ludzi i spędzać z nimi dobrze czas - chociażby bawiąc się na różnego rodzaju imprezach. Bale wydziałowe i uczelniane, dyskoteki (wydziałówki), rajdy studenckie, zmagania o puchar dziekana/rektora na stokach narciarskich - to tylko niektóre z nich. Jako, że mamy stosunkowo młodą ekipę, to realizacja reportaży z takich wydarzeń jest dla nas czymś, co przychodzi nam bardzo naturalnie. I tak jak na każdej imprezie - bawimy się tak samo dobrze jak Wy!</p>
+        <p>Studenci lubią mieć wszystko szybko - zaliczenie i... zdjęcia z imprez. Dlatego zawsze staramy się pracować sprawnie i ekspresowo, jednocześnie dążymy do przekazania reportaży o najwyższej jakości. W przypadku zdjęć z imprez studenckich standardowy czas dostarczenia zdjęć różni się w zależności od rodzaju eventu - możecie to sprawdzić zaglądając do oferty poniżej.</p>
+        <p>Oferujemy także możliwość wykonania tzw. <strong>zdjęć live</strong> - zabieramy wtedy na lokację fotoedytora. Osoba taka na bieżąco przygotowuje dla Was pierwszą partię zdjęć, które trafiają do Was jeszcze <strong>podczas trwania wydarzenia</strong>. Dzięki takiemu rozwiązaniu możecie publikować foty na bieżąco na Waszych social mediach. W przypadku wydarzeń kilkudniowych jest również możliwość dostarczenia zdjęć bez udziału fotoedytora na miejscu - jest to opcja do ustalenia indywidualnie.</p>
+        <p>Wielu fotografów na rynku nie wykonuje retuszu skóry na zdjęciach eventowych. Dlaczego? Ponieważ retusz zabiera dużo czasu, a obrobione w ten sposób zdjęcia również dość dużo przestrzeni dyskowej. My jednak idziemy pod prąd tego nurtu i jeśli tego chcecie - <strong>retuszujemy wszystkie zdjęcia</strong> z Waszych eventów!</p>
+        <p>W zakresie zdjęć z eventów studenckich działamy najczęściej na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie <strong>całej Polski</strong>. W przypadku rajdów oczywiście dojeżdżamy gdzie trzeba.</p>
+        <p><strong>Nagrywamy również filmy!</strong> Oprócz reportaży foto z wydarzeń oferujemy również <strong>teledyski i spoty wideo</strong> oraz inne formy filmowe - w zależności od Waszych potrzeb. Trzeba nagrać <strong>film promujący wydział lub uczelnianą radę samorządu</strong>? Nie ma problemu! To też nagramy i zmontujemy!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Poniżej wrzucamy trochę kadrów z różnych wydarzeń studenckich. Wasze zdjęcia też mogą tak wyglądać!</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
+          <img src="/assets/portfolio/studenckie/zdjecia_imprezy_studenckie_001_thumbnail.jpg" alt="Impreza studencka" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
+          <img src="/assets/portfolio/studenckie/zdjecia_imprezy_studenckie_002_thumbnail.jpg" alt="Impreza studencka" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
+          <img src="/assets/portfolio/studenckie/zdjecia_imprezy_studenckie_003_thumbnail.jpg" alt="Impreza studencka" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <!-- Add more images as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Sections -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Oferta</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Wybierzcie pakiet, który odpowiada Waszym oczekiwaniom albo skontaktujcie się z nami w celu ułożenia lub dopasowania pakietu specjalnie dla Was!</p>
+      </div>
+
+      <!-- Bale wydziałowe | Bale uczelniane -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Bale wydziałowe | Bale uczelniane</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <h4 class="text-xl font-bold mb-4">PODSTAWOWY (Brązowy)</h4>
+            <ul class="space-y-2 mb-6">
+              <li>1 fotograf</li>
+              <li>Zdjęć po obróbce: 200</li>
+              <li>Godzin reportażu: 5h</li>
+              <li>Retusz w cenie: Nie</li>
+              <li>Ścianka: Nie</li>
+              <li>Teledysk wideo: Nie</li>
+              <li>Zdjęcia w: 3-5 dni</li>
+            </ul>
+            <a href="#kontakt" class="block w-full bg-blue-600 text-white py-3 px-6 rounded-lg text-center hover:bg-blue-700 transition-colors">Zapytaj o termin!</a>
+          </div>
+          <!-- Add other pricing cards -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-2xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Jeżeli nasza oferta przypadła Wam do gustu i chcecie nawiązać z nami współpracę - piszcie śmiało!</p>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
+          <input type="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
+          <input type="tel" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Miejsce wydarzenia</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data wydarzenia</label>
+          <input type="date" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Wiadomość do nas</label>
+          <textarea rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
+      </form>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Fotograf eventowy Kraków - ImprezowyFotograf',
+  description: 'Fotografujemy na wszelkiego rodzaju wydarzeniach firmowych od imprez przez otwarcia nowych działów po bankiety i urodziny firmy.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    image={{ 
+      src: '/assets/portfolio/covers/eventowy_cover.jpg', 
+      alt: 'Fotograf na event firmowy'
+    }}
+  >
+    <Fragment slot="title">
+      Fotograf na event firmowy
+    </Fragment>
+  </Hero>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Twoja firma organizuje urodziny, otwarcie biura, szkolenie lub wyjazd integracyjny? Zapraszamy do współpracy!</h2>
+        <p>Oprócz konferencji i różnego rodzaju wydarzeń branżowych i międzybranżowych fotografujemy również eventy organizowane wewnątrz firm - urodziny firmy lub oddziału, otwarcie nowego biura, kursy, szkolenia, prelekcje i wykłady dla pracowników, a także wyjazdy integracyjne i wiele, wiele innych. Ze względu na duże zróżnicowanie tego typu wydarzeń, do każdego zapytania podchodzimy indywidualnie.</p>
+        <p>Czas dostarczenia zdjęć również zależy od typu wydarzenia i zawsze jest możliwość dostosowania go do konkretnych wytycznych i oczekiwań klienta. Zwykle oddajemy zdjęcia w ciągu 24 do 72 godzin od zakończenia wydarzenia.</p>
+        <p>Niewielu fotografów retuszuje skórę osób na zdjęciach eventowych, poniewaź retusz zabiera sporo czasu. My jednak wiemy jak ważny jest dobry wygląd osób na naszych zdjęciach i dlatego <strong>retuszujemy wszystkie zdjęcia</strong>!</p>
+        <p>Eventy firmowe fotografujemy zwykle na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie całej <strong>Polski</strong>. Zdarza nam się również realizować reportaże poza granicami kraju. Miejsce nie ma dla nas znaczenia - dojedziemy lub doleci my tam, gdzie trzeba.</p>
+        <p><strong>Nagrywamy także filmy!</strong> Oprócz reportażu fotograficznego w ofercie mamy również <strong>relacje wideo</strong>, <strong>teledyski</strong>, <strong>spoty promocyjne</strong>, <strong>rejestrację wywiadów i wypowiedzi</strong>, <strong>streaming live</strong> i inne formy filmowe. Zapraszamy do kontaktu!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-2xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Jeżeli nasza oferta przypadła Ci do gustu i chcesz nawiązać z nami współpracę - pisz śmiało!</p>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
+          <input type="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
+          <input type="tel" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Miejsce wydarzenia</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data wydarzenia</label>
+          <input type="date" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Wiadomość do nas</label>
+          <textarea rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
+      </form>
+    </div>
+  </section>
+</Layout>

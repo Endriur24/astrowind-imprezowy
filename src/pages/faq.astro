@@ -25,11 +25,11 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      Najczęstsze Pytania
+      FAQ - często zadawane pytania
     </Fragment>
 
     <Fragment slot="subtitle">
-      Odpowiedzi na pytania, które najczęściej zadają nasi klienci. Jeśli nie znajdziesz odpowiedzi, skontaktuj się z nami!
+      Stworzyliśmy tę stronę na wypadek, gdyby coś było niejasne lub jeśli po prostu zastanawiasz się, czy jesteś w dobrym miejscu (podpowiedź: "tak, wszystko w porządku, a o co chodzi").
     </Fragment>
   </Hero>
 
@@ -38,118 +38,37 @@ const metadata = {
     <div class="container px-4 mx-auto">
       <div class="max-w-4xl mx-auto">
         
-        <!-- General Questions -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Pytania ogólne</h2>
-          
-          <div class="space-y-4">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Jak długo działacie na rynku fotografii eventowej?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Jesteśmy zespołem doświadczonych fotografów z wieloletnim stażem. Łącznym doświadczeniem naszego zespołu pokrywamy szeroki zakres wydarzeń - od małych przyjęć po duże konferencje.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Na jakim obszarze działacie?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Jesteśmy z południa Polski, ale działamy na terenie całego kraju. Dojazdy na większe odległości ustalane są indywidualnie w zależności od lokalizacji wydarzenia.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie też wideo?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Tak! Oferujemy szeroki zakres usług wideo: wideoreportaże z wydarzeń, streaming na żywo, oraz profesjonalne montowanie materiałów filmowych.</p>
-            </div>
+        <div class="space-y-6">
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">Jak długo trzeba czekać na zdjęcia?</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Termin oddania zdjęć ustalamy indywidualnie dla każdego projektu / wydarzenia, w zależności od wielu czynników. Parametrami kluczowymi jest tutaj m.in. to, jakiego typu jest to impreza, na ile zdjęć sumarycznie zdjęć się umówiliśmy, czy oddajemy zdjęcia w partiach, czy robimy edycję live itd.&nbsp;</p>
+            <p class="text-gray-600 dark:text-gray-400">W przypadku zdjęć live - oddajemy materiał na miejscu w "czasie rzeczywistym", czyli zaraz po edycji przez edytora. W przypadku np. konferencji (oraz&nbsp;innych wydarzeń, kiedy organizatorowi zależy na szybkiej publikacji relacji w social mediach) istnieje możliwość dostarczenia określonej puli jeszcze w trakcie trwania wydarzenia (po wcześniejszym ustaleniu). W pozostałych przypadkach termin na oddanie zdjęć wynosi od 72 godzin do 10 dni roboczych - standardowe zakresy podane zostały przy każdej z ofert indywidualnie.&nbsp;</p>
           </div>
-        </div>
-
-        <!-- Services Questions -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Usługi i realizacje</h2>
           
-          <div class="space-y-4">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Jak szybko otrzymam zdjęcia?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Czas realizacji zależy od rodzaju wydarzenia. Standardowo zdjęcia dostarczamy w ciągu 3-7 dni roboczych. Dla imprez z opcją "zdjęcia live" materiały dostępne są w trakcie trwania wydarzenia.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy zdjęcia są retuszowane?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Oczywiście! Każde zdjęcie przechodzi podstawową obróbkę (korekta kolorów, kadrowanie, ostrość), a wybrane fotografie dodatkowo profesjonalnie retuszujemy.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Ile zdjęć otrzymam?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Liczba zdjęć zależy od pakietu i długości wydarzenia. Standardowo dla 4-godzinnej imprezy dostarczamy 200-400 zdjęć po obróbce.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy możecie przyjechać na kilka dni przed wydarzeniem?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Tak, w przypadku większych wydarzeń możemy przyjechać wcześniej, aby zapoznać się z miejscem, omówić szczegóły i przygotować sprzęt.</p>
-            </div>
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">W jaki sposób dostarczamy zdjęcia?</h3>
+            <p class="text-gray-600 dark:text-gray-400">Zdjęcia dostarczamy zazwyczaj w postaci linka do katalogu online. Operujemy na dwóch standardowych rozdzielczościach plików: do social media / internetu - o rozdzielczości 2048 px na dłuższej krawędzi - oraz do druku w pełnej rozdzielczości (full resolution - FR).</p>
           </div>
-        </div>
-
-        <!-- Technical Questions -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Sprzęt i technika</h2>
           
-          <div class="space-y-4">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Jaki sprzęt używacie?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Używamy profesjonalnego sprzętu marki Canon i Sony: pełnoklatowe aparaty, jasne obiektywy, profesjonalne lampy błyskowe oraz sprzęt do świetlnych malowań.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy robicie zdjęcia w trudnych warunkach oświetleniowych?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Tak, mamy doświadczenie w fotografii w różnych warunkach - od słabo oświetlonych klubów po jaskrawo oświetlone sale bankietowe. Używamy odpowiedniego sprzętu i technik.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy macie ubezpieczenie sprzętu?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Oczywiście, cały nasz sprzęt jest ubezpieczony, co zapewnia bezpieczeństwo na każde wydarzenie.</p>
-            </div>
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">Czy oddajemy nieobrobione zdjęcia?</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Zawsze oddajemy umówioną liczbę zdjęć, a czasem nawet trochę więcej, jeśli wydarzenie tego wymaga (czyt. dużo się działo;). Nasi fotografowie przekazują do postprodukcji zdjęcia po wstępnej selekcji. Następnie materiał zostaje poddany selekcji finalnej, a&nbsp;ostatecznie obrobiony przez fotoedytora. Dla zachowania maksymalnej jakości i wydajności naszej pracy nie oferujemy zdjęć surowych, ani do wyboru, ani w żadnej innej formie. Podchodzimy do naszej pracy profesjonalnie i wybieramy tylko najlepsze kadry. Poza tym doskonale wiemy, że ciężko obejrzeć tysiąc zdjęć z wydarzenia - a co dopiero kilka tysięcy surowych plików.&nbsp;</p>
+            <p class="text-gray-600 dark:text-gray-400">"RAWy" można porównać do ciasta na chleb - piekarz zwykle nie sprzedaje w piekarni takiego ciasta - my również wychodzimy z takiego założenia.&nbsp;</p>
           </div>
-        </div>
-
-        <!-- Pricing Questions -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Cennik i płatności</h2>
           
-          <div class="space-y-4">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Jak wygląda proces rezerwacji?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Proces jest prosty: kontaktujesz się z nami, omawiamy szczegóły, przedstawiamy ofertę, po akceptacji podpisujemy umowę i wymagamy zaliczki w wysokości 30%.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy ceny są negotiowalne?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Ceny są elastyczne i zależą od wielu czynników: lokalizacji, długości wydarzenia, liczby fotografów, dodatkowych usług. Zawsze staramy się znaleźć rozwiązanie dopasowane do budżetu klienta.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Jakie formy płatności akceptujecie?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Akceptujemy płatności przelewem bankowym, gotówką oraz dla firm - faktury z odroczonym terminem płatności.</p>
-            </div>
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">Jakie są ceny za reportaż?</h3>
+            <p class="text-gray-600 dark:text-gray-400">Ceny reportaży bardzo zależą od ilości godzin fotografów "w terenie", liczby fotografów, umówionej ilości zdjęć, a także czasu oddania reportażu, usług specjalnych (ścianki, zdjęcia live itd.) i&nbsp;szczególnych innych wymagań - co do konkretnego zlecenia. Zachęcamy do wysłania zapytania, bądź kontaktu telefonicznego w celu przygotowania wyceny.</p>
           </div>
-        </div>
-
-        <!-- Additional Questions -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Dodatkowe usługi</h2>
           
-          <div class="space-y-4">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie fotobudkę?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Tak, oferujemy nowoczesną fotobudkę z różnymi rekwizytami i możliwością natychmiastowego druku zdjęć. Świetna atrakcja na każde wydarzenie!</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy robicie zdjęcia produktowe?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Głównie specjalizujemy się w fotografii eventowej, ale dla stałych klientów wykonujemy również zdjęcia produktowe i biznesowe.</p>
-            </div>
-            
-            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Czy można zamówić album z zdjęciami?</h3>
-              <p class="text-gray-600 dark:text-gray-400">Oczywiście! Oferujemy profesjonalne albumy fotograficzne wysokiej jakości. Szczegóły i cennik dostępne po indywidualnej konsultacji.</p>
-            </div>
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">Gdzie działamy?</h3>
+            <p class="text-gray-600 dark:text-gray-400">Zwykle fotografujemy na terenie Polski, jednak wyjazdy nie są nam strasznie. Do tej pory wykonywaliśmy reportaże w&nbsp;krajach takich jak m.in. USA, Turcja, Islandia, Portugalia, Hiszpania, Monako, Włochy, Holandia, Grecja i&nbsp;wiele innych. Jesteśmy otwarci na nowe doświadczenia, podróże i&nbsp;kreatywne pomysły naszych klientów.&nbsp;</p>
+          </div>
+          
+          <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">Na jakim sprzęcie pracujemy?</h3>
+            <p class="text-gray-600 dark:text-gray-400">Sprzęt to tylko sprzęt, dobieramy go do specyfiki konkretnego zlecenia. Reportaże fotograficzne wykonujemy zazwyczaj na aparatach&nbsp;pełnoklatkowych - lustrzankach i bezlusterkowcach - a jako, że jesteśmy sporą grupą fotografów, to każdy ma swoje ulubione narzędzia pracy. Na specjalne życzenie zdarza nam się również wykonywać zdjęcia na małoobrazkowej błonie fotograficznej. Imprezy doświetlamy reporterskimi lampami błyskowymi w różnych konfiguracjach, a w niektórych sytuacjach korzystamy z oświetlenia typu LED RING własnego pomysłu.&nbsp;</p>
           </div>
         </div>
       </div>

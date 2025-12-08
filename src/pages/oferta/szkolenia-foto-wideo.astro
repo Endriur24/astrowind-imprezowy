@@ -1,0 +1,76 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Szkolenia fotograficzne oraz video - ImprezowyFotograf',
+  description: 'Jako społeczność fotografów i filmowców oferujemy szkolenia stacjonarne dla grup i konsultacje warsztatowe w formie 1:1 z wielu różnych tematów.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    image={{ 
+      src: '/assets/portfolio/covers/szkolenia_cover.jpg', 
+      alt: 'Szkolenia foto/wideo'
+    }}
+  >
+    <Fragment slot="title">
+      Szkolenia dla fotografów i filmowców
+    </Fragment>
+  </Hero>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Szkolimy na poziomie podstawowym i zaawansowanym</h2>
+        <p>Jako społeczność fotografów i filmowców o dość zróżnicowanych specjalizacjach w branży kreatywnej oferujemy szkolenia stacjonarne dla grup jak i konsultacje warsztatowe w formie 1:1 z wielu różnych tematów. Istnieje możliwość przeprowadzenia kursów:</p>
+        <ul>
+          <li><strong>Totalne podstawy fotografii</strong> - jak szybko zacząć robić zdjęcia dobrze,</li>
+          <li><strong>Adobe Lightroom Classic</strong> - obróbka zdjęć i organizacja pracy w programie,</li>
+          <li><strong>Adobe Premiere Pro</strong> - montaż i postprodukcja materiałów wideo,</li>
+          <li><strong>Błysk w reportażu</strong> - podstawy pracy z reporterską lampą błyskową,</li>
+          <li><strong>Obróbka chemiczna materiałów światłoczułych</strong> - wywoływanie filmów i papierów czarno-białych oraz omówienie procesów C-41 i E-6,</li>
+          <li><strong>Wprowadzenie do światła</strong> - studyjne warsztaty ze światła i metod jego modyfikacji,</li>
+          <li><strong>Wprowadzenie do studia fotograficznego</strong> - praktyczne warsztaty z pracy w studio dla początkujących,</li>
+          <li><strong>Fotografia produktowa</strong> - podstawy tworzenia zdjęć na potrzeby sklepów internetowych,</li>
+          <li><strong>Fotografia reportażowa w praktyce</strong> - zdjęcia klubowe, imprezowe, konferencyjne do wyboru (dostępne tylko w formie warsztatów 1:1).</li>
+        </ul>
+        <p><a href="/kontakt">Zapraszamy do kontaktu</a> w celu ustalenia szczegółów i zakresu materiału - zawsze staramy się dostosować formę i ilość, a także poziom skomplikowania przekazywanych treści do konkretnej grupy odbiorców.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-2xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Zapraszamy do kontaktu w celu ustalenia szczegółów szkolenia.</p>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
+          <input type="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
+          <input type="tel" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Temat szkolenia</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Wiadomość</label>
+          <textarea rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
+      </form>
+    </div>
+  </section>
+</Layout>

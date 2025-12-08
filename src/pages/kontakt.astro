@@ -25,11 +25,11 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      Skontaktuj się z nami
+      Napisz do nas!
     </Fragment>
 
     <Fragment slot="subtitle">
-      Jeśli interesuje Cię nasza oferta, chcesz o coś zapytać lub poprosić o dostosowanie oferty - nie wahaj się i napisz wiadomość!
+      Jeśli nasza oferta Cię zainteresowała - nie wahaj się! Wypełnij formularz kontaktowy! Daj znać jakie wydarzenie chcesz uwiecznić i zostaw do siebie kontakt. Odpiszemy najszybciej jak to możliwe!
     </Fragment>
   </Hero>
 
@@ -42,41 +42,26 @@ const metadata = {
           <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Wyślij wiadomość</h2>
           <form class="space-y-6" method="POST" action="https://formspree.io/f/your-form-id">
             <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię i nazwisko</label>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Twoje Imię</label>
               <input type="text" id="name" name="name" required
                 class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white">
             </div>
             
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
               <input type="email" id="email" name="email" required
                 class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white">
             </div>
             
             <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Telefon (opcjonalnie)</label>
+              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
               <input type="tel" id="phone" name="phone"
                 class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white">
             </div>
             
             <div>
-              <label for="event-type" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Typ wydarzenia</label>
-              <select id="event-type" name="event-type"
-                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white">
-                <option value="">Wybierz typ wydarzenia</option>
-                <option value="studniowka">Studniówka</option>
-                <option value="bal">Bal</option>
-                <option value="impreza-firmowa">Impreza firmowa</option>
-                <option value="konferencja">Konferencja</option>
-                <option value="koncert">Koncert</option>
-                <option value="urodziny">Urodziny</option>
-                <option value="inne">Inne</option>
-              </select>
-            </div>
-            
-            <div>
-              <label for="event-date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data wydarzenia</label>
-              <input type="date" id="event-date" name="event-date"
+              <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Temat</label>
+              <input type="text" id="subject" name="subject" required
                 class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white">
             </div>
             
@@ -88,7 +73,7 @@ const metadata = {
             
             <button type="submit" 
               class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              Wyślij wiadomość
+              Wyślij wiadomość!
             </button>
           </form>
         </div>
@@ -169,35 +154,4 @@ const metadata = {
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Najczęstsze pytania</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400">Odpowiedzi na pytania, które najczęściej zadają nasi klienci</p>
-      </div>
-      
-      <div class="max-w-3xl mx-auto space-y-4">
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Jak szybko otrzymam zdjęcia?</h3>
-          <p class="text-gray-600 dark:text-gray-400">W zależności od rodzaju wydarzenia, zdjęcia dostarczamy w ciągu 3-7 dni roboczych. Dla imprez z opcją "zdjęcia live" materiały dostępne są w trakcie trwania wydarzenia.</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Czy działacie poza Krakowem?</h3>
-          <p class="text-gray-600 dark:text-gray-400">Tak! Jesteśmy z południa Polski, ale działamy na terenie całego kraju. Koszt dojazdu ustalany jest indywidualnie.</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Czy oferujecie retusz zdjęć?</h3>
-          <p class="text-gray-600 dark:text-gray-400">Oczywiście! Każde zdjęcie przechodzi podstawową obróbkę (korekta kolorów, kadrowanie), a wybrane fotografie dodatkowo retuszujemy.</p>
-        </div>
-        
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Czy można zamówić wideoreportaż?</h3>
-          <p class="text-gray-600 dark:text-gray-400">Tak, oferujemy usługę wideoreportażu z wydarzeń oraz streaming wideo na żywo. Szczegóły w naszej ofercie.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>

@@ -1,0 +1,71 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+const metadata = {
+  title: 'Reportaże specjalne - ImprezowyFotograf',
+  description: 'Wykonujemy zdjęcia na różnego rodzaju wydarzeniach i zawodach. Mamy na koncie wiele wyjazdów zagranicznych z niemalże całego świata.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    image={{ 
+      src: '/assets/portfolio/covers/repo_specjalne_cover.jpg', 
+      alt: 'Reportaże specjalne'
+    }}
+  >
+    <Fragment slot="title">
+      Reportaże i projekty specjalne
+    </Fragment>
+  </Hero>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Uwielbiamy wyzwania i niecodzienne projekty!</h2>
+        <p>W tym miejscu naszej oferty znalazło się miejsce na wydarzenia, które nie wpasowują się w szablon żadnych innych typów reportaży. Mamy na myśli "repo" z np. wyjazdów na konkursy studenckich zespołów konstruktorskich, eventów sportowych, zjazdów samochodowych i innych nieszablonowych wydarzeń.</p>
+        <p>Jako firma wywodząca się po części ze studenckich struktur prasowych mamy spore doświadczenie w realizacji reportaży dla jednostek uczelnianych, w tym głównie Studenckich Kół Naukowych AGH. Do tej pory nasi fotografowie realizowali projekty w krajach takich jak m.in.: USA, Turcja, Monako, Portugalia, Hiszpania, Holandia, Grecja i Włochy, tworząc relacje z wydarzeń takich jak, m.in.: "CanSat Competition", "Spaceport America Cup", "Formula SAE Michigan", "University Rover Challenge", "Formula Student Netherlands", "Formula Student Spain", "TÜBİTAK International UAV Competition", "Monaco Energy Boat Challenge", "European Rocketry Challenge", czy "European Rover Challenge".</p>
+        <p>Ponadto mieliśmy okazję realizować wiele różnego rodzaju projektów dedykowanych nie tylko Studenckim Kołom Naukowych, ale i innym jednostkom Akademii Górniczo-Hutniczej w Krakowie - wliczając w to sesje zdjęciowe, reportaże, nagrania wideo. Mamy również doświadczenie w reportażu prasowym.</p>
+        <p>W zakresie zdjęć tego typu nie mamy ograniczeń co do obszaru realizacji. Działamy w zasadzie w dowolnym miejscu na świecie - o ile aktualnie mamy dostępne zasoby kadrowe i sprzętowe.</p>
+        <p><strong>Nagrywamy filmy</strong> - oprócz reportaży foto oferujemy również możliwość nagrania i montażu materiałów takich jak <strong>podcasty</strong>, <strong>relacje</strong>, <strong>spoty</strong>, <strong>reportaże wideo</strong> i inne.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Poniżej wrzucamy trochę kadrów z różnych wydarzeń - relacji z wyjazdów kół naukowych, sesji zdjęciowych i innych.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
+          <img src="/assets/portfolio/specjalne/repo_specjalne_001_thumbnail.jpg" alt="Reportaż specjalny" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
+          <img src="/assets/portfolio/specjalne/repo_specjalne_002_thumbnail.jpg" alt="Reportaż specjalny" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <!-- Add more -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-2xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">W przypadku zdjęć i wideo z tego zakresu oferty bardzo ciężko określić jakiekolwiek standardowe pakiety. Zapraszamy do kontaktu.</p>
+      </div>
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
+          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
+        </div>
+        <!-- Similar form fields as other pages -->
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
+      </form>
+    </div>
+  </section>
+</Layout>
