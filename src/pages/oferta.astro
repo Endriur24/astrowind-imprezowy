@@ -1,7 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
 import ImageGrid from '~/components/widgets/ImageGrid.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -12,28 +10,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section -->
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Skontaktuj się z nami',
-        href: '/kontakt',
-      },
-    ]}
-    image={{ 
-      src: '/assets/portfolio/covers/studniowki_cover.jpg', 
-      alt: 'Nasza oferta' 
-    }}
-  >
-    <Fragment slot="title">
-      Oferta
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Zrobimy dla Ciebie zdjęcia na każdej imprezie! Nie boimy się nowych doświadczeń. Lubimy te bardziej dynamiczne wydarzenia, ale część naszej ekipy trochę zamula, więc konferencje też są spoko. A, i wideo robimy też!
-    </Fragment>
-  </Hero>
 
   <ImageGrid
     title="Nasza Oferta"
