@@ -173,6 +173,8 @@ import { UI } from 'astrowind:config';
     elements: null,
 
     start() {
+      this.animationCounter = 0;
+
       const selectors = [
         '[class*=" intersect:"]',
         '[class*=":intersect:"]',
