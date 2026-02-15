@@ -2,6 +2,8 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 
+import videoEventoweCover from '~/assets/portfolio/covers/video_eventowe_cover.jpg';
+
 const metadata = {
   title: 'Wideo eventowe Kraków - ImprezowyFotograf',
   description: 'Możemy zaoferować kompleksową usługę video z wszelkiego rodzaju eventów zarówno organizowanych przez firmy jak i uczelnie.',
@@ -11,7 +13,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     image={{ 
-      src: '/assets/portfolio/covers/video_eventowe_cover.jpg', 
+      src: videoEventoweCover, 
       alt: 'Wideo eventowe'
     }}
   >

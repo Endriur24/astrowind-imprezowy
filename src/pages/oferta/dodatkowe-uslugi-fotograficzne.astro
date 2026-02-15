@@ -2,6 +2,8 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 
+import dodatkoweUslugiCover from '~/assets/portfolio/covers/dodatkowe_uslugi_cover.jpg';
+
 const metadata = {
   title: 'Dodatkowe usługi fotograficzne - ImprezowyFotograf',
   description: 'Nasza wszechstronna wiedza i doświadczenie pozwalają nam na bardzo szerokie rozszerzanie usług. Pytaj śmiało o nietypowe realizacje!',
@@ -11,7 +13,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     image={{ 
-      src: '/assets/portfolio/covers/dodatkowe_uslugi_cover.jpg', 
+      src: dodatkoweUslugiCover, 
       alt: 'Dodatkowe usługi foto/wideo'
     }}
   >

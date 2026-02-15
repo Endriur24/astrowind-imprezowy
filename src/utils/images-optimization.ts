@@ -57,7 +57,8 @@ const config = {
     6016, // 6K
   ],
 
-  formats: ['image/webp'],
+  // Supported formats for Picture component: AVIF (best compression), WebP (good browser support), and fallback
+  formats: ['avif', 'webp'],
 };
 
 const computeHeight = (width: number, aspectRatio: number) => {

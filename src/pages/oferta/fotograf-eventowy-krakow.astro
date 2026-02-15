@@ -2,6 +2,8 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 
+import eventowyCover from '~/assets/portfolio/covers/eventowy_cover.jpg';
+
 const metadata = {
   title: 'Fotograf eventowy Kraków - ImprezowyFotograf',
   description: 'Fotografujemy na wszelkiego rodzaju wydarzeniach firmowych od imprez przez otwarcia nowych działów po bankiety i urodziny firmy.',
@@ -11,7 +13,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     image={{ 
-      src: '/assets/portfolio/covers/eventowy_cover.jpg', 
+      src: eventowyCover, 
       alt: 'Fotograf na event firmowy'
     }}
   >

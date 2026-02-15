@@ -2,6 +2,8 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 
+import szkoleniaCover from '~/assets/portfolio/covers/szkolenia_cover.jpg';
+
 const metadata = {
   title: 'Szkolenia fotograficzne oraz video - ImprezowyFotograf',
   description: 'Jako społeczność fotografów i filmowców oferujemy szkolenia stacjonarne dla grup i konsultacje warsztatowe w formie 1:1 z wielu różnych tematów.',
@@ -11,7 +13,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <Hero
     image={{ 
-      src: '/assets/portfolio/covers/szkolenia_cover.jpg', 
+      src: szkoleniaCover, 
       alt: 'Szkolenia foto/wideo'
     }}
   >

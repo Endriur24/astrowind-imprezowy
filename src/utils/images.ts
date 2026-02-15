@@ -9,6 +9,8 @@ const load = async function () {
   let images: Record<string, () => Promise<unknown>> | undefined = undefined;
   try {
     images = import.meta.glob('~/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}');
+    const portfolioImages = import.meta.glob('~/assets/portfolio/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}');
+    images = { ...images, ...portfolioImages };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     // continue regardless of error
@@ -39,7 +41,7 @@ export const findImage = async (
   }
 
   // Relative paths or not "~/assets/"
-  if (!imagePath.startsWith('~/assets/images')) {
+  if (!imagePath.startsWith('~/assets/images') && !imagePath.startsWith('~/assets/portfolio')) {
     return imagePath;
   }
 

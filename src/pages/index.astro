@@ -1,10 +1,25 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { Picture } from 'astro:assets';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import homepageCarousel1 from '~/assets/homepage/homepage_second_carousel_1.jpg';
+import homepageCarousel2 from '~/assets/homepage/homepage_second_carousel_2.jpg';
+import homepageCarousel3 from '~/assets/homepage/homepage_second_carousel_3.jpg';
+import homepageCarousel4 from '~/assets/homepage/homepage_second_carousel_4.jpg';
+import homepageCarousel5 from '~/assets/homepage/homepage_second_carousel_5.jpg';
+import homepageCarousel6 from '~/assets/homepage/homepage_second_carousel_6.jpg';
+
+import andrzej from '~/assets/homepage/andrzej.jpg';
+import kasia from '~/assets/homepage/kasia.jpg';
+import maciej from '~/assets/homepage/maciej.jpg';
+import kacper from '~/assets/homepage/kacper.jpg';
+import pawel from '~/assets/homepage/pawel.jpg';
+import wiola from '~/assets/homepage/wiola.jpg';
 
 const metadata = {
   title: 'ImprezowyFotograf - fotografia eventowa',
@@ -126,22 +141,22 @@ const metadata = {
       <!-- Photo Gallery Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-8">
         <div class="col-span-2 row-span-2">
-          <img src="/assets/homepage/homepage_second_carousel_1.jpg" alt="Zdjęcia eventowe" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel1} alt="Zdjęcia eventowe" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
         <div>
-          <img src="/assets/homepage/homepage_second_carousel_2.jpg" alt="Fotografia eventowa" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel2} alt="Fotografia eventowa" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
         <div>
-          <img src="/assets/homepage/homepage_second_carousel_3.jpg" alt="Imprezy fotograficzne" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel3} alt="Imprezy fotograficzne" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
         <div>
-          <img src="/assets/homepage/homepage_second_carousel_4.jpg" alt="Zdjęcia imprezowe" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel4} alt="Zdjęcia imprezowe" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
         <div class="col-span-2">
-          <img src="/assets/homepage/homepage_second_carousel_5.jpg" alt="Fotograf na imprezę" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel5} alt="Fotograf na imprezę" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
         <div>
-          <img src="/assets/homepage/homepage_second_carousel_6.jpg" alt="Reportaż fotograficzny" class="w-full h-full object-cover rounded-lg">
+          <Picture src={homepageCarousel6} alt="Reportaż fotograficzny" class="w-full h-full object-cover rounded-lg" formats={['avif', 'webp']} />
         </div>
       </div>
     </div>
@@ -157,42 +172,42 @@ const metadata = {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/andrzej.jpg" alt="Andrzej" class="w-full h-full object-cover" />
+            <Picture src={andrzej} alt="Andrzej" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Andrzej</h3>
           <p class="text-gray-600 dark:text-gray-400">Innowacyjne rozwiązania i wszechobecne automatyzacje.</p>
         </div>
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/kasia.jpg" alt="Kasia" class="w-full h-full object-cover" />
+            <Picture src={kasia} alt="Kasia" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Kasia</h3>
           <p class="text-gray-600 dark:text-gray-400">Balans i spokój ducha.</p>
         </div>
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/maciej.jpg" alt="Maciek" class="w-full h-full object-cover" />
+            <Picture src={maciej} alt="Maciek" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Maciek</h3>
           <p class="text-gray-600 dark:text-gray-400">Niecodzienne reportaże, stare kamery i ogromne samochody.</p>
         </div>
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/kacper.jpg" alt="Kacper" class="w-full h-full object-cover" />
+            <Picture src={kacper} alt="Kacper" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Kacper</h3>
           <p class="text-gray-600 dark:text-gray-400">Wolne samochody, które wyglądają na szybkie.</p>
         </div>
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/pawel.jpg" alt="Paweł" class="w-full h-full object-cover" />
+            <Picture src={pawel} alt="Paweł" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Paweł</h3>
           <p class="text-gray-600 dark:text-gray-400">Backupy wszystkiego i wszędzie.</p>
         </div>
         <div class="text-center">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-            <img src="/assets/homepage/wiola.jpg" alt="Wiola" class="w-full h-full object-cover" />
+            <Picture src={wiola} alt="Wiola" class="w-full h-full object-cover" formats={['avif', 'webp']} />
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Wiola</h3>
           <p class="text-gray-600 dark:text-gray-400">Etatowy fotograf w baśniowych krainach.</p>
