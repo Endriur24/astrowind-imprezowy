@@ -6,7 +6,6 @@ export const headerData = {
     { text: 'PORTFOLIO', href: getPermalink('/portfolio') },
     { text: 'OFERTA', href: getPermalink('/oferta') },
     { text: 'BLOG', href: getPermalink('/blog') },
-    { text: 'FAQ', href: getPermalink('/faq') },
     { text: 'ALBUMY', href: getPermalink('/albumy') },
     { text: 'KONTAKT', href: getPermalink('/kontakt') },
   ],
@@ -50,7 +49,6 @@ export const footerData = {
   ],
   secondaryLinks: [
     { text: 'Polityka prywatności', href: getPermalink('/privacy') },
-    { text: 'Regulamin', href: getPermalink('/terms') },
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },

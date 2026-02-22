@@ -7,19 +7,19 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import homepageCarousel1 from '~/assets/homepage/homepage_second_carousel_1.jpg';
-import homepageCarousel2 from '~/assets/homepage/homepage_second_carousel_2.jpg';
-import homepageCarousel3 from '~/assets/homepage/homepage_second_carousel_3.jpg';
-import homepageCarousel4 from '~/assets/homepage/homepage_second_carousel_4.jpg';
-import homepageCarousel5 from '~/assets/homepage/homepage_second_carousel_5.jpg';
-import homepageCarousel6 from '~/assets/homepage/homepage_second_carousel_6.jpg';
+import homepageCarousel1 from '~/assets/images/homepage/homepage_second_carousel_1.jpg';
+import homepageCarousel2 from '~/assets/images/homepage/homepage_second_carousel_2.jpg';
+import homepageCarousel3 from '~/assets/images/homepage/homepage_second_carousel_3.jpg';
+import homepageCarousel4 from '~/assets/images/homepage/homepage_second_carousel_4.jpg';
+import homepageCarousel5 from '~/assets/images/homepage/homepage_second_carousel_5.jpg';
+import homepageCarousel6 from '~/assets/images/homepage/homepage_second_carousel_6.jpg';
 
-import andrzej from '~/assets/homepage/andrzej.jpg';
-import kasia from '~/assets/homepage/kasia.jpg';
-import maciej from '~/assets/homepage/maciej.jpg';
-import kacper from '~/assets/homepage/kacper.jpg';
-import pawel from '~/assets/homepage/pawel.jpg';
-import wiola from '~/assets/homepage/wiola.jpg';
+import andrzej from '~/assets/images/homepage/andrzej.jpg';
+import kasia from '~/assets/images/homepage/kasia.jpg';
+import maciej from '~/assets/images/homepage/maciej.jpg';
+import kacper from '~/assets/images/homepage/kacper.jpg';
+import pawel from '~/assets/images/homepage/pawel.jpg';
+import wiola from '~/assets/images/homepage/wiola.jpg';
 
 const metadata = {
   title: 'ImprezowyFotograf - fotografia eventowa',
@@ -39,7 +39,7 @@ const metadata = {
       },
     ]}
     image={{ 
-      src: '/assets/homepage/hero_image_progresive.jpg', 
+      src: '/assets/images/homepage/hero_image_progresive.jpg', 
       alt: 'Fotografia eventowa',
       width: 1024,
       height: 576
@@ -78,7 +78,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: '/assets/homepage/homepage_carousel_1.jpg',
+      src: '/assets/images/homepage/homepage_carousel_1.jpg',
       alt: 'Fotograf eventowy',
       width: 800,
       height: 600
@@ -231,12 +231,5 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      Skontaktuj się z nami!
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Jeśli interesuje Cię nasza oferta, chcesz o coś zapytać lub poprosić o dostosowanie oferty - nie wahaj się i napisz wiadomość!
-    </Fragment>
   </CallToAction>
 </Layout>

@@ -1,0 +1,140 @@
+---
+import { twMerge } from 'tailwind-merge';
+import type { ImageMetadata } from 'astro';
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import Image from '../common/Image.astro';
+
+interface Props {
+  /** Nazwa folderu wewnątrz src/assets/portfolio/ (np. 'clubs', 'covers') */
+  folderPath: string;
+  /** Tytuł sekcji */
+  title?: string;
+  /** Podtytuł sekcji */
+  subtitle?: string;
+  /** Liczba kolumn w gridzie (desktop) */
+  columns?: 2 | 3 | 4 | 5;
+  /** Czy pokazywać lightbox PhotoSwipe */
+  showLightbox?: boolean;
+  /** ID galerii (potrzebne dla PhotoSwipe) */
+  id?: string;
+  /** Czy ciemny motyw */
+  isDark?: boolean;
+  /** Klasy CSS dodatkowe */
+  class?: string;
+}
+
+const { 
+  folderPath, 
+  title, 
+  subtitle, 
+  columns = 3, 
+  showLightbox = true, 
+  id = `gallery-${folderPath}`,
+  isDark = false,
+  class: className 
+} = Astro.props as Props;
+
+// Pobierz wszystkie obrazy z portfolio (eager: true dla statycznego renderowania)
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,webp,gif,JPEG,JPG,PNG,WEBP,GIF}',
+  { eager: true }
+);
+//powyższy glob importuje wszystkie obrazy z katalogu src/assets i jego podkatalogów, a następnie filtruje te, które znajdują się w określonym folderze portfolio. Dzięki temu można łatwo zarządzać zdjęciami, po prostu umieszczając je w odpowiednich folderach.
+
+// Filtruj obrazy z wybranego folderu
+const folderImages = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/${folderPath}/`))
+  .map(([path, module]) => ({
+    src: module.default,
+    path: path,
+    width: module.default.width,
+    height: module.default.height,
+    alt: path.split('/').pop()?.replace(/\.[^/.]+$/, '') || 'Gallery image'
+  }))
+  .sort((a, b) => a.path.localeCompare(b.path));
+
+// Generuj unikalne ID dla galerii
+const galleryId = `pswp-gallery-${id}`;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={className}>
+  {title && (
+    <div class="text-center mb-8 lg:mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight dark:text-white">{title}</h2>
+      {subtitle && <p class="mt-4 text-xl text-muted">{subtitle}</p>}
+    </div>
+  )}
+  
+  {folderImages.length > 0 ? (
+    <div 
+      class={twMerge(
+        'pswp-gallery grid gap-4',
+        columns === 5 ? 'lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2' :
+        columns === 4 ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2' :
+        columns === 2 ? 'md:grid-cols-2' :
+        'lg:grid-cols-3 md:grid-cols-2'
+      )}
+      id={galleryId}
+    >
+      {folderImages.map(({ src, width, height, alt }, index) => (
+        <a 
+          href={src.src}
+          data-pswp-src={src.src}
+          data-pswp-width={width}
+          data-pswp-height={height}
+          target="_blank"
+          class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 aspect-square"
+        >
+          <Image 
+            src={src}
+            alt={alt}
+            widths={[400, 600, 800]}
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            loading={index < 6 ? 'eager' : 'lazy'}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+            <svg 
+              class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <div class="text-center py-12 text-muted">
+      <p>Brak zdjęć w folderze "{folderPath}"</p>
+    </div>
+  )}
+</WidgetWrapper>
+
+{showLightbox && folderImages.length > 0 && (
+  <script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    import 'photoswipe/style.css';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Znajdź wszystkie galerie na stronie
+      const galleries = document.querySelectorAll<HTMLElement>('[id^="pswp-gallery-"]');
+      
+      galleries.forEach(gallery => {
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: gallery,
+          children: 'a',
+          pswpModule: () => import('photoswipe'),
+          paddingFn: () => ({ top: 20, bottom: 20, left: 20, right: 20 }),
+          bgOpacity: 0.85,
+          showHideOpacity: true,
+          showAnimationDuration: 300,
+          hideAnimationDuration: 300,
+        });
+        lightbox.init();
+      });
+    });
+  </script>
+)}
