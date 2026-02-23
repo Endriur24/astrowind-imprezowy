@@ -118,11 +118,21 @@ const galleryId = `pswp-gallery-${id}`;
     import PhotoSwipeLightbox from 'photoswipe/lightbox';
     import 'photoswipe/style.css';
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // Przechowujemy referencje do lightboxów dla czyszczenia
+    const lightboxes: PhotoSwipeLightbox[] = [];
+
+    function initGalleries() {
+      // Czyścimy poprzednie lightboxy
+      lightboxes.forEach(lb => lb.destroy?.());
+      lightboxes.length = 0;
+
       // Znajdź wszystkie galerie na stronie
       const galleries = document.querySelectorAll<HTMLElement>('[id^="pswp-gallery-"]');
       
       galleries.forEach(gallery => {
+        // Usuwamy flagę inicjalizacji (galeria została przerenderowana)
+        delete gallery.dataset.pswpInit;
+
         const lightbox = new PhotoSwipeLightbox({
           gallery: gallery,
           children: 'a',
@@ -134,7 +144,35 @@ const galleryId = `pswp-gallery-${id}`;
           hideAnimationDuration: 300,
         });
         lightbox.init();
+        lightboxes.push(lightbox);
       });
+    }
+
+    // Funkcja do inicjalizacji gdy DOM jest gotowy
+    function initWhenReady() {
+      const galleries = document.querySelectorAll<HTMLElement>('[id^="pswp-gallery-"]');
+      if (galleries.length > 0) {
+        initGalleries();
+      } else {
+        // DOM nie jest jeszcze gotowy, spróbuj ponownie
+        requestAnimationFrame(initWhenReady);
+      }
+    }
+
+    // Inicjalizacja przy pierwszym ładowaniu strony
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhenReady);
+    } else {
+      initWhenReady();
+    }
+
+    // Ponowna inicjalizacja przy nawigacji View Transitions
+    document.addEventListener('astro:page-load', initWhenReady);
+
+    // Czyszczenie przed zmianą strony
+    document.addEventListener('astro:before-swap', () => {
+      lightboxes.forEach(lb => lb.destroy?.());
+      lightboxes.length = 0;
     });
   </script>
 )}

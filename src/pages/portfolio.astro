@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import FolderGallery from '~/components/widgets/FolderGallery.astro';
 
 const metadata = {
@@ -10,32 +9,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section -->
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Zobacz ofertę',
-        href: '/oferta',
-      },
-    ]}
-    image={{ 
-      src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
-      alt: 'Nasze portfolio' 
-    }}
-  >
-    <Fragment slot="title">
-      Portfolio
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Jeśli chcesz zobaczyć czym się zajmujemy, to jest to idealne do tego miejsce! Na podstronach z ofertą łatwiej znaleźć dopasowane zdjęcia, a tutaj wrzucamy po trochę wszystkiego.
-    </Fragment>
-  </Hero>
 
   <!-- Galeria klubowa -->
   <FolderGallery 
-    folderPath="portfolio/clubs" 
+    folderPath="portfolio/dyskoteka" 
     title="Zdjęcia klubowe" 
     subtitle="Najlepsze ujęcia z imprez klubowych i koncertów"
     columns={4}
@@ -43,9 +20,9 @@ const metadata = {
 
   <!-- Okładki portfolio -->
   <FolderGallery 
-    folderPath="portfolio/covers" 
-    title="Okładki" 
-    subtitle="Przykładowe okładki naszych realizacji"
+    folderPath="portfolio/koncert" 
+    title="Koncerty" 
+    subtitle="Relacje z koncertów i festiwali muzycznych"
     columns={4}
   />
 </Layout>
