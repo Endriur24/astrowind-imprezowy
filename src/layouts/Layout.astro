@@ -29,6 +29,10 @@ const { language, textDirection } = I18N;
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <CommonMeta />
+    
+    <!-- Preload critical fonts to reduce request chain -->
+    <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+    
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />

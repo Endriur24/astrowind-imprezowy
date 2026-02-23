@@ -48,7 +48,7 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Polityka prywatności', href: getPermalink('/privacy') },
+    { text: 'Polityka prywatności', href: getPermalink('#') },
   ],
   socialLinks: [
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },

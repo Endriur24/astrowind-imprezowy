@@ -23,6 +23,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
 
   integrations: [
     tailwind({
@@ -84,6 +88,16 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
+      },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: (asset) =>
+            asset.names.some((name) => name.endsWith(".css"))
+              ? `_astro/styles.[hash][extname]`
+              : `_astro/[name].[hash][extname]`,
+        },
       },
     },
   },

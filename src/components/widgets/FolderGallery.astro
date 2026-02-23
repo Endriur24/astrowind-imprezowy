@@ -90,8 +90,10 @@ const galleryId = `pswp-gallery-${id}`;
             alt={alt}
             formats={['avif', 'webp']}
             layout="constrained"
-            width={800}
-            loading={index < 6 ? 'eager' : 'lazy'}
+            widths={[300, 400, 500]}
+            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 300px"
+            loading={index < 4 ? 'eager' : 'lazy'}
+            decoding="async"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
