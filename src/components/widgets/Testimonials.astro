@@ -2,7 +2,7 @@
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Button from '~/components/ui/Button.astro';
-import Image from '~/components/common/Image.astro';
+import { Picture } from 'astro:assets';
 import type { Testimonials as Props } from '~/types';
 
 const {
@@ -43,12 +43,13 @@ const {
                     {typeof image === 'string' ? (
                       <Fragment set:html={image} />
                     ) : (
-                      <Image
+                      // @ts-expect-error image contains src and alt from props
+                      <Picture
                         class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
+                        formats={['avif', 'webp']}
+                        layout="fixed"
                         width={40}
                         height={40}
-                        widths={[400, 768]}
-                        layout="fixed"
                         {...image}
                       />
                     )}

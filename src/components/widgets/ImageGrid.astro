@@ -40,7 +40,7 @@ const { title, subtitle, items = [], columns = 3, id, isDark = false, formats = 
       {subtitle && <p class="mt-4 text-xl text-muted">{subtitle}</p>}
     </div>
   )}
----
+  
   {items && items.length > 0 && (
     <div
       class={twMerge(
@@ -58,6 +58,8 @@ const { title, subtitle, items = [], columns = 3, id, isDark = false, formats = 
               src={image.src}
               alt={image.alt}
               formats={formats}
+              layout="constrained"
+              width={800}
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
           </div>

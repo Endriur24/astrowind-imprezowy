@@ -2,7 +2,7 @@
 import type { Content as Props } from '~/types';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
+import { Picture } from 'astro:assets';
 import Button from '~/components/ui/Button.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
 
@@ -75,13 +75,12 @@ const {
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
-                <Image
+                // @ts-expect-error image contains src and alt from props
+                <Picture
                   class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                  formats={['avif', 'webp']}
+                  layout="constrained"
                   width={500}
-                  height={500}
-                  widths={[400, 768]}
-                  sizes="(max-width: 768px) 100vw, 432px"
-                  layout="responsive"
                   {...image}
                 />
               )}

@@ -2,7 +2,7 @@
 import Headline from '~/components/ui/Headline.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
+import { Picture } from 'astro:assets';
 import type { Features as Props } from '~/types';
 
 const {
@@ -40,12 +40,12 @@ const {
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
-            <Image
+            // @ts-expect-error image contains src and alt from props
+            <Picture
               class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
-              width="auto"
+              formats={['avif', 'webp']}
+              layout="full-width"
               height={320}
-              widths={[400, 768]}
-              layout="fullWidth"
               {...image}
             />
           )}
