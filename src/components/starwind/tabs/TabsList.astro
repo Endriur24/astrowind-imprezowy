@@ -1,0 +1,29 @@
+---
+interface Props {
+  /** Klasa CSS */
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div 
+  class:list={[
+    'tabs-list',
+    'flex flex-wrap justify-center gap-2 mb-8',
+    className
+  ]}
+  role="tablist"
+>
+  <slot />
+</div>
+
+<style>
+  .tabs-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+</style>

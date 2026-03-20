@@ -1,0 +1,111 @@
+---
+interface Props {
+  /** Domyślna wartość aktywnej zakładki */
+  defaultValue?: string;
+  /** Klasa CSS */
+  class?: string;
+  /** ID kontenera */
+  id?: string;
+}
+
+const { defaultValue, class: className, id } = Astro.props;
+---
+
+<div 
+  class:list={['tabs-container', className]} 
+  data-tabs-container
+  data-default-value={defaultValue}
+  id={id}
+>
+  <slot />
+</div>
+
+<script>
+  function initTabs() {
+    const containers = document.querySelectorAll('[data-tabs-container]');
+    
+    containers.forEach(container => {
+      if ((container as HTMLElement).dataset.tabsInit) return;
+      (container as HTMLElement).dataset.tabsInit = 'true';
+      
+      const triggers = container.querySelectorAll('[data-tabs-trigger]');
+      const contents = container.querySelectorAll('[data-tabs-content]');
+      
+      // Ustaw domyślną zakładkę
+      const defaultValue = (container as HTMLElement).dataset.defaultValue;
+      if (defaultValue) {
+        setActiveTab(container, defaultValue);
+      } else if (triggers.length > 0) {
+        // Jeśli nie ma defaultValue, aktywuj pierwszą zakładkę
+        const firstValue = (triggers[0] as HTMLElement).dataset.value;
+        if (firstValue) {
+          setActiveTab(container, firstValue);
+        }
+      }
+      
+      // Obsługa kliknięć w zakładki
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const value = (trigger as HTMLElement).dataset.value;
+          if (value) {
+            setActiveTab(container, value);
+          }
+        });
+      });
+    });
+  }
+  
+  function setActiveTab(container: Element, value: string) {
+    const triggers = container.querySelectorAll('[data-tabs-trigger]');
+    const contents = container.querySelectorAll('[data-tabs-content]');
+    
+    // Aktualizuj wyzwalacze
+    triggers.forEach(trigger => {
+      const triggerValue = (trigger as HTMLElement).dataset.value;
+      if (triggerValue === value) {
+        trigger.setAttribute('data-state', 'active');
+        trigger.classList.add('active');
+      } else {
+        trigger.setAttribute('data-state', 'inactive');
+        trigger.classList.remove('active');
+      }
+    });
+    
+    // Aktualizuj zawartość
+    contents.forEach(content => {
+      const contentValue = (content as HTMLElement).dataset.value;
+      if (contentValue === value) {
+        content.setAttribute('data-state', 'active');
+        (content as HTMLElement).hidden = false;
+        content.classList.remove('hidden');
+      } else {
+        content.setAttribute('data-state', 'inactive');
+        (content as HTMLElement).hidden = true;
+        content.classList.add('hidden');
+      }
+    });
+    
+    // Emituj event
+    container.dispatchEvent(new CustomEvent('tab-change', { detail: { value } }));
+  }
+  
+  // Inicjalizacja przy ładowaniu strony
+  function onReady() {
+    initTabs();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
+  
+  // Ponowna inicjalizacja przy nawigacji View Transitions
+  document.addEventListener('astro:page-load', onReady);
+</script>
+
+<style>
+  .tabs-container {
+    width: 100%;
+  }
+</style>

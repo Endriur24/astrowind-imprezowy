@@ -1,0 +1,59 @@
+---
+interface Props {
+  /** Wartość identyfikująca zakładkę */
+  value: string;
+  /** Klasa CSS */
+  class?: string;
+}
+
+const { value, class: className } = Astro.props;
+---
+
+<button 
+  class:list={[
+    'tabs-trigger',
+    'px-4 py-2 rounded-lg font-medium transition-all duration-200',
+    'hover:bg-neutral-200 dark:hover:bg-neutral-700',
+    'data-[state=active]:bg-neutral-900 data-[state=active]:text-white',
+    'dark:data-[state=active]:bg-white dark:data-[state=active]:text-neutral-900',
+    className
+  ]}
+  data-tabs-trigger
+  data-value={value}
+  data-state="inactive"
+  role="tab"
+  type="button"
+>
+  <slot />
+</button>
+
+<style>
+  .tabs-trigger {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  .tabs-trigger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  :global(.dark) .tabs-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .tabs-trigger[data-state="active"] {
+    background-color: rgb(23, 23, 23);
+    color: white;
+  }
+  
+  :global(.dark) .tabs-trigger[data-state="active"] {
+    background-color: white;
+    color: rgb(23, 23, 23);
+  }
+</style>

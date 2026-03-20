@@ -1,28 +1,170 @@
 ---
+/**
+ * Portfolio index page
+ * 
+ * Strona portfolio z galeriami tworzonymi dynamicznie na podstawie folderów.
+ * Zdjęcia są pobierane z src/assets/images/portfolio/{folderName}/
+ */
 import Layout from '~/layouts/PageLayout.astro';
 import FolderGallery from '~/components/widgets/FolderGallery.astro';
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '~/components/starwind/tabs';
 
 const metadata = {
   title: 'Portfolio - ImprezowyFotograf',
-  description: 'Zobacz nasze najlepsze zdjęcia z eventów, studniówek, balów i innych imprez.',
+  description: 'Zobacz nasze najlepsze zdjęcia z eventów, studniówek, koncertów i innych imprez. Profesjonalna fotografia eventowa w Krakowie.',
 };
 ---
 
 <Layout metadata={metadata}>
+  <div>
+    <!-- Header -->
+    <section
+      class="bg-linear-to-b from-neutral-100 to-white dark:from-neutral-900 dark:to-neutral-800 py-16 lg:py-24"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white mb-4"
+        >
+          Portfolio
+        </h1>
+        <p
+          class="text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto"
+        >
+          Zobacz nasze realizacje. Kliknij w zdjęcie, aby powiększyć w
+          lightboxie.
+        </p>
+      </div>
+    </section>
 
-  <!-- Galeria klubowa -->
-  <FolderGallery 
-    folderPath="portfolio/dyskoteka" 
-    title="Zdjęcia klubowe" 
-    subtitle="Najlepsze ujęcia z imprez klubowych i koncertów"
-    columns={4}
-  />
+    <div class="mx-auto px-4 py-12">
+      <!-- Main Tabs -->
+      <Tabs defaultValue="klubowe" class="mx-auto w-full">
+        <TabsList class="mx-auto">
+          <TabsTrigger value="klubowe">Zdjęcia klubowe</TabsTrigger>
+          <TabsTrigger value="koncerty">Koncerty</TabsTrigger>
+          <TabsTrigger value="konferencje">Konferencje</TabsTrigger>
+          <TabsTrigger value="studenckie">Wydarzenia studenckie</TabsTrigger>
+          <TabsTrigger value="studniowki">Studniówki</TabsTrigger>
+          <TabsTrigger value="specjalne">Projekty specjalne</TabsTrigger>
+        </TabsList>
 
-  <!-- Okładki portfolio -->
-  <FolderGallery 
-    folderPath="portfolio/koncert" 
-    title="Koncerty" 
-    subtitle="Relacje z koncertów i festiwali muzycznych"
-    columns={4}
-  />
+        <!-- Zdjęcia klubowe -->
+        <TabsContent value="klubowe">
+          <FolderGallery 
+            folderPath="portfolio/dyskoteka" 
+            title="Zdjęcia klubowe" 
+            subtitle="Najlepsze ujęcia z imprez klubowych i dyskotek"
+            columns={4}
+          />
+        </TabsContent>
+
+        <!-- Koncerty -->
+        <TabsContent value="koncerty">
+          <FolderGallery 
+            folderPath="portfolio/koncert" 
+            title="Koncerty" 
+            subtitle="Relacje z koncertów i festiwali muzycznych"
+            columns={4}
+          />
+        </TabsContent>
+
+        <!-- Konferencje -->
+        <TabsContent value="konferencje">
+          <FolderGallery 
+            folderPath="portfolio/konferencje" 
+            title="Konferencje" 
+            subtitle="Dokumentacja fotograficzna z konferencji i wydarzeń biznesowych"
+            columns={4}
+          />
+        </TabsContent>
+
+        <!-- Wydarzenia studenckie -->
+        <TabsContent value="studenckie">
+          <FolderGallery 
+            folderPath="portfolio/studenckie" 
+            title="Wydarzenia studenckie" 
+            subtitle="Imprezy studenckie, juwenalia i wydarzenia kampusowe"
+            columns={4}
+          />
+        </TabsContent>
+
+        <!-- Studniówki -->
+        <TabsContent value="studniowki">
+          <FolderGallery 
+            folderPath="portfolio/studniowka" 
+            title="Studniówki" 
+            subtitle="Magiczne chwile z balów studniówkowych"
+            columns={4}
+          />
+        </TabsContent>
+
+        <!-- Projekty specjalne -->
+        <TabsContent value="specjalne">
+          <FolderGallery 
+            folderPath="portfolio/specjalne" 
+            title="Projekty specjalne" 
+            subtitle="Reportaże specjalne i nietypowe realizacje"
+            columns={4}
+          />
+        </TabsContent>
+      </Tabs>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  // Handle tab parameter from URL
+  function handleTabFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    
+    if (tabParam) {
+      // Small delay to ensure tabs are initialized
+      setTimeout(() => {
+        // Find the tab trigger with the matching data-value
+        const tabTrigger = document.querySelector<HTMLElement>(`[data-tabs-trigger][data-value="${tabParam}"]`);
+        
+        if (tabTrigger) {
+          tabTrigger.click();
+        }
+      }, 100);
+    }
+  }
+
+  // Run on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', handleTabFromUrl);
+  
+  // Also run after astro:after-swap (for View Transitions)
+  document.addEventListener('astro:after-swap', handleTabFromUrl);
+  
+  // Run immediately in case DOM is already ready
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    handleTabFromUrl();
+  }
+</script>
+
+<style is:global>
+  /* === ANIMACJA ZAKŁADEK === */
+
+  @keyframes galleryFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animacja odpala się za każdym razem, gdy zakładka staje się widoczna */
+  :global([data-state="active"]) .masonry-wrapper {
+    animation: galleryFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+</style>

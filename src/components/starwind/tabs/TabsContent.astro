@@ -1,0 +1,46 @@
+---
+interface Props {
+  /** Wartość identyfikująca zawartość zakładki */
+  value: string;
+  /** Klasa CSS */
+  class?: string;
+}
+
+const { value, class: className } = Astro.props;
+---
+
+<div 
+  class:list={[
+    'tabs-content',
+    'animate-fadeIn',
+    className
+  ]}
+  data-tabs-content
+  data-value={value}
+  data-state="inactive"
+  role="tabpanel"
+  hidden
+>
+  <slot />
+</div>
+
+<style>
+  .tabs-content {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .tabs-content[hidden] {
+    display: none;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
