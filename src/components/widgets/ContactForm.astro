@@ -20,7 +20,7 @@ const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const successId = `success-${formName}`;
 ---
 
-<div class={`w-full bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 ${className || ""}`}>
+<div class={`w-full max-w-2xl mx-auto bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 ${className || ""}`}>
   <form id={formName} method="POST" action="/api/submit-form" data-astro-reload>
     <div class="px-6 py-5 border-b border-gray-200 dark:border-gray-700">
       <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{title}</h3>
@@ -177,6 +177,7 @@ const successId = `success-${formName}`;
             messageEl.innerHTML = `<p class="text-red-600 text-sm font-medium">${result.message || "Wystąpił błąd"}</p>`;
           }
         } catch (err) {
+          console.error("Błąd podczas wysyłania formularza:", err);
           if (messageEl) {
             messageEl.classList.remove("hidden");
             messageEl.innerHTML =
@@ -185,7 +186,8 @@ const successId = `success-${formName}`;
         } finally {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalHTML;
-          if (window.turnstile) window.turnstile.reset();
+          const turnstile = (window as Window & { turnstile?: { reset: () => void } }).turnstile;
+          if (turnstile) turnstile.reset();
         }
       });
     });
@@ -205,7 +207,8 @@ const successId = `success-${formName}`;
           form.classList.remove("hidden");
           successState.classList.add("hidden");
           form.reset();
-          if (window.turnstile) window.turnstile.reset();
+          const turnstile = (window as Window & { turnstile?: { reset: () => void } }).turnstile;
+          if (turnstile) turnstile.reset();
         }
       });
     });

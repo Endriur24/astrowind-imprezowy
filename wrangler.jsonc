@@ -1,0 +1,21 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "imprezowyfotograf",
+	"compatibility_date": "2026-02-25",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"main": "./dist/_worker.js",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "imprezowy-forms",
+			"database_id": "23f15290-dc61-4d2e-8155-7cf0aa37792b",
+			"remote": true
+		}
+	]
+}
