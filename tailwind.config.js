@@ -35,6 +35,7 @@ export default {
     typographyPlugin,
     plugin(({ addVariant }) => {
       addVariant('intersect', '&:not([no-intersect])');
+      addVariant('peer-not-placeholder-shown', ':merge(.peer):not(:placeholder-shown) ~ &');
     }),
   ],
   darkMode: 'class',
