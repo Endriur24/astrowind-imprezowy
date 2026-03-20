@@ -1,0 +1,495 @@
+---
+/**
+ * Gallery.astro
+ *
+ * Galeria zdjęć w układzie Masonry, tworzona dynamicznie na podstawie folderów.
+ * Zdjęcia są pobierane z src/assets/images/{folderPath}/
+ */
+import { twMerge } from 'tailwind-merge';
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+
+interface Props {
+  /** Ścieżka folderu wewnątrz src/assets/images/ (np. 'portfolio/packshot', 'blog/fotografia-produktowa-okularow-przeciwslonecznych', 'oferta/produktowe') */
+  folderPath: string;
+  /** Tytuł sekcji */
+  title?: string;
+  /** Podtytuł sekcji */
+  subtitle?: string;
+  /** Minimalna szerokość kolumny (px) */
+  minColumnWidth?: number;
+  /** Odstęp między elementami (px) */
+  gap?: number;
+  /** Czy pokazywać lightbox PhotoSwipe */
+  showLightbox?: boolean;
+  /** ID galerii (potrzebne dla PhotoSwipe) */
+  id?: string;
+  /** Czy ciemny motyw */
+  isDark?: boolean;
+  /** Klasy CSS dodatkowe */
+  class?: string;
+}
+
+const { 
+  folderPath, 
+  title, 
+  subtitle, 
+  minColumnWidth = 280,
+  gap = 16,
+  showLightbox = true, 
+  id = `gallery-${folderPath.replace(/\//g, '-')}`,
+  isDark = false,
+  class: className 
+} = Astro.props as Props;
+
+// === AUTOMATYCZNE WIDTHS NA PODSTAWIE SZEROKOŚCI KOLUMNY ===
+const baseWidth = Math.max(280, minColumnWidth);
+
+const imageWidths = [
+  baseWidth,                    
+  Math.round(baseWidth * 1.5),  
+  Math.round(baseWidth * 2),    
+  Math.round(baseWidth * 2.5),  
+  Math.round(baseWidth * 3.2),  
+  Math.round(baseWidth * 4),    
+  1400                          
+]
+  .filter((w, i, arr) => i === 0 || w > arr[i - 1]) 
+  .slice(0, 7);
+
+// === AUTOMATYCZNE SIZES W PEŁNI ZSYNCHRONIZOWANE Z JS ===
+const halfGap = Math.ceil((gap || 16) / 2);
+const bp3Cols = minColumnWidth * 3;
+const bp4Cols = minColumnWidth * 4;
+
+const sizesAttr = `
+  (max-width: 640px) calc(50vw - ${halfGap}px),
+  (max-width: ${bp3Cols - 1}px) calc(50vw - ${halfGap}px),
+  (max-width: ${bp4Cols - 1}px) calc(33.3vw - ${halfGap}px),
+  calc(25vw - ${halfGap}px)
+`.trim();
+
+// Pobierz wszystkie obrazy z portfolio
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,webp,gif,JPEG,JPG,PNG,WEBP,GIF}',
+  { eager: true }
+);
+
+// Filtruj obrazy z wybranego folderu
+const folderImages = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/${folderPath}/`))
+  .map(([path, module]) => ({
+    src: module.default,
+    path: path,
+    width: module.default.width,
+    height: module.default.height,
+    alt: path.split('/').pop()?.replace(/\.[^/.]+$/, '') || 'Gallery image'
+  }))
+  .sort((a, b) => a.path.localeCompare(b.path));
+
+const galleryId = `masonry-${id}`;
+---
+
+<section 
+  id={id} 
+  class={twMerge(
+    'py-8 lg:py-12',
+    isDark ? 'bg-neutral-900' : 'bg-white',
+    className
+  )}
+>
+  <div class="container mx-auto px-4">
+    {title && (
+      <div class="text-center mb-8 lg:mb-12">
+        <h2 class={twMerge(
+          "text-3xl md:text-4xl font-bold tracking-tight",
+          isDark ? "text-white" : "text-neutral-900"
+        )}>{title}</h2>
+        {subtitle && <p class="mt-4 text-xl text-neutral-500 dark:text-neutral-400">{subtitle}</p>}
+      </div>
+    )}
+    
+    {folderImages.length > 0 ? (
+      <div 
+        class="masonry-wrapper"
+        id={galleryId}
+        data-min-column-width={minColumnWidth}
+        data-gap={gap}
+        style={`--gap: ${gap}px;`}
+      >
+        <div class="masonry-container" id={`masonry-container-${id}`}>
+          {folderImages.map(({ src, width, height, alt }, index) => (
+            <div class="masonry-item">
+              <div class="masonry-item-content" style={`--aspect-ratio: ${width}/${height}`}>
+                <div class="placeholder"></div>
+                <a 
+                  href={src.src}
+                  data-pswp-width={width}
+                  data-pswp-height={height}
+                >
+                  <Picture 
+                    src={src}
+                    alt={alt}
+                    formats={['avif', 'webp']}
+                    widths={imageWidths}
+                    layout="constrained"
+                    sizes={sizesAttr}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : undefined}
+                    decoding="async"
+                    class="gallery-image"
+                  />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <div class="text-center py-12 text-neutral-500">
+        <p>Brak zdjęć w folderze "{folderPath}"</p>
+      </div>
+    )}
+  </div>
+</section>
+
+{showLightbox && folderImages.length > 0 && (
+  <script type="module">
+    // Funkcja leniwego ładowania PhotoSwipe
+    async function getPhotoSwipeLightbox() {
+      if (!document.querySelector('#photoswipe-css')) {
+        const link = document.createElement('link');
+        link.id = 'photoswipe-css';
+        link.rel = 'stylesheet';
+        link.href = '/photoswipe/photoswipe.css';
+        document.head.appendChild(link);
+      }
+      const module = await import('/photoswipe/photoswipe-lightbox.esm.min.js');
+      return module.default || module.PhotoSwipeLightbox;
+    }
+
+    class MasonryLayout {
+      constructor(containerSelector, options = {}) {
+        this.container = document.querySelector(containerSelector);
+        if (!this.container) return;
+
+        this.options = {
+          gap: options.gap || 16,
+          minColumnWidth: options.minColumnWidth || 280,
+        };
+
+        this.resizeEventDispatched = false;
+        this.handleResize = this.handleResize.bind(this);
+        this.init();
+      }
+
+      init() {
+        this.container.style.position = 'relative';
+        this.items = Array.from(this.container.querySelectorAll('.masonry-item')).map(element => {
+          const link = element.querySelector('a');
+          const width = parseInt(link.dataset.pswpWidth, 10);
+          const height = parseInt(link.dataset.pswpHeight, 10);
+          const aspectRatio = width / height;
+
+          const content = element.querySelector('.masonry-item-content');
+          content.style.paddingBottom = `${(height / width) * 100}%`;
+          content.style.maxHeight = `${(height / width) * 100}%`;
+
+          const img = element.querySelector('img');
+          if (img.complete) {
+            this.handleImageLoad(img, element);
+          } else {
+            img.onload = () => this.handleImageLoad(img, element);
+          }
+
+          return { element, aspectRatio };
+        });
+
+        // Dodajemy ResizeObserver dla zakładek (Tabs)
+        this.resizeObserver = new ResizeObserver((entries) => {
+          for (const entry of entries) {
+            if (entry.contentRect.width > 0) {
+              this.handleResize();
+            }
+          }
+        });
+        
+        this.resizeObserver.observe(this.container);
+
+        window.addEventListener('resize', this.handleResize);
+        this.layout();
+      }
+
+      handleImageLoad(img, element) {
+        img.classList.add('loaded');
+        const placeholder = element.querySelector('.placeholder');
+        if (placeholder) {
+          placeholder.style.display = 'none';
+        }
+        element.querySelector('.masonry-item-content').style.paddingBottom = '';
+      }
+
+      calculateColumns() {
+        const containerWidth = this.container.offsetWidth;
+        let minWidth = this.options.minColumnWidth;
+
+        if (window.innerWidth <= 640) {
+          minWidth = Math.max(150, Math.floor(containerWidth / 2) - this.options.gap);
+        }
+
+        const columnCount = Math.max(2, Math.floor(containerWidth / minWidth));
+        const columnWidth = (containerWidth - (this.options.gap * (columnCount - 1))) / columnCount;
+
+        return { count: columnCount, width: columnWidth };
+      }
+
+      layout(_isResizeEvent = false) {
+        // Zabezpieczenie przed błędem dzielenia przy zerowej szerokości
+        if (this.container.offsetWidth === 0) return;
+
+        const { count: columnCount, width: columnWidth } = this.calculateColumns();
+        const columns = Array(columnCount).fill().map(() => ({ height: 0, items: [] }));
+
+        this.items.forEach((item) => {
+          const shortestColumn = columns.reduce((minCol, col, index) => 
+            col.height < columns[minCol].height ? index : minCol
+          , 0);
+
+          const itemHeight = columnWidth / item.aspectRatio;
+          columns[shortestColumn].items.push({
+            element: item.element,
+            height: itemHeight
+          });
+          columns[shortestColumn].height += itemHeight + this.options.gap;
+        });
+
+        columns.forEach((column, columnIndex) => {
+          let yOffset = 0;
+          column.items.forEach((item) => {
+            const xOffset = columnIndex * (columnWidth + this.options.gap);
+            item.element.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            item.element.style.width = `${columnWidth}px`;
+            item.element.classList.add('after-layout');
+            yOffset += item.height + this.options.gap;
+          });
+        });
+
+        const maxHeight = Math.max(...columns.map(col => col.height)) - this.options.gap;
+        this.container.style.height = `${maxHeight}px`;
+
+        // Zaznaczamy, że skrypt ułożył elementy, aby wyłączyć CSS Fallback
+        this.container.classList.add('js-loaded');
+
+        if (!this.resizeEventDispatched) {
+          window.dispatchEvent(new Event('resize'));
+          this.resizeEventDispatched = true;
+          setTimeout(() => { this.resizeEventDispatched = false; }, 100);
+        }
+      }
+
+      handleResize() {
+        requestAnimationFrame(() => this.layout(true));
+      }
+
+      destroy() {
+        if (this.resizeObserver) {
+          this.resizeObserver.disconnect();
+        }
+        window.removeEventListener('resize', this.handleResize);
+      }
+    }
+
+    const lightboxes = [];
+    const masonryInstances = [];
+
+    async function initInteractiveGallery(gallery) {
+      if (gallery.dataset.lightboxLoaded === 'true') return;
+      gallery.dataset.lightboxLoaded = 'true';
+
+      const PhotoSwipeLightbox = await getPhotoSwipeLightbox();
+      const lightbox = new PhotoSwipeLightbox({
+        gallery: gallery,
+        children: 'a',
+        pswpModule: () => import('/photoswipe/photoswipe.esm.min.js'),
+        paddingFn: () => ({ top: 20, bottom: 20, left: 20, right: 20 }),
+        bgOpacity: 0.85,
+        showHideOpacity: true,
+        showAnimationDuration: 300,
+        hideAnimationDuration: 300,
+      });
+
+      lightbox.init();
+      lightboxes.push(lightbox);
+    }
+
+    function initWhenReady() {
+      const galleries = document.querySelectorAll('[id^="masonry-container-"]');
+
+      galleries.forEach(gallery => {
+        const wrapper = gallery.closest('.masonry-wrapper');
+        const minColumnWidth = parseInt(wrapper?.dataset.minColumnWidth || '280');
+        const gap = parseInt(wrapper?.dataset.gap || '16');
+
+        const instance = new MasonryLayout(`#${gallery.id}`, { gap, minColumnWidth });
+        masonryInstances.push(instance);
+
+        initInteractiveGallery(gallery);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhenReady);
+    } else {
+      initWhenReady();
+    }
+
+    document.addEventListener('astro:page-load', initWhenReady);
+    document.addEventListener('astro:before-swap', () => {
+      // Sprzątanie przy tranzycjach widoków
+      lightboxes.forEach(lb => lb.destroy?.());
+      lightboxes.length = 0;
+      
+      masonryInstances.forEach(instance => instance.destroy?.());
+      masonryInstances.length = 0;
+    });
+  </script>
+)}
+
+<style is:global>
+  /* CSS FALLBACK: Zapobiega CLS zanim załaduje się JavaScript */
+  .masonry-container:not(.js-loaded) {
+    display: block;
+    column-count: 2; /* Domyślnie 2 kolumny na mobile */
+    column-gap: var(--gap, 16px);
+  }
+
+  @media (min-width: 640px) {
+    .masonry-container:not(.js-loaded) {
+      column-count: 3;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .masonry-container:not(.js-loaded) {
+      column-count: 4;
+    }
+  }
+
+  .masonry-container:not(.js-loaded) .masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--gap, 16px);
+    display: inline-block;
+    width: 100%;
+  }
+  /* KONIEC FALLBACKU */
+
+  .masonry-wrapper {
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .masonry-container {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .masonry-item {
+    position: relative;
+  }
+
+  /* Kiedy zadziała JS, elementy używają position: absolute */
+  .masonry-item.after-layout {
+    position: absolute;
+  }
+
+  .masonry-item-content {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    aspect-ratio: var(--aspect-ratio, 1/1);
+    border-radius: 8px;
+    overflow: hidden;
+    contain: layout paint;
+  }
+
+  .masonry-item a {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    display: block;
+    margin-bottom: 100%;
+  }
+
+  .masonry-item.after-layout div a {
+    margin-bottom: 0;
+  }
+
+  .masonry-item a:has(img.loaded) {
+    height: 100%;
+  }
+
+  .masonry-item img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .masonry-item img.loaded {
+    opacity: 1;
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e5e5e5;
+    overflow: hidden;
+  }
+
+  .placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 70%
+    );
+    transform: translateX(-200%);
+    animation: shimmer 1.5s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-200%); }
+    100% { transform: translateX(200%); }
+  }
+
+  :global(.dark) .placeholder {
+    background: #404040;
+  }
+
+  :global(.dark) .placeholder::after {
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 70%
+    );
+  }
+</style>

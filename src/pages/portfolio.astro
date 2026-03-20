@@ -6,7 +6,7 @@
  * Zdjęcia są pobierane z src/assets/images/portfolio/{folderName}/
  */
 import Layout from '~/layouts/PageLayout.astro';
-import FolderGallery from '~/components/widgets/FolderGallery.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
 import {
   Tabs,
   TabsList,
@@ -55,61 +55,55 @@ const metadata = {
 
         <!-- Zdjęcia klubowe -->
         <TabsContent value="klubowe">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/dyskoteka" 
-            title="Zdjęcia klubowe" 
-            subtitle="Najlepsze ujęcia z imprez klubowych i dyskotek"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
 
         <!-- Koncerty -->
         <TabsContent value="koncerty">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/koncert" 
-            title="Koncerty" 
-            subtitle="Relacje z koncertów i festiwali muzycznych"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
 
         <!-- Konferencje -->
         <TabsContent value="konferencje">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/konferencje" 
-            title="Konferencje" 
-            subtitle="Dokumentacja fotograficzna z konferencji i wydarzeń biznesowych"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
 
         <!-- Wydarzenia studenckie -->
         <TabsContent value="studenckie">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/studenckie" 
-            title="Wydarzenia studenckie" 
-            subtitle="Imprezy studenckie, juwenalia i wydarzenia kampusowe"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
 
         <!-- Studniówki -->
         <TabsContent value="studniowki">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/studniowka" 
-            title="Studniówki" 
-            subtitle="Magiczne chwile z balów studniówkowych"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
 
         <!-- Projekty specjalne -->
         <TabsContent value="specjalne">
-          <FolderGallery 
+          <Gallery 
             folderPath="portfolio/specjalne" 
-            title="Projekty specjalne" 
-            subtitle="Reportaże specjalne i nietypowe realizacje"
-            columns={4}
+            minColumnWidth={200}
+            gap={12}
           />
         </TabsContent>
       </Tabs>

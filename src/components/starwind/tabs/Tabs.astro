@@ -29,7 +29,6 @@ const { defaultValue, class: className, id } = Astro.props;
       (container as HTMLElement).dataset.tabsInit = 'true';
       
       const triggers = container.querySelectorAll('[data-tabs-trigger]');
-      const contents = container.querySelectorAll('[data-tabs-content]');
       
       // Ustaw domyślną zakładkę
       const defaultValue = (container as HTMLElement).dataset.defaultValue;
