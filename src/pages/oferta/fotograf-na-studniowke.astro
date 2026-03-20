@@ -2,8 +2,8 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
 import Contact from '~/components/widgets/Contact.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
 
 import studniowkiCover from '~/assets/images/covers/studniowki_cover.jpg';
 
@@ -41,75 +41,62 @@ const metadata = {
   </Hero>
 
   <!-- Main Content Section -->
-  <Content
-    tagline="Wybór fotografa na studniówkę"
-    title="Na co zwrócić uwagę przy wyborze fotografa na studniówkę?"
-    items={[
-      {
-        title: 'Sprawdź portfolio fotografa',
-        description: 'Po pierwsze, ważne jest, aby sprawdzić portfolio potencjalnego fotografa. Przeglądając jego wcześniejsze prace, można ocenić jego styl i umiejętności. To pozwoli określić, czy jego prace po prostu wam odpowiadają. Starannie przeglądając portfolio, można również zidentyfikować, czy fotograf posiada doświadczenie w fotografowaniu imprez okolicznościowych, takich jak studniówki. Ponadto warto zaglądnąć do przykładowych realizacji również z innych dziedzin, często będzie to fotografia ślubna, klubowa, reklamowa czy jeszcze inna.',
-      },
-      {
-        title: 'Dobry kontakt to podstawa',
-        description: 'Kolejnym super ważnym aspektem jest komunikacja. Studniówka to przede wszystkim dobra zabawa i ważne abyście Wy dobrze czuli się w obecności swoich fotografów. Potrzebne jest do tego trochę zaufania jak również ekipa foto/video musi czuć ten studniówkowy nastrój. Dobry fotograf powinien być otwarty na Wasze sugestie i pytania oraz służyć radą na przykład w kwestii tego jak wykonać zdjęcia grupowe. Dlatego warto spotkać się z fotografem osobiście lub przynajmniej przeprowadzić rozmowę telefoniczną, aby omówić szczegóły związane z planem studniówki i wyrazić swoje oczekiwania.',
-      },
-      {
-        title: 'Przejrzysty cennik',
-        description: 'Fotografia studniówkowa może być wyceniana na różne sposoby. Jedni fotografowie przedstawiają wyceny w przeliczeniu na osobę a inni tak jak my oferują pakiety oparte na ilości fotografów dostarczających daną ilość zdjęć. W naszej ocenie jest to bardziej sprawiedliwa wycena zdjęć studniówkowych natomiast zdajemy sobie sprawę, że oferta przedstawiona w ten sposób może być na początku dla was nieco kłopotliwa dlatego w razie wątpliwości zapraszamy do kontaktu.',
-      },
-    ]}
-  />
-
-  <!-- Why Us Section -->
-  <Content
-    isReversed
-    tagline="Dlaczego my?"
-    title="Dlaczego fotograf na studniówkę z imprezowyfotograf.pl?"
-    items={[
-      {
-        title: 'Średni czas oczekiwania na zdjęcia',
-        description: 'Doskonale zdajemy sobie sprawę z tego, jak ważną rolę ma dla Was czas przekazania zdjęć. Staramy się pracować sprawnie i szybko, jednocześnie zachowując najwyższą możliwą jakość. W przypadku zdjęć ze studniówek standardowy czas dostarczenia zdjęć to zazwyczaj 5-7 dni roboczych. Mamy również w ofercie możliwość wykonania tzw. zdjęć live - wtedy zabieramy ze sobą na lokację fotoedytora.',
-      },
-      {
-        title: 'Retuszujemy zdjęcia!',
-        description: 'Wielu fotografów na polskim rynku nie wykonuje retuszu skóry na zdjęciach reportażowych. Dlaczego? Ponieważ retusz zabiera dużo czasu, a obrobione w ten sposób zdjęcia sporo przestrzeni dyskowej. My jednak idziemy pod prąd tego nurtu i retuszujemy wszystkie zdjęcia z Waszych studniówek! Robimy to, ponieważ wiemy, że jest to dla Was ważne - w końcu studniówkę ma się tylko raz!',
-      },
-      {
-        title: 'Gdzie działamy',
-        description: 'Naszym rodzimym miastem jest Kraków dlatego najczęściej fotografujemy na terenie województwa małopolskiego, podkarpackiego, śląskiego oraz świętokrzyskiego jednak dojeżdżamy na terenie całej Polski, a jeśli tego wymaga wydarzenie - dojedziemy lub dolecimy gdzie trzeba!',
-      },
-    ]}
-  >
-    <Fragment slot="subtitle">
-      Nasi profesjonalni fotografowie zadbają o giga czadowe utrwalenie Waszego pożegnania się ze szkołą!
-    </Fragment>
-  </Content>
-
-  <!-- Portfolio Gallery -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+  <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Poniżej wrzucamy trochę kadrów pokazujących, jak mogą wyglądać zdjęcia z Waszej studniówki!</p>
+        <p class="text-base text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase">Wybór fotografa na studniówkę</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-4">Na co zwrócić uwagę przy wyborze fotografa na studniówkę?</h2>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_001.jpg" class="block overflow-hidden rounded-lg">
-          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_001_thumbnail.jpg" alt="Zdjęcie ze studniówki 1" class="w-full h-48 object-cover hover:scale-105 transition-transform">
-        </a>
-        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_002.jpg" class="block overflow-hidden rounded-lg">
-          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_002_thumbnail.jpg" alt="Zdjęcie ze studniówki 2" class="w-full h-48 object-cover hover:scale-105 transition-transform">
-        </a>
-        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_003.jpg" class="block overflow-hidden rounded-lg">
-          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_003_thumbnail.jpg" alt="Zdjęcie ze studniówki 3" class="w-full h-48 object-cover hover:scale-105 transition-transform">
-        </a>
-        <!-- Add more images - up to 60 as in old site, but truncate for now -->
-        <a href="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_004.jpg" class="block overflow-hidden rounded-lg">
-          <img src="/assets/img/portfolio/studniowka/zdjecia_studniowkowe_004_thumbnail.jpg" alt="Fotograf na studniówkę" class="w-full h-48 object-cover hover:scale-105 transition-transform">
-        </a>
-        <!-- ... continue for all images ... -->
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Sprawdź portfolio fotografa</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Po pierwsze, ważne jest, aby sprawdzić portfolio potencjalnego fotografa. Przeglądając jego wcześniejsze prace, można ocenić jego styl i umiejętności. To pozwoli określić, czy jego prace po prostu wam odpowiadają. Starannie przeglądając portfolio, można również zidentyfikować, czy fotograf posiada doświadczenie w fotografowaniu imprez okolicznościowych, takich jak studniówki. Ponadto warto zaglądnąć do przykładowych realizacji również z innych dziedzin, często będzie to fotografia ślubna, klubowa, reklamowa czy jeszcze inna.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Dobry kontakt to podstawa</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Kolejnym super ważnym aspektem jest komunikacja. Studniówka to przede wszystkim dobra zabawa i ważne abyście Wy dobrze czuli się w obecności swoich fotografów. Potrzebne jest do tego trochę zaufania jak również ekipa foto/video musi czuć ten studniówkowy nastrój. Dobry fotograf powinien być otwarty na Wasze sugestie i pytania oraz służyć radą na przykład w kwestii tego jak wykonać zdjęcia grupowe. Dlatego warto spotkać się z fotografem osobiście lub przynajmniej przeprowadzić rozmowę telefoniczną, aby omówić szczegóły związane z planem studniówki i wyrazić swoje oczekiwania.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Przejrzysty cennik</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Fotografia studniówkowa może być wyceniana na różne sposoby. Jedni fotografowie przedstawiają wyceny w przeliczeniu na osobę a inni tak jak my oferują pakiety oparte na ilości fotografów dostarczających daną ilość zdjęć. W naszej ocenie jest to bardziej sprawiedliwa wycena zdjęć studniówkowych natomiast zdajemy sobie sprawę, że oferta przedstawiona w ten sposób może być na początku dla was nieco kłopotliwa dlatego w razie wątpliwości zapraszamy do kontaktu.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Why Us Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase">Dlaczego my?</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2 mb-4">Dlaczego fotograf na studniówkę z imprezowyfotograf.pl?</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Nasi profesjonalni fotografowie zadbają o giga czadowe utrwalenie Waszego pożegnania się ze szkołą!</p>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Średni czas oczekiwania na zdjęcia</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Doskonale zdajemy sobie sprawę z tego, jak ważną rolę ma dla Was czas przekazania zdjęć. Staramy się pracować sprawnie i szybko, jednocześnie zachowując najwyższą możliwą jakość. W przypadku zdjęć ze studniówek standardowy czas dostarczenia zdjęć to zazwyczaj 5-7 dni roboczych. Mamy również w ofercie możliwość wykonania tzw. zdjęć live - wtedy zabieramy ze sobą na lokację fotoedytora.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Retuszujemy zdjęcia!</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Wielu fotografów na polskim rynku nie wykonuje retuszu skóry na zdjęciach reportażowych. Dlaczego? Ponieważ retusz zabiera dużo czasu, a obrobione w ten sposób zdjęcia sporo przestrzeni dyskowej. My jednak idziemy pod prąd tego nurtu i retuszujemy wszystkie zdjęcia z Waszych studniówek! Robimy to, ponieważ wiemy, że jest to dla Was ważne - w końcu studniówkę ma się tylko raz!</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Gdzie działamy</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400">Naszym rodzimym miastem jest Kraków dlatego najczęściej fotografujemy na terenie województwa małopolskiego, podkarpackiego, śląskiego oraz świętokrzyskiego jednak dojeżdżamy na terenie całej Polski, a jeśli tego wymaga wydarzenie - dojedziemy lub dolecimy gdzie trzeba!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Gallery -->
+  <Gallery 
+    folderPath="portfolio/studniowka" 
+    title="Portfolio"
+    subtitle="Poniżej wrzucamy trochę kadrów pokazujących, jak mogą wyglądać zdjęcia z Waszej studniówki!"
+    minColumnWidth={200}
+    gap={12}
+  />
 
   <!-- Pricing Section -->
   <section id="studniowka-1" class="py-16 bg-white dark:bg-gray-900">

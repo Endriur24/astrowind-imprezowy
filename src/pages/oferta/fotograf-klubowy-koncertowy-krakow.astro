@@ -4,11 +4,14 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
 
 const metadata = {
   title: 'Fotograf Klubowy i Koncertowy Kraków - Profesjonalna Fotografia Eventowa',
   description: 'Profesjonalny fotograf na koncerty, imprezy klubowe i festiwale w Krakowie. Dynamiczne zdjęcia z wydarzeń muzycznych.',
 };
+
+import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
 ---
 
 <Layout metadata={metadata}>
@@ -27,8 +30,8 @@ const metadata = {
       },
     ]}
     image={{ 
-      src: 'https://images.unsplash.com/photo-1533174072545-7a4b7b09688c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
-      alt: 'Fotograf klubowy koncertowy' 
+      src: imprezyKluboweCover, 
+      alt: 'Fotograf na imprezę klubową'
     }}
   >
     <Fragment slot="title">
@@ -85,9 +88,6 @@ const metadata = {
           </div>
         </div>
         
-        <div>
-          <img src="https://images.unsplash.com/photo-1459749401171-048e6886ab1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia koncertowa" class="rounded-lg shadow-lg">
-        </div>
       </div>
     </div>
   </section>
@@ -214,81 +214,14 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="py-16 bg-white dark:bg-gray-900">
-    <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Cennik usług</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Pakiet Standard</h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-6">Dokumentacja koncertu lub imprezy</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center text-gray-600 dark:text-gray-400">
-              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Do 4 godzin dokumentacji
-            </li>
-            <li class="flex items-center text-gray-600 dark:text-gray-400">
-              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              150 zdjęć po obróbce
-            </li>
-            <li class="flex items-center text-gray-600 dark:text-gray-400">
-              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Podstawowa obróbka
-            </li>
-          </ul>
-          <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">800 zł</p>
-        </div>
-        
-        <div class="bg-purple-600 text-white rounded-lg p-8 border-2 border-purple-600 relative">
-          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-3 py-1 text-sm rounded-full">
-            Polecany
-          </div>
-          <h3 class="text-xl font-bold mb-4">Pakiet Premium</h3>
-          <p class="mb-6 opacity-90">Pełna obsługa wydarzenia muzycznego</p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Do 8 godzin dokumentacji
-            </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              300+ zdjęć po obróbce
-            </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Zaawansowana obróbka
-            </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Zdjęcia za kulisami
-            </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Priorytetowa realizacja
-            </li>
-          </ul>
-          <p class="text-2xl font-bold mb-4">1500 zł</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Portfolio Gallery -->
+  <Gallery 
+    folderPath="portfolio/dyskoteka" 
+    title="Portfolio"
+    subtitle="Poniżej wrzucamy trochę kadrów pokazujących, jak mogą wyglądać zdjęcia z Waszej dyskoteki!"
+    minColumnWidth={200}
+    gap={12}
+  />
 
   <!-- CTA -->
   <CallToAction

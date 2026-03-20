@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Contact from '~/components/widgets/Contact.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
   title: 'Kontakt - ImprezowyFotograf',
@@ -34,38 +34,9 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <Contact
+  <ContactForm
     title="Wyślij wiadomość"
-    inputs={[
-      {
-        label: 'Twoje Imię',
-        name: 'name',
-        type: 'text',
-        
-      },
-      {
-        label: 'Adres e-mail',
-        name: 'email',
-        type: 'email',
-        
-      },
-      {
-        label: 'Numer telefonu',
-        name: 'phone',
-        type: 'tel'
-      },
-      {
-        label: 'Temat',
-        name: 'subject',
-        type: 'text',
-        
-      }
-    ]}
-    textarea={{
-      label: 'Wiadomość',
-      name: 'message',
-      
-    }}
+    description="Wypełnij formularz kontaktowy, a skontaktujemy się z Tobą najszybciej jak to możliwe."
   />
         
 

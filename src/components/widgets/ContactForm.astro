@@ -1,0 +1,213 @@
+---
+import InputField from "./InputField.astro";
+import TextareaField from "./TextareaField.astro";
+
+interface Props {
+  formName?: string;
+  title?: string;
+  description?: string;
+  class?: string;
+}
+
+const {
+  formName = "formularz-kontakt",
+  title = "Skontaktuj się z nami!",
+  description = "Pssst...! Otrzymasz potwierdzenie dostarczenia formularza.",
+  class: className,
+} = Astro.props;
+
+const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+const successId = `success-${formName}`;
+---
+
+<div class={`w-full bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 ${className || ""}`}>
+  <form id={formName} method="POST" action="/api/submit-form" data-astro-reload>
+    <div class="px-6 py-5 border-b border-gray-200 dark:border-gray-700">
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{title}</h3>
+      <p class="mt-1 text-gray-600 dark:text-gray-400">{description}</p>
+    </div>
+    <input type="hidden" name="form_name" value={formName} />
+
+    <div class="px-6 py-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- pola formularza -->
+      <div class="flex flex-col gap-4">
+        <InputField id="imie-input" name="imie" label="Imię" type="text" />
+        <InputField
+          id="nazwa-firmy-input"
+          name="nazwa-firmy"
+          label="Nazwa firmy"
+          type="text"
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <InputField
+          id="telefon-input"
+          name="telefon"
+          label="Telefon"
+          type="tel"
+        />
+        <InputField
+          id="e-mail-input"
+          name="Email"
+          label="E-mail"
+          type="email"
+          required
+        />
+      </div>
+      <TextareaField
+        id="wiadomosc-input"
+        name="wiadomosc"
+        label="Wiadomość"
+        required
+        class="md:col-span-2 pt-2"
+      />
+      <div class="flex items-start gap-3 px-4 md:col-span-2">
+        <input
+          type="checkbox"
+          id="polityka-prywatnosci-input"
+          name="polityka_prywatnosci"
+          required
+          value="true"
+          class="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+        />
+        <label
+          for="polityka-prywatnosci-input"
+          class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed cursor-pointer"
+        >
+          * Oświadczam, że zapoznałem/am się z <a
+            href="/polityka-prywatnosci"
+            class="text-primary hover:underline font-medium"
+            >polityką prywatności</a
+          >
+        </label>
+      </div>
+      <div class="md:col-span-2 mt-4">
+        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+      </div>
+      <div id="form-message" class="md:col-span-2 hidden"></div>
+    </div>
+
+    <div class="px-6 py-5 border-t border-gray-200 dark:border-gray-700 flex justify-end">
+      <button
+        type="submit"
+        class="btn-primary"
+      >
+        Wyślij
+      </button>
+    </div>
+  </form>
+
+  <!-- SUCCESS STATE -->
+  <div id={successId} class="hidden">
+    <div class="px-6 py-12 text-center">
+      <h3 class="text-3xl font-semibold text-gray-900 dark:text-white mb-3">Dziękujemy!</h3>
+      <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+        Twój formularz został pomyślnie wysłany.<br />
+        Skontaktujemy się z Tobą najszybciej jak to możliwe.
+      </p>
+    </div>
+
+    <div class="px-6 py-5 border-t border-gray-200 dark:border-gray-700 flex justify-center">
+      <button
+        type="button"
+        class="btn-secondary"
+        data-reset-form={formName}
+      >
+        Wyślij kolejny formularz
+      </button>
+    </div>
+  </div>
+</div>
+
+<script
+  is:inline
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer></script>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const forms = document.querySelectorAll('form[action="/api/submit-form"]');
+
+    forms.forEach((form) => {
+      const formEl = form as HTMLFormElement;
+      const messageEl = formEl.querySelector("#form-message") as HTMLDivElement;
+      const submitBtn = formEl.querySelector(
+        'button[type="submit"]',
+      ) as HTMLButtonElement;
+      const successState = document.getElementById(
+        `success-${formEl.id}`,
+      ) as HTMLDivElement;
+
+      formEl.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(formEl);
+        if (!submitBtn) return;
+
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          Wysyłanie...
+        `;
+
+        try {
+          const response = await fetch("/api/submit-form", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = (await response.json()) as {
+            success: boolean;
+            message: string;
+          };
+
+          // ==================== SUKCES ====================
+          if (result.success && successState) {
+            formEl.classList.add("hidden");
+            successState.classList.remove("hidden");
+          }
+          // ==================== BŁĄD ====================
+          else if (messageEl) {
+            messageEl.classList.remove("hidden");
+            messageEl.innerHTML = `<p class="text-red-600 text-sm font-medium">${result.message || "Wystąpił błąd"}</p>`;
+          }
+        } catch (err) {
+          if (messageEl) {
+            messageEl.classList.remove("hidden");
+            messageEl.innerHTML =
+              '<p class="text-red-600 text-sm font-medium">Wystąpił błąd. Spróbuj ponownie.</p>';
+          }
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+          if (window.turnstile) window.turnstile.reset();
+        }
+      });
+    });
+
+    // Reset (bez zmian)
+    document.querySelectorAll("[data-reset-form]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const formId = btn.getAttribute("data-reset-form");
+        if (!formId) return;
+
+        const form = document.getElementById(formId) as HTMLFormElement;
+        const successState = document.getElementById(
+          `success-${formId}`,
+        ) as HTMLDivElement;
+
+        if (form && successState) {
+          form.classList.remove("hidden");
+          successState.classList.add("hidden");
+          form.reset();
+          if (window.turnstile) window.turnstile.reset();
+        }
+      });
+    });
+  });
+</script>
