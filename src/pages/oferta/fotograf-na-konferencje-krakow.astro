@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
   title: 'Fotograf na Konferencję Kraków | Profesjonalna Fotografia Eventowa',
@@ -435,21 +436,10 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
     </div>
   </section>
 
-  <!-- CTA -->
-  <CallToAction
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-konferencje"
     title="Zarezerwuj fotografa na konferencję"
-    subtitle="Skontaktuj się z nami i zarezerwuj profesjonalnego fotografa na konferencję, imprezę firmową lub wyjazd integracyjny. Dopasujemy ofertę do Twoich potrzeb!"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Zarezerwuj teraz',
-        href: '/kontakt',
-      },
-      {
-        variant: 'secondary',
-        text: 'Zobacz portfolio',
-        href: '/portfolio',
-      },
-    ]}
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii konferencyjnej."
   />
 </Layout>

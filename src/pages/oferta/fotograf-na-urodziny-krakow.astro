@@ -4,6 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
   title: 'Fotograf na Urodziny i 18-tkę Kraków - Profesjonalna Fotografia Imprezowa',
@@ -334,21 +335,10 @@ const metadata = {
     </div>
   </section>
 
-  <!-- CTA -->
-  <CallToAction
-    title="Zarezerwuj fotografa na swoje urodziny"
-    subtitle="Skontaktuj się z nami i zarezerwuj profesjonalnego fotografa na urodziny, osiemnastkę lub przyjęcie prywatne."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Zarezerwuj teraz',
-        href: '/kontakt',
-      },
-      {
-        variant: 'secondary',
-        text: 'Zobacz portfolio',
-        href: '/portfolio',
-      },
-    ]}
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-urodziny"
+    title="Zarezerwuj fotografa na urodziny"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii urodzinowej."
   />
 </Layout>

@@ -4,6 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
   title: 'Fotograf Ślubny Kraków - Profesjonalna Fotografia Ślubna',
@@ -301,21 +302,10 @@ const metadata = {
     </div>
   </section>
 
-  <!-- CTA -->
-  <CallToAction
-    title="Zarezerwuj fotografa na swój ślub"
-    subtitle="Skontaktuj się z nami i zarezerwuj termin na swój wymarzony ślub. Ograniczona liczba terminów!"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Zarezerwuj teraz',
-        href: '/kontakt',
-      },
-      {
-        variant: 'secondary',
-        text: 'Zobacz portfolio',
-        href: '/portfolio',
-      },
-    ]}
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-slubny"
+    title="Zarezerwuj fotografa na ślub"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii ślubnej."
   />
 </Layout>

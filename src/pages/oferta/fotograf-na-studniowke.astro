@@ -4,6 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Contact from '~/components/widgets/Contact.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 import studniowkiCover from '~/assets/images/covers/studniowki_cover.jpg';
 
@@ -173,6 +174,8 @@ const metadata = {
     </div>
   </section>
 
+
+
   <!-- Contact Section -->
   <Contact id="kontakt">
     <Fragment slot="title">
@@ -181,5 +184,11 @@ const metadata = {
     <Fragment slot="subtitle">
       Jeżeli nasza oferta przypadła Wam do gustu i chcecie nawiązać z nami współpracę - piszcie śmiało! W wiadomości opiszcie swoje oczekiwania i krótko wydarzenie, czas jego trwania, godzinę rozpoczęcia (jeśli już jest znana) oraz inne ważne detale.
     </Fragment>
-  </Contact>
+  </Contact>  
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-studniowki"
+    title="Zarezerwuj fotografa na studniówkę"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii studniówkowej."
+  />
 </Layout>

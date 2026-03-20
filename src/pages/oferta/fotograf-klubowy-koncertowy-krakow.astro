@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
   title: 'Fotograf Klubowy i Koncertowy Kraków - Profesjonalna Fotografia Eventowa',
@@ -223,21 +224,10 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
     gap={12}
   />
 
-  <!-- CTA -->
-  <CallToAction
-    title="Zarezerwuj fotografa na swoje wydarzenie"
-    subtitle="Skontaktuj się z nami i zarezerwuj profesjonalnego fotografa na koncert, festiwal lub imprezę klubową."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Zarezerwuj teraz',
-        href: '/kontakt',
-      },
-      {
-        variant: 'secondary',
-        text: 'Zobacz portfolio',
-        href: '/portfolio',
-      },
-    ]}
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-klubowe"
+    title="Zarezerwuj fotografa na koncert lub imprezę klubową"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii klubowej lub koncertowej."
   />
 </Layout>

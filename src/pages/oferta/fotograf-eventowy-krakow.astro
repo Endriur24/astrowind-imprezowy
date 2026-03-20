@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
 
 import eventowyCover from '~/assets/images/covers/eventowy_cover.jpg';
 
@@ -36,39 +37,9 @@ const metadata = {
   </section>
 
   <!-- Contact Form -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto max-w-2xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Zapraszamy do kontaktu!</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400">Jeżeli nasza oferta przypadła Ci do gustu i chcesz nawiązać z nami współpracę - pisz śmiało!</p>
-      </div>
-      <form class="space-y-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Imię</label>
-          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Adres e-mail</label>
-          <input type="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Numer telefonu</label>
-          <input type="tel" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Miejsce wydarzenia</label>
-          <input type="text" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Data wydarzenia</label>
-          <input type="date" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Wiadomość do nas</label>
-          <textarea rows="5" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium">Wyślij wiadomość!</button>
-      </form>
-    </div>
-  </section>
+  <ContactForm
+    formName="formularz-eventowy"
+    title="Zarezerwuj fotografa na event firmowy"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie fotografii eventowej."
+  />
 </Layout>
