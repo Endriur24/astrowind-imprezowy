@@ -17,5 +17,11 @@
 			"database_id": "23f15290-dc61-4d2e-8155-7cf0aa37792b",
 			"remote": true
 		}
+	],
+	"send_email": [
+		{
+			"name": "SEND_EMAIL",
+			"destination_address": "andrzej@pineaddle.com"
+		}
 	]
 }

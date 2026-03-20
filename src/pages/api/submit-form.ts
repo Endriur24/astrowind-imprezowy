@@ -1,4 +1,6 @@
 import type { APIRoute } from 'astro';
+import { EmailMessage } from 'cloudflare:email';
+import { createMimeMessage } from 'mimetext';
 
 // Disable prerendering to ensure this endpoint is always rendered on-demand
 export const prerender = false;
@@ -85,7 +87,46 @@ export const POST: APIRoute = async ({ request, locals }) => {
       console.warn("Brak połączenia z D1 - pomijam zapis.");
     }
 
-    // 5. SUKCES - ZWRACAMY ODPOWIEDŹ
+    // 5. WYSYŁANIE E-MAILA Z POWIADOMIENIEM
+    const sendEmail = locals.runtime.env.SEND_EMAIL;
+    if (sendEmail) {
+      try {
+        console.log('Sending email notification...');
+        const msg = createMimeMessage();
+        msg.setSender({ name: "Imprezowy Fotograf - Formularz", addr: "noreply@imprezowyfotograf.pl" });
+        msg.setRecipient("andrzej@pineaddle.com");
+        msg.setSubject(`Nowe zgłoszenie: ${formName}`);
+        
+        // Formatowanie danych formularza jako tekst
+        let emailBody = `Nowe zgłoszenie z formularza: ${formName}\n\n`;
+        emailBody += `Data: ${new Date().toLocaleString('pl-PL')}\n\n`;
+        emailBody += `Dane formularza:\n`;
+        for (const [key, value] of Object.entries(dataObj)) {
+          emailBody += `${key}: ${value}\n`;
+        }
+        
+        msg.addMessage({
+          contentType: "text/plain",
+          data: emailBody,
+        });
+
+        const message = new EmailMessage(
+          "noreply@imprezowyfotograf.pl",
+          "andrzej@pineaddle.com",
+          msg.asRaw(),
+        );
+
+        await sendEmail.send(message);
+        console.log('Email sent successfully');
+      } catch (emailError) {
+        console.error('Failed to send email:', emailError);
+        // Nie blokujemy odpowiedzi - email nie jest krytyczny
+      }
+    } else {
+      console.warn("SEND_EMAIL binding not configured - skipping email notification");
+    }
+
+    // 6. SUKCES - ZWRACAMY ODPOWIEDŹ
     return new Response(JSON.stringify({ 
       success: true, 
       message: 'Formularz został pomyślnie wysłany.' 
