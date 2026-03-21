@@ -24,6 +24,11 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  trailingSlash: "never",
+  build: {
+    format: "file",
+    inlineStylesheets: 'never',
+  },
   adapter: cloudflare({
     imageService: "compile",
   }),
