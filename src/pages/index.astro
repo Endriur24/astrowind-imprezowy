@@ -5,7 +5,6 @@ import { Picture } from 'astro:assets';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import heroImage from '~/assets/images/homepage/homepage_second_carousel_1.jpg';
 import contentImage from '~/assets/images/homepage/homepage_second_carousel_1.jpg';
@@ -217,21 +216,4 @@ const metadata = {
       </div>
     </div>
   </section>
-
-  <!-- CallToAction Widget *********** -->
-  <CallToAction
-    actions={[
-      {
-        variant: 'secondary',
-        text: 'Sprawdź ofertę!',
-        href: '/oferta',
-      },
-      {
-        variant: 'primary',
-        text: 'Napisz do nas!',
-        href: '/kontakt',
-      },
-    ]}
-  >
-  </CallToAction>
 </Layout>
