@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
 import { EmailMessage } from 'cloudflare:email';
-import { createMimeMessage } from 'mimetext';
 
 // Disable prerendering to ensure this endpoint is always rendered on-demand
 export const prerender = false;
@@ -92,28 +91,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
     if (sendEmail) {
       try {
         console.log('Sending email notification...');
-        const msg = createMimeMessage();
-        msg.setSender({ name: "Imprezowy Fotograf - Formularz", addr: "noreply@imprezowyfotograf.pl" });
-        msg.setRecipient("andrzej@pineaddle.com");
-        msg.setSubject(`Nowe zgłoszenie: ${formName}`);
         
-        // Formatowanie danych formularza jako tekst
-        let emailBody = `Nowe zgłoszenie z formularza: ${formName}\n\n`;
-        emailBody += `Data: ${new Date().toLocaleString('pl-PL')}\n\n`;
-        emailBody += `Dane formularza:\n`;
+        // Zbieramy dane do stringa z prawidłowymi zakończeniami linii \r\n
+        let bodyText = `Nowe zgłoszenie z formularza: ${formName}\r\n\r\n`;
+        bodyText += `Data: ${new Date().toLocaleString('pl-PL')}\r\n\r\n`;
+        bodyText += `Dane formularza:\r\n`;
         for (const [key, value] of Object.entries(dataObj)) {
-          emailBody += `${key}: ${value}\n`;
+          bodyText += `${key}: ${value}\r\n`;
         }
-        
-        msg.addMessage({
-          contentType: "text/plain",
-          data: emailBody,
-        });
 
+        // Ręczne składanie RAW email z wymuszonym kodowaniem UTF-8
+        // Używamy Quoted-Printable (8bit), co zapobiega psuciu przez filtry
+        const rawEmailString = 
+`From: "Imprezowy Fotograf - Formularz" <noreply@imprezowyfotograf.pl>\r\n` +
+`To: andrzej@pineaddle.com\r\n` +
+`Subject: Nowe zgłoszenie: ${formName}\r\n` +
+`MIME-Version: 1.0\r\n` +
+`Content-Type: text/plain; charset=utf-8\r\n` +
+`Content-Transfer-Encoding: 8bit\r\n` +
+`\r\n` + // Pusta linia oddzielająca nagłówki od treści
+`${bodyText}`;
+
+        // Konwersja zbudowanego tekstu na Message dla Cloudflare
         const message = new EmailMessage(
           "noreply@imprezowyfotograf.pl",
           "andrzej@pineaddle.com",
-          msg.asRaw(),
+          rawEmailString
         );
 
         await sendEmail.send(message);
