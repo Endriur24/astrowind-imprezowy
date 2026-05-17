@@ -6,6 +6,7 @@ export const headerData = {
     { text: 'PORTFOLIO', href: getPermalink('/portfolio') },
     { text: 'OFERTA', href: getPermalink('/oferta') },
     { text: 'BLOG', href: getPermalink('/blog') },
+    { text: 'FAQ', href: getPermalink('/faq') },
     { text: 'KONTAKT', href: getPermalink('/kontakt') },
   ],
   actions: [],
@@ -46,13 +47,13 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Polityka prywatności', href: getPermalink('#') },
+    { text: 'Polityka prywatności', href: getPermalink('/polityka-prywatnosci') },
   ],
   socialLinks: [
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/ImprezowyFotografpl/' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/imprezowyfotograf/' },
   ],
   footNote: `
-    © 2024 ImprezowyFotograf.pl - Wszystkie prawa zastrzeżone
+    © 2025 ImprezowyFotograf.pl - Wszystkie prawa zastrzeżone
   `,
 };

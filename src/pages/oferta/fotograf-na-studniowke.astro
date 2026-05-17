@@ -15,6 +15,23 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia na Studniówkę",
+    "description": "Profesjonalny fotograf na studniówkę w Krakowie. Zdjęcia pełne energii i nowoczesności, retusz w cenie.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-studniowke",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/studniowki_cover.jpg",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia na studniówkę", "Fotografia imprezowa", "Zdjęcia live"],
+    "priceRange": "$$"
+  })} />
+
   <!-- Hero Section -->
   <Hero
     actions={[
@@ -31,8 +48,6 @@ const metadata = {
       height: 600
     }}
   >
-------- END SEARCH
-
     <Fragment slot="title">
       Fotograf na studniówkę / komers
     </Fragment>

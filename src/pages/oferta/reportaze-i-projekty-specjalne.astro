@@ -1,6 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 
 import repoSpecjalneCover from '~/assets/images/covers/repo_specjalne_cover.jpg';
@@ -12,6 +13,18 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Reportaże i Projekty Specjalne",
+    "description": "Wykonujemy zdjęcia na różnego rodzaju wydarzeniach i zawodach, w tym wyjazdy zagraniczne.",
+    "url": "https://imprezowyfotograf.pl/oferta/reportaze-i-projekty-specjalne",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/repo_specjalne_cover.jpg",
+    "areaServed": {"@type": "Country", "name": "Polska"},
+    "serviceType": ["Reportaże fotograficzne", "Projekty specjalne", "Fotografia sportowa"],
+    "priceRange": "$$"
+  })} />
+
   <Hero
     image={{ 
       src: repoSpecjalneCover, 
@@ -36,25 +49,14 @@ const metadata = {
     </div>
   </section>
 
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Portfolio</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Poniżej wrzucamy trochę kadrów z różnych wydarzeń - relacji z wyjazdów kół naukowych, sesji zdjęciowych i innych.</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
-          <img src="/assets/images/specjalne/repo_specjalne_001_thumbnail.jpg" alt="Reportaż specjalny" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <div class="relative overflow-hidden rounded-lg group cursor-pointer">
-          <img src="/assets/images/specjalne/repo_specjalne_002_thumbnail.jpg" alt="Reportaż specjalny" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
-        </div>
-        <!-- Add more -->
-      </div>
-    </div>
-  </section>
+  <Gallery 
+    folderPath="portfolio/specjalne" 
+    title="Portfolio"
+    subtitle="Poniżej wrzucamy trochę kadrów z różnych wydarzeń - relacji z wyjazdów kół naukowych, sesji zdjęciowych i innych."
+    minColumnWidth={200}
+    gap={12}
+  />
 
-  <!-- Contact Form -->
   <ContactForm
     formName="formularz-specjalne"
     title="Zapytaj o reportaż specjalny"

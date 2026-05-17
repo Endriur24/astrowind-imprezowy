@@ -12,6 +12,26 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia Eventowa",
+    "description": "Fotografujemy na eventach firmowych: urodziny firmy, otwarcia biur, szkolenia, wyjazdy integracyjne. Retusz w cenie, dostawa 24-72h.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-eventowy-krakow",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/eventowy_cover.jpg",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "City", "name": "Rzeszów"},
+      {"@type": "City", "name": "Tarnów"},
+      {"@type": "City", "name": "Kielce"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia eventowa", "Fotografia firmowa", "Reportaż z eventów"],
+    "priceRange": "$$"
+  })} />
+
   <Hero
     image={{ 
       src: eventowyCover, 

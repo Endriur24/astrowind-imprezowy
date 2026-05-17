@@ -13,6 +13,22 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia Ślubna",
+    "description": "Profesjonalny fotograf ślubny w Krakowie. Reportaż ślubny, plener i sesja narzeczeńska. Niezapomniane zdjęcia ślubne.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-slubny-krakow",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia ślubna", "Reportaż ślubny", "Plener ślubny", "Sesja narzeczeńska"],
+    "priceRange": "$$$"
+  })} />
+
   <!-- Hero Section -->
   <Hero
     actions={[

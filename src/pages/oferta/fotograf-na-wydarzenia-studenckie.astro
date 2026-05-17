@@ -12,6 +12,26 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia Wydarzeń Studenckich",
+    "description": "Profesjonalne zdjęcia i filmy z imprez studenckich: bale wydziałowe, dyskoteki, rajdy, zmagania o puchar dziekana. Retuszowane zdjęcia, szybka dostawa.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-wydarzenia-studenckie",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/imprezy_studenckie_cover.jpg",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "City", "name": "Rzeszów"},
+      {"@type": "City", "name": "Tarnów"},
+      {"@type": "City", "name": "Kielce"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia studencka", "Fotografia imprezowa", "Zdjęcia live", "Teledyski eventowe"],
+    "priceRange": "$$"
+  })} />
+
   <Hero
     image={{ 
       src: imprezyStudenckieCover, 

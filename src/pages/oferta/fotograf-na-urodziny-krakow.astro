@@ -13,6 +13,22 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia na Urodziny i 18-tki",
+    "description": "Profesjonalny fotograf na urodziny, osiemnastki i imprezy prywatne w Krakowie. Uwiecznij najważniejsze chwule! Retusz w cenie.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-urodziny-krakow",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia imprezowa", "Fotografia na urodziny", "Fotografia na 18-tkę"],
+    "priceRange": "$$"
+  })} />
+
   <!-- Hero Section -->
   <Hero
     actions={[

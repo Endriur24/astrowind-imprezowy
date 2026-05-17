@@ -12,6 +12,18 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Streaming Wideo",
+    "description": "Profesjonalne transmisje live z konferencji i wydarzeń, webinary, programy dedykowane. Pełna obsługa audio i wideo.",
+    "url": "https://imprezowyfotograf.pl/oferta/streaming-video",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/streaming_video_cover.jpg",
+    "areaServed": {"@type": "Country", "name": "Polska"},
+    "serviceType": ["Streaming wideo", "Transmisje live", "Webinary"],
+    "priceRange": "$$$"
+  })} />
+
   <Hero
     image={{ 
       src: streamingVideoCover, 

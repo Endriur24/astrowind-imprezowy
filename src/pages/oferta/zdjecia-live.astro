@@ -12,6 +12,18 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Zdjęcia Live",
+    "description": "Dostarczamy zdjęcia niemal w czasie rzeczywistym, jeszcze w trakcie trwania wydarzenia. Fotoedytor na miejscu.",
+    "url": "https://imprezowyfotograf.pl/oferta/zdjecia-live",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/zdjecia_live_cover.jpg",
+    "areaServed": {"@type": "Country", "name": "Polska"},
+    "serviceType": ["Zdjęcia live", "Fotografia w czasie rzeczywistym"],
+    "priceRange": "$$"
+  })} />
+
   <Hero
     image={{ 
       src: zdjeciaLiveCover, 

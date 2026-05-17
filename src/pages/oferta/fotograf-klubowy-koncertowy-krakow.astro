@@ -16,6 +16,23 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia Klubowa i Koncertowa",
+    "description": "Profesjonalna fotografia na koncerty, imprezy klubowe i festiwale w Krakowie i całej Polsce. Dynamiczne zdjęcia z wydarzeń muzycznych, retusz w cenie.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-klubowy-koncertowy-krakow",
+    "image": "https://imprezowyfotograf.pl/assets/images/covers/klubowe_cover.jpg",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia koncertowa", "Fotografia klubowa", "Fotografia festiwalowa", "Fotografia muzyczna"],
+    "priceRange": "$$"
+  })} />
+
   <!-- Hero Section -->
   <Hero
     actions={[
@@ -89,6 +106,9 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
           </div>
         </div>
         
+        <div>
+          <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia klubowa i koncertowa" class="rounded-lg shadow-lg">
+        </div>
       </div>
     </div>
   </section>
