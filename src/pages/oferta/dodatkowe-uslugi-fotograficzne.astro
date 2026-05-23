@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import dodatkoweUslugiCover from '~/assets/images/covers/dodatkowe_uslugi_cover.jpg';
 
 const metadata = {
-  title: 'Dodatkowe usługi fotograficzne - ImprezowyFotograf',
-  description: 'Nasza wszechstronna wiedza i doświadczenie pozwalają nam na bardzo szerokie rozszerzanie usług. Pytaj śmiało o nietypowe realizacje!',
+  title: 'Dodatkowe Usługi Fotograficzne — Fotobudka, Drone, Streaming | ImprezowyFotograf',
+  description: 'Dodatkowe usługi fotograficzne: fotobudka, ścianka fotograficzna live, zdjęcia z drona, streaming wideo, zdjęcia na błonie filmowej, zdjęcia instant. Sprawdź pełną ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/dodatkowe-uslugi-fotograficzne',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/dodatkowe-uslugi-fotograficzne',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Dodatkowe Usługi Fotograficzne — Fotobudka, Drone, Streaming',
+    description: 'Dodatkowe usługi: fotobudka, ścianka fotograficzna live, zdjęcia z drona, streaming wideo, zdjęcia instant.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -16,48 +27,161 @@ const metadata = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Imprezowy Fotograf - Dodatkowe Usługi Fotograficzne",
-    "description": "Foto budka, flip book, fotograf analogowy na Polaroid i średni format. Nietypowe realizacje fotograficzne.",
+    "description": "Dodatkowe usługi fotograficzne: fotobudka na imprezę, zdjęcia z drona, ścianka fotograficzna live, streaming wideo, zdjęcia instant, flip book, nagrania VHS, fotografia na błonie filmowej.",
     "url": "https://imprezowyfotograf.pl/oferta/dodatkowe-uslugi-fotograficzne",
     "image": "https://imprezowyfotograf.pl/assets/images/covers/dodatkowe_uslugi_cover.jpg",
     "areaServed": {"@type": "Country", "name": "Polska"},
-    "serviceType": ["Foto budka", "Flip book", "Fotografia analogowa"],
+    "serviceType": ["Fotobudka", "Zdjęcia z drona", "Ścianka fotograficzna live", "Streaming wideo", "Fotografia analogowa", "Flip book", "Zdjęcia instant"],
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Co to jest ścianka fotograficzna live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ścianka fotograficzna live to usługa, w której zdjęcia robione na jednolitym lub zaaranżowanym tle są przesyłane na udostępniony serwer w czasie rzeczywistym. Dzięki temu goście mogą pobierać i udostępniać swoje zdjęcia niemal natychmiast — idealne rozwiązanie na eventy firmowe i imprezy okolicznościowe."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie zdjęcia z drona?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Oferujemy zarówno zdjęcia, jak i nagrania wideo z drona. Ujęcia z lotu ptaka świetnie sprawdzają się jako dodatek do teledysku eventowego, przy dokumentacji wyjazdów integracyjnych, czy przy zdjęciach grupowych w plenerze."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy możecie zorganizować fotobudkę na imprezie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, w naszej ofercie znajduje się fotobudka — świetna atrakcja na studniówki, urodziny, eventy firmowe i imprezy okolicznościowe. Goście mogą robić sobie pamiątkowe zdjęcia w nietuzinkowych oprawach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakie nietypowe usługi fotograficzne oferujecie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oprócz standardowych usług oferujemy m.in.: nagrania kamerą VHS, zdjęcia na błonie filmowej (średni format), zdjęcia instant (Instax), flip book, a także profesjonalny streaming wideo live do internetu. Zachęcamy do wcześniejszego zamawiania ze względu na ograniczoną dostępność sprzętu."
+        }
+      }
+    ]
+  })} />
+
   <Hero
-    image={{ 
-      src: dodatkoweUslugiCover, 
+    image={{
+      src: dodatkoweUslugiCover,
       alt: 'Dodatkowe usługi foto/wideo'
     }}
   >
     <Fragment slot="title">
       Dodatkowe usługi foto/wideo
     </Fragment>
+    <Fragment slot="subtitle">
+      Fotobudka, zdjęcia z drona, ścianka fotograficzna live, zdjęcia instant, streaming i wiele innych. Ożywiamy imprezy niecodziennym podejściem!
+    </Fragment>
   </Hero>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
-        <h2>Ożywiamy imprezy niecodziennym podejściem</h2>
-        <p>Fotograf to człowiek z aparatem cyfrowym. Operator / filmowiec - z cyfrową kamerą. Ale czy zawsze? My pokazujemy, że niekoniecznie! Oprócz standardowego reportażu w naszej ofercie znajdują się trochę mniej lub bardziej oczywiste pozycje, m.in.:</p>
+        <h2>Dodatkowe usługi fotograficzne — coś więcej niż standardowy reportaż</h2>
+        <p>Szukasz <strong>dodatkowych usług fotograficznych</strong>, które ożywią Twoją imprezę? Oprócz klasycznego reportażu eventowego oferujemy szeroką gamę atrakcji foto i wideo: od <strong>fotobudki na imprezę</strong>, przez <strong>zdjęcia z drona</strong>, aż po <strong>streaming wideo live</strong> i <strong>zdjęcia na błonie filmowej</strong>. Nasze dodatkowe usługi fotograficzne sprawdzają się na weselach, eventach firmowych, studniówkach, urodzinach i wyjazdach integracyjnych.</p>
+
+        <p>Fotograf to człowiek z aparatem cyfrowym. Operator / filmowiec — z cyfrową kamerą. Ale czy zawsze? My pokazujemy, że niekoniecznie! Oprócz standardowego reportażu w naszej ofercie znajdują się trochę mniej lub bardziej oczywiste pozycje, m.in.:</p>
         <ul>
           <li><strong>zdjęcia i filmy z drona</strong>,</li>
           <li><strong>ścianka fotograficzna</strong>, czyli zdjęcia na jednolitym lub zaaranżowanym tle, światło błyskowe lub ciągłe,</li>
-          <li><strong>ścianka fotograficzna "live"</strong> - zdjęcia "w czasie rzeczywistym" na udostępnionym serwerze,</li>
-          <li><strong>ścianka fotograficzna z wydrukiem</strong> - zdjęcia w druku na następny dzień (lub w czasie rzeczywistym),</li>
-          <li><strong>fotoedytor na miejscu</strong> - zdjęcia z wydarzenia "w czasie rzeczywistym" na serwerze,</li>
-          <li><strong>zdjęcia instant</strong> - fotograf z aparatem typu Instax lub możliwość wydruku zdjęć cyfrowych na nośnikach Instax,</li>
-          <li><strong>nagrania kamerą VHS</strong> - specyficzny typ realizacji, bardzo ograniczony ze względu na małą dostępność działającego sprzętu,</li>
-          <li><strong>zdjęcia na błonie filmowej</strong> - również charakterystyczny rodzaj realizacji, także ograniczony ze względu na dostępność działającego sprzętu oraz materiałów światłoczułych,</li>
-          <li><strong>streaming wideo live do internetu</strong> - realizacje live z prelekcji, wykładów, konferencji itp.,</li>
+          <li><strong>ścianka fotograficzna „live"</strong> — zdjęcia „w czasie rzeczywistym" na udostępnionym serwerze,</li>
+          <li><strong>ścianka fotograficzna z wydrukiem</strong> — zdjęcia w druku na następny dzień (lub w czasie rzeczywistym),</li>
+          <li><strong>fotoedytor na miejscu</strong> — zdjęcia z wydarzenia „w czasie rzeczywistym" na serwerze,</li>
+          <li><strong>zdjęcia instant</strong> — fotograf z aparatem typu Instax lub możliwość wydruku zdjęć cyfrowych na nośnikach Instax,</li>
+          <li><strong>nagrania kamerą VHS</strong> — specyficzny typ realizacji, bardzo ograniczony ze względu na małą dostępność działającego sprzętu,</li>
+          <li><strong>zdjęcia na błonie filmowej</strong> — również charakterystyczny rodzaj realizacji, także ograniczony ze względu na dostępność działającego sprzętu oraz materiałów światłoczułych,</li>
+          <li><strong>streaming wideo live do internetu</strong> — realizacje live z prelekcji, wykładów, konferencji itp.,</li>
           <li><strong>fotobudka</strong>.</li>
         </ul>
         <p>Zachęcamy do kontaktu i wcześniejszego zamawiania tego typu usług ze względu na ograniczenia w dostępności sprzętu, materiałów i zasobów kadrowych.</p>
+
+        <h3>Fotobudka na imprezę — pamiątkowe zdjęcia dla gości</h3>
+        <p><strong>Fotobudka</strong> to jedna z najpopularniejszych atrakcji na studniówki, urodziny, eventy firmowe i imprezy okolicznościowe. Goście mogą robić sobie pamiątkowe zdjęcia w nietuzinkowych oprawach, korzystając z rekwizytów i zaaranżowanego tła. Fotobudka gwarantuje świetną zabawę i unikalne kadry, które na długo zostają w pamięci.</p>
+
+        <h3>Zdjęcia i filmy z drona — perspektywa z lotu ptaka</h3>
+        <p><strong>Zdjęcia z drona</strong> to doskonały sposób na uchwycenie skali wydarzenia. Ujęcia z lotu ptaka świetnie sprawdzają się jako dodatek do teledysku eventowego, przy dokumentacji wyjazdów integracyjnych czy przy zdjęciach grupowych w plenerze. Oferujemy zarówno <strong>fotografię z drona</strong>, jak i <strong>nagrania wideo z drona</strong> w wysokiej rozdzielczości.</p>
+
+        <h3>Ścianka fotograficzna live — zdjęcia w czasie rzeczywistym</h3>
+        <p><strong>Ścianka fotograficzna live</strong> to usługa, w której zdjęcia robione na jednolitym lub zaaranżowanym tle są przesyłane na udostępniony serwer <strong>w czasie rzeczywistym</strong>. Dzięki temu goście mogą pobierać i udostępniać swoje zdjęcia niemal natychmiast — idealne rozwiązanie na eventy firmowe, konferencje i imprezy okolicznościowe.</p>
+
+        <h3>Streaming wideo live — profesjonalne transmisje z wydarzeń</h3>
+        <p>Oferujemy <strong>streaming wideo live do internetu</strong> — profesjonalne transmisje z prelekcji, wykładów, konferencji i innych wydarzeń. Zapewniamy pełne zaplecze techniczne, w tym odpowiednie oświetlenie, dźwięk i łączność, aby jakość obrazu i dźwięku była na najwyższym poziomie.</p>
+
+        <h3>Fotografia analogowa — zdjęcia na błonie filmowej, VHS i instant</h3>
+        <p>Dla miłośników nietuzinkowych kadrów oferujemy <strong>zdjęcia na błonie filmowej</strong> (średni format), <strong>zdjęcia instant</strong> (Instax) oraz unikalne <strong>nagrania kamerą VHS</strong>. To doskonały sposób na nadanie imprezie retro klimatu. Ze względu na ograniczoną dostępność sprzętu i materiałów, zachęcamy do wcześniejszego zamawiania tych usług.</p>
+
+        <h3>Kompleksowa obsługa foto i wideo</h3>
+        <p>Wszystkie dodatkowe usługi fotograficzne możemy łączyć ze sobą oraz z naszymi <a href="/oferta/zdjecia-live">zdjęciami live</a>, <a href="/oferta/streaming-video">streamingiem wideo</a> czy <a href="/oferta/video-eventowe">wideo eventowym</a>. Dzięki temu otrzymujesz kompleksową obsługę foto i wideo z jednego źródła — bez konieczności koordynowania wielu podwykonawców.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — dodatkowe usługi</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Co to jest ścianka fotograficzna live?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Ścianka fotograficzna live to usługa, w której zdjęcia robione na jednolitym lub zaaranżowanym tle są przesyłane na udostępniony serwer <strong>w czasie rzeczywistym</strong>. Dzięki temu goście mogą pobierać i udostępniać swoje zdjęcia niemal natychmiast — idealne rozwiązanie na eventy firmowe i imprezy okolicznościowe.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie zdjęcia z drona?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! Oferujemy zarówno <strong>zdjęcia, jak i nagrania wideo z drona</strong>. Ujęcia z lotu ptaka świetnie sprawdzają się jako dodatek do teledysku eventowego, przy dokumentacji wyjazdów integracyjnych, czy przy zdjęciach grupowych w plenerze.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy możecie zorganizować fotobudkę na imprezie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak, w naszej ofercie znajduje się <strong>fotobudka</strong> — świetna atrakcja na studniówki, urodziny, eventy firmowe i imprezy okolicznościowe. Goście mogą robić sobie pamiątkowe zdjęcia w nietuzinkowych oprawach.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie nietypowe usługi fotograficzne oferujecie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Oprócz standardowych usług oferujemy m.in.: <strong>nagrania kamerą VHS</strong>, <strong>zdjęcia na błonie filmowej</strong> (średni format), <strong>zdjęcia instant</strong> (Instax), <strong>flip book</strong>, a także profesjonalny <strong>streaming wideo live</strong> do internetu. Zachęcamy do wcześniejszego zamawiania ze względu na ograniczoną dostępność sprzętu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia z eventu w czasie rzeczywistym — idealne do social media.</p>
+        </a>
+        <a href="/oferta/streaming-video" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Streaming wideo</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalne transmisje live z konferencji i wydarzeń.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <ContactForm
     formName="formularz-dodatkowe"
     title="Zapytaj o dodatkowe usługi"

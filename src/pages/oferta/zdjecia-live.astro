@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import zdjeciaLiveCover from '~/assets/images/covers/zdjecia_live_cover.jpg';
 
 const metadata = {
-  title: 'Zdjęcia live - ImprezowyFotograf',
-  description: 'Oferujemy możliwość dostarczania zdjęć niemalże w czasie rzeczywistym jeszcze w trakcie trwania wydarzenia. Zapytaj o szczegóły oferty.',
+  title: 'Zdjęcia Live — Fotografia w Czasie Rzeczywistym na Eventy | ImprezowyFotograf',
+  description: 'Zdjęcia live — dostarczamy zdjęcia niemal w czasie rzeczywistym, jeszcze podczas trwania wydarzenia. Fotoedytor na miejscu, szybka publikacja na social media. Sprawdź!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/zdjecia-live',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/zdjecia-live',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Zdjęcia Live — Fotografia w Czasie Rzeczywistym na Eventy',
+    description: 'Zdjęcia live — dostarczamy zdjęcia niemal w czasie rzeczywistym. Fotoedytor na miejscu, szybka publikacja na social media.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -24,29 +35,147 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Co to są zdjęcia live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zdjęcia live to usługa fotograficzną, w której zdjęcia są dostarczane niemal w czasie rzeczywistym — jeszcze podczas trwania wydarzenia. Na miejsce wysyłamy fotografa i fotoedytora, który na bieżąco przygotowuje pliki do publikacji."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ile kosztują zdjęcia live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt zdjęć live zależy od specyfiki wydarzenia, liczby godzin i wymaganej kadry. Usługa obejmuje fotografa oraz fotoedytora na miejscu. Zapraszamy do kontaktu po indywidualną wycenę."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko dostajemy zdjęcia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pierwsze partie zdjęć live trafiają do klienta jeszcze w trakcie trwania wydarzenia — zazwyczaj w ciągu kilkunastu minut od wykonania. Pełny reportaż retuszowany dostarczamy w standardowym terminie 24-72h."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim terenie oferujecie zdjęcia live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zdjęcia live oferujemy na terenie całej Polski. Dojeżdżamy do Krakowa, Warszawy, Katowic, Rzeszowa, Wrocławia, Gdańska i innych miast. Możliwe są również realizacje za granicą."
+        }
+      }
+    ]
+  })} />
+
   <Hero
     image={{ 
       src: zdjeciaLiveCover, 
-      alt: 'Zdjęcia live'
+      alt: 'Zdjęcia live — fotografia w czasie rzeczywistym na eventach'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o zdjęcia live',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
       Zdjęcia "live"
     </Fragment>
     <Fragment slot="subtitle">
-      (DOSTARCZANE W CZASIE RZECZYWISTYM)
+      <strong>Dostarczamy zdjęcia w czasie rzeczywistym</strong> — jeszcze podczas trwania wydarzenia. Fotoedytor na miejscu, szybka publikacja na social media.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Zdjęcia live na event — fotografia w czasie rzeczywistym</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>zdjęć live na event</strong>? Nasza usługa <strong>fotografii w czasie rzeczywistym</strong> pozwala na otrzymywanie zdjęć niemal natychmiast — jeszcze w trakcie trwania wydarzenia. Na miejsce wysyłamy fotografa i <strong>fotoedytora</strong>, który na bieżąco przygotowuje pliki do publikacji.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        <strong>Zdjęcia live</strong> to idealne rozwiązanie na konferencje, eventy firmowe i wydarzenia studenckie, gdzie organizator chce publikować materiały na bieżąco na <strong>social media</strong>. Pierwsze zdjęcia trafiają do Ciebie w ciągu kilkunastu minut od wykonania.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Oferujemy zdjęcia live na terenie <strong>całej Polski</strong> — Kraków, Warszawa, Katowice, Wrocław, Gdańsk i więcej. Istnieje również możliwość dostarczenia zdjęć w formie <strong>papierowej</strong> od razu lub na następny dzień.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <h2>Fotografujemy, edytujemy, dostarczamy. Natychmiast.</h2>
         <p>Zdarzają się takie eventy, gdzie organizator chciałby otrzymać zdjęcia dużo wcześniej, niż zwykle się to praktykuje. Czasami jest to kilka godzin od wydarzenia, czasem następny dzień rano, a w innych przypadkach materiały potrzebne są tu i teraz. Z myślą o takich realizacjach stworzyliśmy system pracy umożliwiający optymalizację czasu potrzebnego na dostarczenie zdjęć.</p>
-        <p>W zależności od specyfiki projektu na wydarzenie wysyłamy tylko fotografa lub fotografa i fotoedytora. Fotoedytor otrzymuje od fotografa pliki RAW (różnymi metodami technicznymi, dobieranymi indywidualnie do specyfiki wydarzenia) i przygotowuje na miejscu pliki do publikacji, a następnie wykonuje ich transfer na wcześniej przygotowany do tego celu hosting plików.</p>
-        <p>Zdarzają się również realizacje, gdzie zdjęcia są potrzebne w formie papierowej od razu lub na następny dzień po zdjęciach - istnieje również możliwość realizacji tego typu zlecenia.</p>
-        <p>Jako, że usługa zdjęć "live" jest dość unikalną usługą i niewiele firm ją oferuje - dojeżdżamy na terenie <strong>całej Polski</strong>, a jeśli tego trzeba - możemy również dolecieć!</p>
-        <p>Realizujemy live również audio i wideo - zapraszamy do zapoznania się z ofertą na stronie dotyczącej <a href="/oferta/streaming-video">streamingu</a>.</p>
+        <p>W zależności od specyfiki projektu na wydarzenie wysyłamy tylko fotografa lub fotografa i <strong>fotoedytora</strong>. Fotoedytor otrzymuje od fotografa pliki RAW (różnymi metodami technicznymi, dobieranymi indywidualnie do specyfiki wydarzenia) i przygotowuje na miejscu pliki do publikacji, a następnie wykonuje ich transfer na wcześniej przygotowany do tego celu hosting plików.</p>
+        <p>Zdarzają się również realizacje, gdzie zdjęcia są potrzebne w formie <strong>papierowej</strong> od razu lub na następny dzień po zdjęciach — istnieje również możliwość realizacji tego typu zlecenia.</p>
+        <p>Jako, że usługa zdjęć "live" jest dość unikalną usługą i niewiele firm ją oferuje — dojeżdżamy na terenie <strong>całej Polski</strong>, a jeśli tego trzeba — możemy również dolecieć!</p>
+        <p>Realizujemy live również <strong>audio i wideo</strong> — zapraszamy do zapoznania się z ofertą na stronie dotyczącej <a href="/oferta/streaming-video">streamingu</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — zdjęcia live</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Co to są zdjęcia live?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Zdjęcia live to usługa fotograficzna, w której zdjęcia są dostarczane <strong>niemal w czasie rzeczywistym</strong> — jeszcze podczas trwania wydarzenia. Na miejsce wysyłamy fotografa i fotoedytora, który na bieżąco przygotowuje pliki do publikacji.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztują zdjęcia live?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt zdjęć live zależy od specyfiki wydarzenia, liczby godzin i wymaganej kadry. Usługa obejmuje <strong>fotografa oraz fotoedytora</strong> na miejscu. Zapraszamy do kontaktu po indywidualną wycenę.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko dostajemy zdjęcia?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Pierwsze partie zdjęć live trafiają do klienta jeszcze <strong>w trakcie trwania wydarzenia</strong> — zazwyczaj w ciągu kilkunastu minut od wykonania. Pełny reportaż retuszowany dostarczamy w standardowym terminie 24-72h.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie oferujecie zdjęcia live?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Zdjęcia live oferujemy na terenie <strong>całej Polski</strong>. Dojeżdżamy do Krakowa, Warszawy, Katowic, Rzeszowa, Wrocławia, Gdańska i innych miast. Możliwe są również realizacje za granicą.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-konferencje-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na konferencję</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna dokumentacja konferencji i kongresów.</p>
+        </a>
+        <a href="/oferta/streaming-video" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Streaming video</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Transmisje live z konferencji, wykładów i eventów.</p>
+        </a>
+        <a href="/oferta/dodatkowe-uslugi-fotograficzne" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Dodatkowe usługi</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Fotobudka, photowall, wydruki i inne dodatki na eventy.</p>
+        </a>
       </div>
     </div>
   </section>

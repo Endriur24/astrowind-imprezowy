@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import szkoleniaCover from '~/assets/images/covers/szkolenia_cover.jpg';
 
 const metadata = {
-  title: 'Szkolenia fotograficzne oraz video - ImprezowyFotograf',
-  description: 'Jako społeczność fotografów i filmowców oferujemy szkolenia stacjonarne dla grup i konsultacje warsztatowe w formie 1:1 z wielu różnych tematów.',
+  title: 'Szkolenia Fotograficzne i Wideo — Warsztaty, Kursy, Konsultacje 1:1',
+  description: 'Szkolenia fotograficzne i wideo w Krakowie. Warsztaty grupowe i konsultacje 1:1: Lightroom, Premiere Pro, fotografia reportażowa, światło studyjne i więcej. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/szkolenia-foto-wideo',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/szkolenia-foto-wideo',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Szkolenia Fotograficzne i Wideo — Warsztaty, Kursy, Konsultacje 1:1',
+    description: 'Szkolenia fotograficzne i wideo w Krakowie. Warsztaty grupowe i konsultacje 1:1. Lightroom, Premiere Pro, fotografia reportażowa.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -24,22 +35,83 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztują szkolenia fotograficzne?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt szkoleń fotograficznych zależy od formy (grupowa czy 1:1), tematu i liczby godzin. Konsultacje indywidualne są wyceniane osobno. Zapraszamy do kontaktu po szczegóły i wycenę."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie szkolenia indywidualne?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Oferujemy konsultacje warsztatowe w formie 1:1 — idealne dla osób, które preferują indywidualne podejście i chcą szybko rozwinąć swoje umiejętności fotograficzne lub wideo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakie tematy pokrywają szkolenia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Szkolenia obejmują: podstawy fotografii, Adobe Lightroom Classic, Adobe Premiere Pro, pracę z lampą błyskową, światło studyjne, fotografię produktową, fotoreportaż, wywoływanie filmów analogowych i wiele innych."
+        }
+      }
+    ]
+  })} />
+
   <Hero
     image={{ 
       src: szkoleniaCover, 
-      alt: 'Szkolenia foto/wideo'
+      alt: 'Szkolenia fotograficzne i wideo — warsztaty i kursy'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o szkolenie',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
       Szkolenia dla fotografów i filmowców
     </Fragment>
+    <Fragment slot="subtitle">
+      <strong>Szkolenia fotograficzne i wideo w Krakowie</strong> — warsztaty grupowe i konsultacje 1:1. Lightroom, Premiere Pro, fotografia reportażowa, światło studyjne i więcej.
+    </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Szkolenia fotograficzne w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>szkoleń fotograficznych w Krakowie</strong>? Jako społeczność fotografów i filmowców o zróżnicowanych specjalizacjach oferujemy <strong>warsztaty grupowe</strong> oraz <strong>konsultacje 1:1</strong>. Od podstaw fotografii, przez obróbkę w <strong>Lightroomie</strong>, po zaawansowany montaż w <strong>Premiere Pro</strong>.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Nasze <strong>kursy fotografii</strong> i <strong>warsztaty foto</strong> obejmują zarówno podstawy, jak i zaawansowane techniki — pracę ze światłem studyjnym, fotoreportaż, fotografię produktową i wiele innych. Każde szkolenie dopasowujemy do poziomu i potrzeb uczestników.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Szkolenia realizujemy głównie na terenie <strong>Krakowa</strong>, ale możliwe są również wyjazdy do innych miast w <strong>całej Polsce</strong>.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <h2>Szkolimy na poziomie podstawowym i zaawansowanym</h2>
-        <p>Jako społeczność fotografów i filmowców o dość zróżnicowanych specjalizacjach w branży kreatywnej oferujemy szkolenia stacjonarne dla grup jak i konsultacje warsztatowe w formie 1:1 z wielu różnych tematów. Istnieje możliwość przeprowadzenia kursów:</p>
+        <p>Jako społeczność fotografów i filmowców o dość zróżnicowanych specjalizacjach w branży kreatywnej oferujemy <strong>szkolenia stacjonarne dla grup</strong> jak i <strong>konsultacje warsztatowe w formie 1:1</strong> z wielu różnych tematów. Istnieje możliwość przeprowadzenia kursów:</p>
         <ul>
           <li><strong>Totalne podstawy fotografii</strong> - jak szybko zacząć robić zdjęcia dobrze,</li>
           <li><strong>Adobe Lightroom Classic</strong> - obróbka zdjęć i organizacja pracy w programie,</li>
@@ -52,6 +124,52 @@ const metadata = {
           <li><strong>Fotografia reportażowa w praktyce</strong> - zdjęcia klubowe, imprezowe, konferencyjne do wyboru (dostępne tylko w formie warsztatów 1:1).</li>
         </ul>
         <p><a href="/kontakt">Zapraszamy do kontaktu</a> w celu ustalenia szczegółów i zakresu materiału - zawsze staramy się dostosować formę i ilość, a także poziom skomplikowania przekazywanych treści do konkretnej grupy odbiorców.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — szkolenia fotograficzne</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztują szkolenia fotograficzne?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt szkoleń fotograficznych zależy od <strong>formy (grupowa czy 1:1)</strong>, tematu i liczby godzin. Konsultacje indywidualne są wyceniane osobno. Zapraszamy do kontaktu po szczegóły i wycenę.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie szkolenia indywidualne?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! Oferujemy <strong>konsultacje warsztatowe w formie 1:1</strong> — idealne dla osób, które preferują indywidualne podejście i chcą szybko rozwinąć swoje umiejętności fotograficzne lub wideo.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie tematy pokrywają szkolenia?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Szkolenia obejmują: <strong>podstawy fotografii</strong>, <strong>Adobe Lightroom Classic</strong>, <strong>Adobe Premiere Pro</strong>, pracę z lampą błyskową, światło studyjne, <strong>fotografię produktową</strong>, fotoreportaż, wywoływanie filmów analogowych i wiele innych.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-eventowy-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf eventowy Kraków</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna fotografia z eventów firmowych i integracyjnych.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+        <a href="/oferta/reportaze-i-projekty-specjalne" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Reportaże specjalne</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Reportaże z wyjazdów, zawodów i eventów sportowych.</p>
+        </a>
       </div>
     </div>
   </section>

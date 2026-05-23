@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import imprezyStudenckieCover from '~/assets/images/covers/imprezy_studenckie_cover.jpg';
 
 const metadata = {
-  title: 'Fotograf na Wydarzenie studenckie - ImprezowyFotograf',
-  description: 'Profesjonalne zdjęcia i filmy z imprez studenckich. Retuszowane zdjęcia, szybka dostawa a nawet zdjęcia live. Sprawdź kompleksową ofertę!',
+  title: 'Fotograf na Wydarzenia Studenckie Kraków — Bale, Dyskoteki, Rajdy',
+  description: 'Fotograf na imprezy studenckie w Krakowie. Bale wydziałowe, dyskoteki, rajdy studenckie, puchar dziekana. Retusz w cenie, zdjęcia live, teledyski. Sprawdź kompleksową ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-na-wydarzenia-studenckie',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-na-wydarzenia-studenckie',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Fotograf na Wydarzenia Studenckie Kraków — Bale, Dyskoteki, Rajdy',
+    description: 'Fotograf na imprezy studenckie w Krakowie. Bale wydziałowe, dyskoteki, rajdy. Retusz w cenie, zdjęcia live, teledyski.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -32,19 +43,85 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf na imprezę studencką?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt fotografa na imprezę studencką zależy od rodzaju wydarzenia, liczby godzin i zakresu usług. Oferujemy elastyczne pakiety dopasowane do budżetu organizacji studenckich. Zapraszamy do kontaktu po wycenę."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko dostaniemy zdjęcia z imprezy studenckiej?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardowy czas dostarczenia zdjęć z imprez studenckich to od 24 do 72 godzin. Oferujemy również usługę zdjęć live, gdzie pierwsze zdjęcia trafiają do Was jeszcze podczas trwania wydarzenia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy fotografujecie bale wydziałowe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Bale wydziałowe to jedna z naszych najpopularniejszych realizacji. Fotografujemy również dyskoteki, rajdy studenckie, zmagania o puchar dziekana i inne wydarzenia studenckie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie zdjęcia live na imprezy studenckie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Oferujemy zdjęcia live — zabieramy na lokację fotoedytora, który na bieżąco przygotowuje zdjęcia do publikacji. Możecie publikować foty na social mediach jeszcze podczas imprezy."
+        }
+      }
+    ]
+  })} />
+
   <Hero
     image={{ 
       src: imprezyStudenckieCover, 
-      alt: 'Fotograf na imprezę studencką'
+      alt: 'Fotograf na imprezę studencką w Krakowie'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj fotografa',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
       Fotograf na imprezę studencką
     </Fragment>
     <Fragment slot="subtitle">
-      (BAL, DYSKOTEKĘ, wydziałówkę, RAJD, itp.)
+      <strong>Fotografia studencka w Krakowie</strong> — bale wydziałowe, dyskoteki, rajdy studenckie, puchar dziekana. <strong>Retusz w cenie</strong>, zdjęcia live, teledyski.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na imprezę studencką w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>fotografa na imprezę studencką w Krakowie</strong>? Mamy młodą ekipę, która doskonale rozumie klimat wydarzeń studenckich. Fotografujemy <strong>bale wydziałowe</strong>, <strong>dyskoteki</strong> (wydziałówki), <strong>rajdy studenckie</strong>, zmagania o <strong>puchar dziekana</strong> i inne imprezy akademickie.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        W przeciwieństwie do wielu fotografów — <strong>retuszujemy wszystkie zdjęcia</strong> w cenie usługi. Oferujemy również <strong>zdjęcia live</strong>, <strong>teledyski</strong> i <strong>spoty wideo</strong>. Standardowy czas dostawy to 24-72h, ale pierwsze zdjęcia możecie mieć jeszcze podczas imprezy.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Działamy głównie na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie <strong>całej Polski</strong>.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
@@ -60,6 +137,57 @@ const metadata = {
     </div>
   </section>
 
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia studencka</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf na imprezę studencką?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt fotografa na imprezę studencką zależy od <strong>rodzaju wydarzenia</strong>, liczby godzin i zakresu usług. Oferujemy elastyczne pakiety dopasowane do budżetu organizacji studenckich. Zapraszamy do kontaktu po wycenę.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko dostaniemy zdjęcia z imprezy studenckiej?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Standardowy czas dostarczenia zdjęć z imprez studenckich to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy fotografujecie bale wydziałowe?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! <strong>Bale wydziałowe</strong> to jedna z naszych najpopularniejszych realizacji. Fotografujemy również dyskoteki, rajdy studenckie, zmagania o puchar dziekana i inne wydarzenia studenckie.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie zdjęcia live na imprezy studenckie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! Oferujemy <strong>zdjęcia live</strong> — zabieramy na lokację fotoedytora, który na bieżąco przygotowuje zdjęcia do publikacji. Możecie publikować foty na social mediach jeszcze <strong>w trakcie imprezy</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-studniowke" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na studniówkę</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalne zdjęcia z balów studniówkowych.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia w czasie rzeczywistym — idealne do social media.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Form -->
   <ContactForm

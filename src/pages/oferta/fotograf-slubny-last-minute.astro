@@ -6,8 +6,19 @@ import Features from '~/components/widgets/Features.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
-  title: 'Fotograf Ślubny Last Minute - Rezerwacje do 4 Miesięcy Wprzód',
-  description: 'Potrzebujesz fotografa ślubnego na ostatnią chwilę? Rezerwacje dostępne do 4 miesięcy wprzód. Profesjonalna fotografia ślubna w ostatniej chwili.',
+  title: 'Fotograf Ślubny Last Minute — Rezerwacje do 4 Miesięcy | Kraków',
+  description: 'Fotograf ślubny last minute w Krakowie. Rezerwacje do 4 miesięcy wprzód. Profesjonalna fotografia ślubna na krótki termin — reportaż, plener, sesja przedślubna. Sprawdź dostępne terminy!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-slubny-last-minute',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-slubny-last-minute',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Fotograf Ślubny Last Minute — Rezerwacje do 4 Miesięcy | Kraków',
+    description: 'Fotograf ślubny last minute w Krakowie. Rezerwacje do 4 miesięcy wprzód. Profesjonalna fotografia ślubna na krótki termin.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -26,6 +37,45 @@ const metadata = {
     ],
     "serviceType": ["Fotografia ślubna", "Reportaż ślubny", "Plener ślubny", "Sesja narzeczeńska"],
     "priceRange": "$$$"
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf ślubny last minute?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fotograf ślubny last minute w Krakowie pobiera zazwyczaj od 3 000 do 6 000 zł za pełny reportaż ślubny. Cena zależy od wybranego pakietu, liczby godzin i zakresu usług. Rezerwacja na krótki termin nie oznacza wyższej stawki — sprawdzamy po prostu dostępność terminu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko można zarezerwować fotografa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Przyjmujemy rezerwacje do 4 miesięcy przed planowanym ślubem. Wystarczy wypełnić formularz kontaktowy lub zadzwonić — sprawdzamy dostępność i potwierdzamy termin w ciągu 24 godzin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy jakość zdjęć last minute jest taka sama?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, jakość zdjęć nie zależy od terminu rezerwacji. Każdy reportaż ślubny realizujemy z pełnym zaangażowaniem, profesjonalnym sprzętem i dokładnym retuszem wszystkich zdjęć."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim terenie realizujecie śluby?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Śluby fotografujemy głównie na terenie Krakowa, Warszawy, Katowic oraz całej Polski. Dojeżdżamy do dowolnego miejsca — zarówno w kraju, jak i za granicą."
+        }
+      }
+    ]
   })} />
 
   <!-- Hero Section -->
@@ -48,9 +98,24 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Rezerwacje dostępne do 4 miesięcy wprzód – idealne rozwiązanie dla par, które planują ślub na krótki termin. Profesjonalna fotografia ślubna bez długiego oczekiwania.
+      Rezerwacje dostępne do 4 miesięcy wprzód — idealne rozwiązanie dla par, które planują ślub na krótki termin. <strong>Profesjonalna fotografia ślubna</strong> bez długiego oczekiwania.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf ślubny last minute w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>fotografa ślubnego last minute w Krakowie</strong>? Przyjmujemy rezerwacje nawet do <strong>4 miesięcy przed ślubem</strong>. Niezależnie od tego, czy planujecie intimate ceremonią czy duże wesele — mamy wolne terminy na krótki termin. Profesjonalny <strong>reportaż ślubny</strong>, <strong>sesja plenerowa</strong> i <strong>sesja przedślubna</strong> — wszystko w ramach elastycznych pakietów.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Krótki termin rezerwacji nie oznacza kompromisów w jakości. Każdy ślub dokumentujemy z pełnym profesjonalizmem — od przygotowań, przez ceremonię, aż po ostatnie tańce na parkiecie. <strong>Retuszujemy wszystkie zdjęcia</strong> i dostarczamy je w pełnej rozdzielczości.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Realizujemy śluby głównie na terenie <strong>Krakowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> i całej <strong>Polski</strong>. Sprawdź dostępne terminy — wypełnij formularz lub zadzwoń!
+      </p>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <section class="py-16 bg-white dark:bg-gray-900">
@@ -162,7 +227,7 @@ const metadata = {
             <span class="text-xl font-bold text-pink-600 dark:text-pink-400">2</span>
           </div>
           <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Umowa</h3>
-          <p class="text-gray-600 dark:text-gray-400">Szybkie potwierdzenie rezerwacji i podpisanie umowy na取得成功 z wybranym pakietem.</p>
+          <p class="text-gray-600 dark:text-gray-400">Szybkie potwierdzenie rezerwacji i podpisanie umowy z wybranym pakietem.</p>
         </div>
         
         <div class="text-center">
@@ -184,6 +249,57 @@ const metadata = {
     </div>
   </section>
 
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotograf ślubny last minute</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf ślubny last minute?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Fotograf ślubny last minute w Krakowie pobiera zazwyczaj od <strong>3 000 do 6 000 zł</strong> za pełny reportaż ślubny. Cena zależy od wybranego pakietu, liczby godzin i zakresu usług. Rezerwacja na krótki termin nie oznacza wyższej stawki — sprawdzamy po prostu dostępność terminu.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko można zarezerwować fotografa?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Przyjmujemy rezerwacje do <strong>4 miesięcy</strong> przed planowanym ślubem. Wystarczy wypełnić formularz kontaktowy lub zadzwonić — sprawdzamy dostępność i potwierdzamy termin w ciągu 24 godzin.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy jakość zdjęć last minute jest taka sama?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak, jakość zdjęć nie zależy od terminu rezerwacji. Każdy reportaż ślubny realizujemy z pełnym zaangażowaniem, profesjonalnym sprzętem i dokładnym <strong>retuszem wszystkich zdjęć</strong>.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie realizujecie śluby?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Śluby fotografujemy głównie na terenie <strong>Krakowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz całej <strong>Polski</strong>. Dojeżdżamy do dowolnego miejsca — zarówno w kraju, jak i za granicą.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-eventowy-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf eventowy Kraków</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna fotografia z eventów firmowych i integracyjnych.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+        <a href="/oferta/streaming-video" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Streaming video</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Transmisje live z konferencji, wykładów i eventów.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Form -->
   <ContactForm

@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import streamingVideoCover from '~/assets/images/covers/streaming_video_cover.jpg';
 
 const metadata = {
-  title: 'Streaming video - ImprezowyFotograf',
-  description: 'Profesjonalne transmisje live z konferencji i wydarzeń, webinary, programy dedykowane. Pełna obsługa audio i wideo.',
+  title: 'Streaming Wideo Live z Konferencji i Eventów — Transmisje na Żywo | ImprezowyFotograf',
+  description: 'Profesjonalny streaming wideo live z konferencji, wykładów i eventów w Krakowie i całej Polsce. Webinary, programy dedykowane, pełna obsługa AV. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/streaming-video',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/streaming-video',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Streaming Wideo Live z Konferencji i Eventów — Transmisje na Żywo',
+    description: 'Profesjonalny streaming wideo live z konferencji, wykładów i eventów. Webinary, programy dedykowane, pełna obsługa AV.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -20,28 +31,150 @@ const metadata = {
     "url": "https://imprezowyfotograf.pl/oferta/streaming-video",
     "image": "https://imprezowyfotograf.pl/assets/images/covers/streaming_video_cover.jpg",
     "areaServed": {"@type": "Country", "name": "Polska"},
-    "serviceType": ["Streaming wideo", "Transmisje live", "Webinary"],
+    "serviceType": ["Streaming wideo", "Transmisje live", "Webinary", "Live streaming z drona"],
     "priceRange": "$$$"
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje streaming wideo z konferencji?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt streamingu wideo z konferencji zależy od skali wydarzenia, liczby kamer, potrzebnej kadry technicznej oraz wymogów technicznych. Prosimy o kontakt w celu wyceny — dopasowujemy parametry do budżetu klienta, zapewniając najwyższy stosunek jakości do ceny."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy streamujecie na YouTube/Facebook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, realizujemy transmisje na wszystkie popularne platformy: YouTube, Facebook, LinkedIn, Vimeo, a także platformy dedykowane i prywatne. Konfigurujemy wszystkie parametry techniczne."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakie sprzęt używacie do streamingu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stosujemy profesjonalny sprzęt wideo i audio: kamery 4K, miksery wideo, systemy audio, dedykowane enkodery, a także drony do transmisji z powietrza. Każda realizacja jest przygotowywana indywidualnie pod specyfikę wydarzenia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim terenie realizujecie streamy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Streaming wideo realizujemy na terenie całej Polski — głównie w Krakowie, Warszawie, Katowicach i innych dużych miastach. Możliwe są również realizacje za granicą."
+        }
+      }
+    ]
   })} />
 
   <Hero
     image={{ 
       src: streamingVideoCover, 
-      alt: 'Streaming wideo'
+      alt: 'Streaming wideo live z konferencji i eventów'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o streaming',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
-      Streaming wideo
+      Streaming Wideo Live
+    </Fragment>
+    <Fragment slot="subtitle">
+      <strong>Transmisje na żywo z konferencji, wykładów i eventów</strong> — profesjonalna obsługa AV, webinary, programy dedykowane. Kraków i cała Polska.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Streaming wideo z konferencji i eventów</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>streamingu wideo z konferencji lub wydarzenia</strong>? Realizujemy <strong>transmisje live</strong> z konferencji, wykładów, prelekcji, prezentacji i wywiadów — zarówno w formie w 100% zdalnej, jak i hybrydowej. Oferujemy również <strong>live streaming z drona</strong> nad Krakowem i całą Polską.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        W naszej ofercie znajdziesz <strong>rejestrację wideo konferencji</strong>, produkcję webinarów oraz programów dedykowanych w stylu telewizyjnym. Mamy w swoich szeregach realizatorów audio, wideo, operatorów kamer oraz grafików tworzących materiały wizualne na potrzeby transmisji.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Realizujemy streamy na <strong>YouTube</strong>, <strong>Facebook</strong>, <strong>LinkedIn</strong>, <strong>Vimeo</strong> oraz platformy prywatne. Działamy głównie na terenie <strong>Krakowa</strong> i całej <strong>Polski</strong>.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
-        <h2>Realizujemy transmisje wideo</h2>
-        <p>Transmisje live z konferencji, wykładów, prelekcji, prezentacji i wywiadów - zarówno w formie 100% zdalnej jak i hybrydowej - to również element naszej oferty! Realizujemy live wideo z eventów, a także produkujemy webinary i programy dedykowane (w stylu telewizyjnym). Mamy w swoich szeregach realizatorów audio, wideo, operatorów kamer oraz grafików tworzących materiały wizualne na potrzeby transmisji.</p>
-        <p>Tego typu realizacje są bardzo zróżnicowane - zawłaszcza pod kątem liczby potrzebnej kadry, sprzętu, opracowania logistyki oraz planu działania i innych rozwiązań technicznych. Dopasowujemy wszystkie te parametry do potrzeb i budżetu klienta, tak by zapewnić najwyższy stosunek jakości do ceny.</p>
-        <p>Nasza doświadczona kadra obsługiwała m.in. konferencje z dostępem tak publicznym jak i prywatnym, standardowe i hybrydowe, transmisje z obsługą połączeń telefonicznych, a także studia live z wywiadami na żywo i dużą liczbą materiałów multimedialnych.</p>
+        <h2>Realizujemy transmisje wideo na żywo</h2>
+        <p>Transmisje live z konferencji, wykładów, prelekcji, prezentacji i wywiadów — zarówno w formie 100% zdalnej jak i hybrydowej — to również element naszej oferty! Realizujemy <strong>live wideo z eventów</strong>, a także produkujemy <strong>webinary</strong> i <strong>programy dedykowane</strong> (w stylu telewizyjnym). Mamy w swoich szeregach realizatorów audio, wideo, operatorów kamer oraz grafików tworzących materiały wizualne na potrzeby transmisji.</p>
+        <p>Tego typu realizacje są bardzo zróżnicowane — zwłaszcza pod kątem liczby potrzebnej kadry, sprzętu, opracowania logistyki oraz planu działania i innych rozwiązań technicznych. Dopasowujemy wszystkie te parametry do potrzeb i budżetu klienta, tak by zapewnić najwyższy stosunek jakości do ceny.</p>
+        <p>Nasza doświadczona kadra obsługiwała m.in. konferencje z dostępem tak publicznym jak i prywatnym, standardowe i hybrydowe, <strong>transmisje z obsługą połączeń telefonicznych</strong>, a także <strong>studia live z wywiadami na żywo</strong> i dużą liczbą materiałów multimedialnych.</p>
+        <p>Oferujemy również <strong>streaming z drona</strong> — idealny na eventy plenerowe, zawody sportowe i wydarzenia z lotu ptoka. Transmisje z drona realizujemy na terenie <strong>Krakowa</strong> i całej <strong>Polski</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — streaming wideo</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje streaming wideo z konferencji?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt streamingu wideo z konferencji zależy od <strong>skali wydarzenia</strong>, liczby kamer, potrzebnej kadry technicznej oraz wymogów technicznych. Prosimy o kontakt w celu wyceny — dopasowujemy parametry do budżetu klienta, zapewniając najwyższy stosunek jakości do ceny.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy streamujecie na YouTube/Facebook?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak, realizujemy transmisje na wszystkie popularne platformy: <strong>YouTube</strong>, <strong>Facebook</strong>, <strong>LinkedIn</strong>, <strong>Vimeo</strong>, a także platformy dedykowane i prywatne. Konfigurujemy wszystkie parametry techniczne.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie sprzęt używacie do streamingu?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Stosujemy <strong>profesjonalny sprzęt wideo i audio</strong>: kamery 4K, miksery wideo, systemy audio, dedykowane enkodery, a także <strong>drony do transmisji z powietrza</strong>. Każda realizacja jest przygotowywana indywidualnie pod specyfikę wydarzenia.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie realizujecie streamy?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Streaming wideo realizujemy na terenie <strong>całej Polski</strong> — głównie w Krakowie, Warszawie, Katowicach i innych dużych miastach. Możliwe są również realizacje za granicą.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia w czasie rzeczywistym — idealne do social media.</p>
+        </a>
+        <a href="/oferta/fotograf-na-konferencje-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na konferencję</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna dokumentacja konferencji i kongresów.</p>
+        </a>
       </div>
     </div>
   </section>

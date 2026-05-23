@@ -7,8 +7,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import repoSpecjalneCover from '~/assets/images/covers/repo_specjalne_cover.jpg';
 
 const metadata = {
-  title: 'Reportaże specjalne - ImprezowyFotograf',
-  description: 'Wykonujemy zdjęcia na różnego rodzaju wydarzeniach i zawodach. Mamy na koncie wiele wyjazdów zagranicznych z niemalże całego świata.',
+  title: 'Reportaże i Projekty Specjalne — Wyjazdy, Zawody, Eventy Sportowe',
+  description: 'Reportaże fotograficzne i projekty specjalne. Dokumentacja wyjazdów na zawody, eventy sportowe, zjazdy samochodowe. Doświadczenie z projektami w USA, Europie i nie tylko. Sprawdź!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/reportaze-i-projekty-specjalne',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/reportaze-i-projekty-specjalne',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Reportaże i Projekty Specjalne — Wyjazdy, Zawody, Eventy Sportowe',
+    description: 'Reportaże fotograficzne i projekty specjalne. Wyjazdy na zawody, eventy sportowe, zjazdy samochodowe. USA, Europa i nie tylko.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -25,25 +36,86 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Jakie projekty specjalne realizujecie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Realizujemy reportaże z wyjazdów na zawody, eventy sportowe, zjazdy samochodowe, konkursy studenckich zespołów konstruktorskich i inne nieszablonowe wydarzenia. Oferujemy zarówno fotografię, jak i wideo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy fotografujecie za granicą?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Nasi fotografowie realizowali projekty m.in. w USA, Turcji, Monako, Portugalii, Hiszpanii, Holandii, Grecji i Włoszech. Działamy w zasadnie w dowolnym miejscu na świecie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje reportaż specjalny?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt reportażu specjalnego zależy od lokalizacji, liczby dni, zakresu usług i logistyki. Każdy projekt wyceniamy indywidualnie. Zapraszamy do kontaktu po szczegóły."
+        }
+      }
+    ]
+  })} />
+
   <Hero
     image={{ 
       src: repoSpecjalneCover, 
-      alt: 'Reportaże specjalne'
+      alt: 'Reportaże i projekty specjalne — wyjazdy, zawody, eventy sportowe'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o reportaż',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
       Reportaże i projekty specjalne
     </Fragment>
+    <Fragment slot="subtitle">
+      <strong>Reportaż fotograficzny i projekty specjalne</strong> — dokumentacja wyjazdów na zawody, <strong>eventy sportowe</strong>, zjazdy samochodowe. Doświadczenie w USA, Europie i nie tylko.
+    </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Reportaż fotograficzny i dokumentacja zawodów</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>reportażu fotograficznego</strong> z nietypowego wydarzenia? Specjalizujemy się w <strong>dokumentacji zawodów</strong>, <strong>fotografii sportowej</strong>, reportażach z wyjazdów na konkursy inżynieryjne i innych nieszablonowych projektach.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Nasi fotografowie realizowali projekty w krajach takich jak <strong>USA</strong>, <strong>Turcja</strong>, <strong>Monako</strong>, <strong>Portugalia</strong>, <strong>Hiszpania</strong>, <strong>Holandia</strong>, <strong>Grecja</strong> i <strong>Włochy</strong> — tworząc relacje z wydarzeń takich jak „CanSat Competition", „Spaceport America Cup", „Formula SAE Michigan" i wielu innych.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Nie mamy ograniczeń co do obszaru realizacji. Działamy w <strong>dowolnym miejscu na świecie</strong> — o ile mamy dostępne zasoby kadrowe i sprzętowe.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <h2>Uwielbiamy wyzwania i niecodzienne projekty!</h2>
-        <p>W tym miejscu naszej oferty znalazło się miejsce na wydarzenia, które nie wpasowują się w szablon żadnych innych typów reportaży. Mamy na myśli "repo" z np. wyjazdów na konkursy studenckich zespołów konstruktorskich, eventów sportowych, zjazdów samochodowych i innych nieszablonowych wydarzeń.</p>
-        <p>Jako firma wywodząca się po części ze studenckich struktur prasowych mamy spore doświadczenie w realizacji reportaży dla jednostek uczelnianych, w tym głównie Studenckich Kół Naukowych AGH. Do tej pory nasi fotografowie realizowali projekty w krajach takich jak m.in.: USA, Turcja, Monako, Portugalia, Hiszpania, Holandia, Grecja i Włochy, tworząc relacje z wydarzeń takich jak, m.in.: "CanSat Competition", "Spaceport America Cup", "Formula SAE Michigan", "University Rover Challenge", "Formula Student Netherlands", "Formula Student Spain", "TÜBİTAK International UAV Competition", "Monaco Energy Boat Challenge", "European Rocketry Challenge", czy "European Rover Challenge".</p>
-        <p>Ponadto mieliśmy okazję realizować wiele różnego rodzaju projektów dedykowanych nie tylko Studenckim Kołom Naukowych, ale i innym jednostkom Akademii Górniczo-Hutniczej w Krakowie - wliczając w to sesje zdjęciowe, reportaże, nagrania wideo. Mamy również doświadczenie w reportażu prasowym.</p>
-        <p>W zakresie zdjęć tego typu nie mamy ograniczeń co do obszaru realizacji. Działamy w zasadzie w dowolnym miejscu na świecie - o ile aktualnie mamy dostępne zasoby kadrowe i sprzętowe.</p>
+        <p>W tym miejscu naszej oferty znalazło się miejsce na wydarzenia, które nie wpasowują się w szablon żadnych innych typów reportaży. Mamy na myśli "repo" z np. wyjazdów na konkursy studenckich zespołów konstruktorskich, <strong>eventów sportowych</strong>, <strong>zjazdów samochodowych</strong> i innych nieszablonowych wydarzeń.</p>
+        <p>Jako firma wywodząca się po części ze studenckich struktur prasowych mamy spore doświadczenie w realizacji reportaży dla jednostek uczelnianych, w tym głównie Studenckich Kół Naukowych AGH. Do tej pory nasi fotografowie realizowali projekty w krajach takich jak m.in.: <strong>USA</strong>, <strong>Turcja</strong>, <strong>Monako</strong>, <strong>Portugalia</strong>, <strong>Hiszpania</strong>, <strong>Holandia</strong>, <strong>Grecja</strong> i <strong>Włochy</strong>, tworząc relacje z wydarzeń takich jak, m.in.: "CanSat Competition", "Spaceport America Cup", "Formula SAE Michigan", "University Rover Challenge", "Formula Student Netherlands", "Formula Student Spain", "TÜBİTAK International UAV Competition", "Monaco Energy Boat Challenge", "European Rocketry Challenge", czy "European Rover Challenge".</p>
+        <p>Ponadto mieliśmy okazję realizować wiele różnego rodzaju projektów dedykowanych nie tylko Studenckim Kołom Naukowych, ale i innym jednostkom Akademii Górniczo-Hutniczej w Krakowie - wliczając w to sesje zdjęciowe, reportaże, nagrania wideo. Mamy również doświadczenie w <strong>reportażu prasowym</strong>.</p>
+        <p>W zakresie zdjęć tego typu nie mamy ograniczeń co do obszaru realizacji. Działamy w zasadzie w <strong>dowolnym miejscu na świecie</strong> - o ile aktualnie mamy dostępne zasoby kadrowe i sprzętowe.</p>
         <p><strong>Nagrywamy filmy</strong> - oprócz reportaży foto oferujemy również możliwość nagrania i montażu materiałów takich jak <strong>podcasty</strong>, <strong>relacje</strong>, <strong>spoty</strong>, <strong>reportaże wideo</strong> i inne.</p>
       </div>
     </div>
@@ -56,6 +128,52 @@ const metadata = {
     minColumnWidth={200}
     gap={12}
   />
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — reportaże specjalne</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie projekty specjalne realizujecie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Realizujemy <strong>reportaże z wyjazdów na zawody</strong>, <strong>eventy sportowe</strong>, zjazdy samochodowe, konkursy studenckich zespołów konstruktorskich i inne nieszablonowe wydarzenia. Oferujemy zarówno fotografię, jak i wideo.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy fotografujecie za granicą?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! Nasi fotografowie realizowali projekty m.in. w <strong>USA</strong>, <strong>Turcji</strong>, <strong>Monako</strong>, <strong>Portugalii</strong>, <strong>Hiszpanii</strong>, <strong>Holandii</strong>, <strong>Grecji</strong> i <strong>Włoszech</strong>. Działamy w zasadzie w <strong>dowolnym miejscu na świecie</strong>.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje reportaż specjalny?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt reportażu specjalnego zależy od <strong>lokalizacji</strong>, liczby dni, zakresu usług i logistyki. Każdy projekt wyceniamy indywidualnie. Zapraszamy do kontaktu po szczegóły.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-wydarzenia-studenckie" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wydarzenia studenckie</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Fotografia z imprez studenckich, bali wydziałowych i rajdów.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Teledyski, spoty promocyjne i relacje wideo z wydarzeń.</p>
+        </a>
+        <a href="/oferta/streaming-video" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Streaming video</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Transmisje live z konferencji, wykładów i eventów.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <ContactForm
     formName="formularz-specjalne"

@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import eventowyCover from '~/assets/images/covers/eventowy_cover.jpg';
 
 const metadata = {
-  title: 'Fotograf eventowy Kraków - ImprezowyFotograf',
-  description: 'Fotografujemy na wszelkiego rodzaju wydarzeniach firmowych od imprez przez otwarcia nowych działów po bankiety i urodziny firmy.',
+  title: 'Fotograf Eventowy Kraków — Zdjęcia z Eventów Firmowych | Retusz w Cenie',
+  description: 'Profesjonalny fotograf eventowy w Krakowie. Zdjęcia z eventów firmowych: urodziny firmy, otwarcia biur, szkolenia, integracje. Retusz w cenie, dostawa 24-72h. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-eventowy-krakow',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-eventowy-krakow',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Fotograf Eventowy Kraków — Zdjęcia z Eventów Firmowych',
+    description: 'Profesjonalny fotograf eventowy w Krakowie. Retusz w cenie, dostawa 24-72h. Zdjęcia z eventów firmowych, szkoleń, integracji.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -32,16 +43,85 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf eventowy w Krakowie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fotograf eventowy w Krakowie pobiera zazwyczaj od 200 do 600 zł za godzinę. Stawka dzienna dla wydarzeń trwających 8–10 godzin może wynosić od 2 000 do 5 000 zł, w zależności od doświadczenia i zakresu usług. Nasze pakiety zawierają retusz zdjęć w cenie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko otrzymam zdjęcia z eventu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardowy czas dostarczenia zdjęć z eventów firmowych wynosi od 24 do 72 godzin od zakończenia wydarzenia. Oferujemy również usługę zdjęć live, gdzie pierwsze partie zdjęć trafiają do klienta jeszcze w trakcie trwania eventu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy retuszujecie zdjęcia z eventów firmowych?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! W przeciwieństwie do wielu fotografów eventowych, my retuszujemy wszystkie zdjęcia w cenie usługi. Wiemy, jak ważny jest dobry wygląd osób na zdjęciach biznesowych przeznaczonych do promocji na LinkedIn, Facebooku czy Instagramie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim terenie fotografujecie eventy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eventy firmowe fotografujemy głównie na terenie Krakowa, Tarnowa, Rzeszowa, Warszawy, Katowic oraz Kielc, ale dojeżdżamy na terenie całej Polski. Realizujemy również reportaże poza granicami kraju."
+        }
+      }
+    ]
+  })} />
+
   <Hero
-    image={{ 
-      src: eventowyCover, 
+    image={{
+      src: eventowyCover,
       alt: 'Fotograf na event firmowy'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj fotografa',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
-      Fotograf na event firmowy
+      Fotograf na Event Firmowy w Krakowie
+    </Fragment>
+    <Fragment slot="subtitle">
+      Profesjonalna <strong>fotografia eventowa w Krakowie</strong> — dokumentujemy wydarzenia firmowe od integracji po bankiety. <strong>Retusz w cenie</strong>, dostarczamy zdjęcia nawet w 24-72h.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotografia eventowa w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>fotografa na event firmowy w Krakowie</strong>? Specjalizujemy się w <strong>fotografii eventowej</strong> — dokumentujemy urodziny firmy, otwarcia nowych oddziałów, szkolenia pracowników, wyjazdy integracyjne, bankiety i wiele innych wydarzeń firmowych. Do każdego zapytania podchodzimy indywidualnie, dostosowując styl i zakres usług do specyfiki wydarzenia.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Nasze <strong>zdjęcia z eventów w Krakowie</strong> charakteryzują się profesjonalnym retuszem w cenie usługi — wiemy, jak ważny jest dobry wygląd osób na fotografiach przeznaczonych do publikacji na LinkedIn, Facebooku czy Instagramie. Standardowy czas dostarczenia materiałów to od <strong>24 do 72 godzin</strong> od zakończenia wydarzenia.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Eventy firmowe fotografujemy głównie na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie <strong>całej Polski</strong>. Zdarza nam się również realizować reportaże poza granicami kraju.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
@@ -52,6 +132,58 @@ const metadata = {
         <p>Niewielu fotografów retuszuje skórę osób na zdjęciach eventowych, poniewaź retusz zabiera sporo czasu. My jednak wiemy jak ważny jest dobry wygląd osób na naszych zdjęciach i dlatego <strong>retuszujemy wszystkie zdjęcia</strong>!</p>
         <p>Eventy firmowe fotografujemy zwykle na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie całej <strong>Polski</strong>. Zdarza nam się również realizować reportaże poza granicami kraju. Miejsce nie ma dla nas znaczenia - dojedziemy lub doleci my tam, gdzie trzeba.</p>
         <p><strong>Nagrywamy także filmy!</strong> Oprócz reportażu fotograficznego w ofercie mamy również <strong>relacje wideo</strong>, <strong>teledyski</strong>, <strong>spoty promocyjne</strong>, <strong>rejestrację wywiadów i wypowiedzi</strong>, <strong>streaming live</strong> i inne formy filmowe. Zapraszamy do kontaktu!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia eventowa</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf eventowy w Krakowie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Fotograf eventowy w Krakowie pobiera zazwyczaj od <strong>200 do 600 zł za godzinę</strong>. Stawka dzienna dla wydarzeń trwających 8–10 godzin może wynosić od 2 000 do 5 000 zł, w zależności od doświadczenia i zakresu usług. Nasze pakiety zawierają retusz zdjęć w cenie.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko otrzymam zdjęcia z eventu?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Standardowy czas dostarczenia zdjęć z eventów firmowych to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy retuszujecie zdjęcia z eventów firmowych?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! W przeciwieństwie do wielu fotografów eventowych, my <strong>retuszujemy wszystkie zdjęcia</strong> w cenie usługi. Wiemy, jak ważny jest dobry wygląd osób na zdjęciach biznesowych przeznaczonych do promocji na LinkedIn, Facebooku czy Instagramie.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie fotografujecie eventy?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Eventy firmowe fotografujemy głównie na terenie <strong>Krakowa</strong>, <strong>Tarnowa</strong>, <strong>Rzeszowa</strong>, <strong>Warszawy</strong>, <strong>Katowic</strong> oraz <strong>Kielc</strong>, ale dojeżdżamy na terenie całej Polski. Realizujemy również reportaże poza granicami kraju.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-konferencje-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na konferencję</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna dokumentacja konferencji i kongresów branżowych.</p>
+        </a>
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia z eventu w czasie rzeczywistym — idealne do social media.</p>
+        </a>
+        <a href="/oferta/video-eventowe" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Wideo eventowe</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Relacje wideo, teledyski i spoty promocyjne z wydarzeń.</p>
+        </a>
       </div>
     </div>
   </section>

@@ -8,8 +8,19 @@ import Features from '~/components/widgets/Features.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
-  title: 'Fotograf na Urodziny i 18-tkę Kraków - Profesjonalna Fotografia Imprezowa',
-  description: 'Profesjonalny fotograf na urodziny, osiemnastki i imprezy prywatne w Krakowie. Uwiecznij najważniejsze chwile!',
+  title: 'Fotograf na Urodziny i 18-tkę Kraków — Osiemnastki, Dziecięce, Dorosłych',
+  description: 'Profesjonalny fotograf na urodziny, 18-tki i imprezy prywatne w Krakowie. Osiemnastki, urodziny dziecięce i dorosłych. Retusz w cenie, szybka dostawa. Sprawdź pakiety!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-na-urodziny-krakow',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-na-urodziny-krakow',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Fotograf na Urodziny i 18-tkę Kraków — Osiemnastki, Dziecięce, Dorosłych',
+    description: 'Profesjonalny fotograf na urodziny, 18-tki i imprezy prywatne w Krakowie. Retusz w cenie, szybka dostawa.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -18,7 +29,7 @@ const metadata = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Imprezowy Fotograf - Fotografia na Urodziny i 18-tki",
-    "description": "Profesjonalny fotograf na urodziny, osiemnastki i imprezy prywatne w Krakowie. Uwiecznij najważniejsze chwule! Retusz w cenie.",
+    "description": "Profesjonalny fotograf na urodziny, osiemnastki i imprezy prywatne w Krakowie. Uwiecznij najważniejsze chwil! Retusz w cenie.",
     "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-urodziny-krakow",
     "areaServed": [
       {"@type": "City", "name": "Kraków"},
@@ -28,6 +39,45 @@ const metadata = {
     ],
     "serviceType": ["Fotografia imprezowa", "Fotografia na urodziny", "Fotografia na 18-tkę"],
     "priceRange": "$$"
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf na urodziny w Krakowie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cena fotografa na urodziny zależy od długości wydarzenia i zakresu usług. Nasze pakiety zaczynają się od 600 zł za pakiet Mini (2h dokumentacji, 50 zdjęć po obróbce) do 2000 zł za pakiet Premium (6h, 250+ zdjęć, sesje z gośćmi). Wszystkie pakiety zawierają galerię online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy fotografujecie osiemnastki?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Osiemnastki to jedna z naszych specjalności. Dokumentujemy ten wyjątkowy dzień od A do Z — sesja przed przyjęciem, dokumentacja balu, zdjęcia z rodzicami, portrety solenizanta i zdjęcia grupowe z znajomymi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko otrzymam zdjęcia z urodzin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardowy czas dostarczenia zdjęć z urodzin to 5-7 dni roboczych. Oferujemy również usługę zdjęć live, gdzie pierwsze partie zdjęć trafiają do klienta jeszcze w trakcie trwania imprezy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy retuszujecie zdjęcia z urodzin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! W przeciwieństwie do wielu fotografów imprezowych, my retuszujemy zdjęcia z urodzin. W zależności od pakietu retusz obejmuje od 5 do 15 najważniejszych ujęć, a w pakietach rozszerzonych — wszystkie zdjęcia."
+        }
+      }
+    ]
   })} />
 
   <!-- Hero Section -->
@@ -57,6 +107,22 @@ const metadata = {
       Profesjonalna fotografia na urodziny, osiemnastki i imprezy prywatne. Uwiecznij radość i emocje tych wyjątkowych chwil!
     </Fragment>
   </Hero>
+
+  <!-- SEO Content Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na urodziny w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>fotografa na urodziny w Krakowie</strong>? Dokumentujemy wszystkie rodzaje imprez urodzinowych — od <strong>osiemnastek</strong>, przez <strong>urodziny dziecięce</strong>, aż po <strong>urodziny dla dorosłych</strong>. Każda impreza jest inna, dlatego dostosowujemy styl fotografii do charakteru wydarzenia.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Nasza oferta urodzinowa obejmuje <strong>fotografię reportażową</strong>, zdjęcia grupowe z rodziną i przyjaciółmi, portrety solenizanta oraz dokumentację dekoracji i detali. Wszystkie zdjęcia podlegają <strong>profesjonalnemu retuszowi</strong> w cenie usługi.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Fotografujemy urodziny głównie na terenie <strong>Krakowa</strong>, ale dojeżdżamy również do <strong>Warszawy</strong>, <strong>Katowic</strong> i innych miast w całej <strong>Polsce</strong>. Zapraszamy do zapoznania się z naszymi pakietami urodzinowymi!
+      </p>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <section class="py-16 bg-white dark:bg-gray-900">
@@ -348,6 +414,60 @@ const metadata = {
           </ul>
           <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2000 zł</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia urodzinowa</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf na urodziny w Krakowie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Cena fotografa na urodziny zależy od długości wydarzenia i zakresu usług. Nasze pakiety zaczynają się od <strong>600 zł</strong> za pakiet Mini (2h dokumentacji, 50 zdjęć po obróbce) do <strong>2000 zł</strong> za pakiet Premium (6h, 250+ zdjęć, sesje z gośćmi). Wszystkie pakiety zawierają galerię online.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy fotografujecie osiemnastki?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! <strong>Osiemnastki</strong> to jedna z naszych specjalności. Dokumentujemy ten wyjątkowy dzień od A do Z — sesja przed przyjęciem, dokumentacja balu, zdjęcia z rodzicami, portrety solenizanta i zdjęcia grupowe z znajomymi. Zapraszamy do zapoznania się z ofertą na stronie <a href="/oferta/fotograf-na-studniowke" class="text-blue-600 dark:text-blue-400 hover:underline">fotograf na studniówkę</a>, gdzie znajdziecie podobny zakres usług.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko otrzymam zdjęcia z urodzin?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Standardowy czas dostarczenia zdjęć z urodzin to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy retuszujecie zdjęcia z urodzin?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! W przeciwieństwie do wielu fotografów imprezowych, my <strong>retuszujemy zdjęcia</strong> z urodzin. W zależności od pakietu retusz obejmuje od 5 do 15 najważniejszych ujęć, a w pakietach rozszerzonych — wszystkie zdjęcia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internal Links -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-studniowke" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na studniówkę</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna fotografia na studniówki i komersy w Krakowie.</p>
+        </a>
+        <a href="/oferta/fotograf-na-konferencje-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na konferencję</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Dokumentacja konferencji i wydarzeń firmowych w Krakowie.</p>
+        </a>
+        <a href="/oferta/dodatkowe-uslugi-fotograficzne" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Dodatkowe usługi</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Fotobudka, ścianka live, zdjęcia z drona i inne atrakcje.</p>
+        </a>
       </div>
     </div>
   </section>

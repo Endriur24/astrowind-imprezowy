@@ -6,8 +6,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import videoEventoweCover from '~/assets/images/covers/video_eventowe_cover.jpg';
 
 const metadata = {
-  title: 'Wideo eventowe Kraków - ImprezowyFotograf',
-  description: 'Możemy zaoferować kompleksową usługę video z wszelkiego rodzaju eventów zarówno organizowanych przez firmy jak i uczelnie.',
+  title: 'Wideo Eventowe Kraków — Teledyski, Spoty Promocyjne, Relacje z Eventów',
+  description: 'Profesjonalne wideo eventowe w Krakowie. Teledyski, spoty promocyjne, nagrania wykładów, filmy z drona, materiały wizerunkowe. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/video-eventowe',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/video-eventowe',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Wideo Eventowe Kraków — Teledyski, Spoty Promocyjne, Relacje z Eventów',
+    description: 'Profesjonalne wideo eventowe w Krakowie. Teledyski, spoty promocyjne, nagrania wykładów, filmy z drona.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -24,29 +35,133 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje teledysk z eventu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Koszt teledysku z eventu zależy od długości materiału, liczby kamer, godzin nagrania i zakresu postprodukcji. Każdy projekt wyceniamy indywidualnie — zapraszamy do kontaktu po darmową wycenę."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jakie formy wideo eventowego oferujecie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oferujemy teledyski z eventów, spoty promocyjne, nagrania wykładów i prelekcji, filmy instruktażowe, kursy edukacyjne, podcasty wideo, filmy z drona, materiały reklamowe i wizerunkowe, case study oraz inne formy filmowe."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy montujecie również materiały?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! Nie tylko nagrywamy, ale również montujemy materiały wideo. Oferujemy pełną postprodukcję — od montażu, przez kolorystykę, po lektora i grafiki. Możemy również pracować na materiałach stockowych dostarczonych przez klienta."
+        }
+      }
+    ]
+  })} />
+
   <Hero
     image={{ 
       src: videoEventoweCover, 
-      alt: 'Wideo eventowe'
+      alt: 'Wideo eventowe — teledyski i spoty z eventów'
     }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o wideo',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
   >
     <Fragment slot="title">
-      Wideo eventowe
+      Wideo Eventowe
     </Fragment>
     <Fragment slot="subtitle">
-      (I NIE TYLKO)
+      <strong>Teledyski, spoty promocyjne i relacje wideo z eventów</strong> w Krakowie i całej Polsce. Kompleksowa produkcja — od nagrania po montaż.
     </Fragment>
   </Hero>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Wideo eventowe w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>wideo eventowego w Krakowie</strong>? Oferujemy kompleksową produkcję filmową z wydarzeń — od <strong>teledysków z eventów</strong>, przez <strong>spoty promocyjne</strong>, aż po <strong>nagrania wykładów</strong> i <strong>filmy z drona</strong>. Każdy projekt realizujemy indywidualnie, dopasowując formę do potrzeb klienta.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Nasze <strong>wideo z eventów</strong> to nie tylko proste nagranie — to storytelling. Opowiadamy historie, relacjonujemy przebieg zdarzeń i tworzymy materiały, które angażują odbiorców. Oferujemy pełną <strong>postprodukcję</strong>: montaż, kolorystykę, lektora i grafiki.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        W zakresie wideo pracujemy głównie w <strong>południowej Polsce</strong>, ale dojeżdżamy na terenie <strong>całego kraju</strong> — i za granicę, jeśli trzeba.
+      </p>
+    </div>
+  </section>
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="prose prose-lg dark:prose-invert max-w-none">
         <h2>Opowiadamy historie.</h2>
         <p>Uwielbiamy relacjonować przebieg zdarzeń, opowiadać historie i zapisywać wspomnienia. Do reportaży fotograficznych, z punktu widzenia storytellingu, podchodzi się w zupełnie inny sposób niż do relacji wideo. Obie te formy realizują również różne potrzeby klientów i wzajemnie się uzupełniają. Z tego powodu w naszej ofercie obok standardowych reportaży fotograficznych musiało znaleźć się miejsce również na odpowiedniki wideo.</p>
-        <p>Jednak reportaże to nie wszystko. Oprócz standardowych relacji eventowych oferujemy również produkcję innych form filmowych, m.in.: teledysków, filmów i spotów promocyjnych, nagrań wywiadów i wypowiedzi (setek), filmów instruktażowych, kursów edukacyjnych, podcastów wideo (i lub audio), filmów z drona, materiałów reklamowych, wizerunkowych, case study i innych.</p>
-        <p>Nie tylko nagrywamy, ale również montujemy - jeśli zachodzi taka potrzeba nurkujemy w oceanie materiałów stock i tworzymy wideo zgodnie z wytycznymi przekazanymi przez klienta. Nagrywamy i post produkujemy również audio lektorskie.</p>
-        <p>W zakresie wideo pracujemy głównie w południowej części Polski, ale jeśli tego trzeba - dojeżdżamy, gdzie trzeba - niezależnie od tego, czy w kraju, czy za granicę.</p>
-        <p>Ze względu na bardzo duże zróżnicowanie w projektach wideo - do tej pory nie zdarzyło nam się realizować dwóch takich samych - każde zapytanie analizujemy indywidualnie na podstawie wytycznych przesłanych przez klienta. Zachęcamy do kontaktu przez formularz lub telefonicznie.</p>
+        <p>Jednak reportaże to nie wszystko. Oprócz standardowych relacji eventowych oferujemy również produkcję innych form filmowych, m.in.: <strong>teledysków</strong>, <strong>filmów i spotów promocyjnych</strong>, <strong>nagrań wywiadów i wypowiedzi</strong> (setek), <strong>filmów instruktażowych</strong>, <strong>kursów edukacyjnych</strong>, <strong>podcastów wideo</strong> (i lub audio), <strong>filmów z drona</strong>, <strong>materiałów reklamowych</strong>, <strong>wizerunkowych</strong>, <strong>case study</strong> i innych.</p>
+        <p>Nie tylko nagrywamy, ale również <strong>montujemy</strong> — jeśli zachodzi taka potrzeba nurkujemy w oceanie materiałów stock i tworzymy wideo zgodnie z wytycznymi przekazanymi przez klienta. Nagrywamy i post produkujemy również <strong>audio lektorskie</strong>.</p>
+        <p>W zakresie wideo pracujemy głównie w południowej części Polski, ale jeśli tego trzeba — dojeżdżamy, gdzie trzeba — niezależnie od tego, czy w kraju, czy za granicą.</p>
+        <p>Ze względu na bardzo duże zróżnicowanie w projektach wideo — do tej pory nie zdarzyło nam się realizować dwóch takich samych — każde zapytanie analizujemy indywidualnie na podstawie wytycznych przesłanych przez klienta. Zachęcamy do kontaktu przez formularz lub telefonicznie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — wideo eventowe</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje teledysk z eventu?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Koszt teledysku z eventu zależy od <strong>długości materiału</strong>, liczby kamer, godzin nagrania i zakresu postprodukcji. Każdy projekt wyceniamy indywidualnie — zapraszamy do kontaktu po darmową wycenę.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie formy wideo eventowego oferujecie?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Oferujemy <strong>teledyski z eventów</strong>, <strong>spoty promocyjne</strong>, nagrania wykładów i prelekcji, filmy instruktażowe, kursy edukacyjne, podcasty wideo, <strong>filmy z drona</strong>, materiały reklamowe i wizerunkowe, case study oraz inne formy filmowe.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy montujecie również materiały?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! Nie tylko nagrywamy, ale również <strong>montujemy materiały wideo</strong>. Oferujemy pełną postprodukcję — od montażu, przez kolorystykę, po lektora i grafiki. Możemy również pracować na materiałach stockowych dostarczonych przez klienta.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/streaming-video" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Streaming video</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Transmisje live z konferencji, wykładów i eventów.</p>
+        </a>
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia w czasie rzeczywistym — idealne do social media.</p>
+        </a>
+        <a href="/oferta/fotograf-na-konferencje-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na konferencję</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna dokumentacja konferencji i kongresów.</p>
+        </a>
       </div>
     </div>
   </section>

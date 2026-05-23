@@ -9,8 +9,19 @@ import ContactForm from '~/components/widgets/ContactForm.astro';
 import studniowkiCover from '~/assets/images/covers/studniowki_cover.jpg';
 
 const metadata = {
-  title: 'Fotograf na Studniówkę Kraków - ImprezowyFotograf',
-  description: 'Potrzebujesz profesjonalnego fotografa na studniówkę? Oferujemy zdjęcia pełne energii i nowoczesności! Najlepsza oferta na wasz studniówkowy wieczór',
+  title: 'Fotograf na Studniówkę Kraków — Zdjęcia, Wideo, Komers | ImprezowyFotograf',
+  description: 'Profesjonalny fotograf na studniówkę i komers w Krakowie. Retusz w cenie, zdjęcia grupowe, ścianka, teledysk wideo. Pakiety od 1 fotografa do 3+. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-na-studniowke',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-na-studniowke',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Fotograf na Studniówkę Kraków — Zdjęcia, Wideo, Komers',
+    description: 'Profesjonalny fotograf na studniówkę w Krakowie. Retusz w cenie, pakiety od 1 do 3+ fotografów.',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
@@ -32,6 +43,53 @@ const metadata = {
     "priceRange": "$$"
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf na studniówkę?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cena fotografa na studniówkę zależy od wybranego pakietu. Oferujemy pakiety od Podstawowego (1 fotograf, 500 zdjęć, 5h reportażu) po pakiet Imprezowy+ (3+ fotografów, 1500+ zdjęć, ścianka, teledysk wideo). Dokładne wyceny otrzymacie po kontakcie — dopasowujemy ofertę do Waszych potrzeb i budżetu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak szybko otrzymamy zdjęcia ze studniówki?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standardowy czas dostarczenia zdjęć ze studniówki to 5-7 dni roboczych. Oferujemy również usługę zdjęć live — wtedy na lokację zabieramy fotoedytora, który przygotowuje pierwsze partie zdjęć jeszcze podczas trwania wydarzenia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy retuszujecie zdjęcia ze studniówki?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! W przeciwieństwie do większości fotografów na rynku, my retuszujemy wszystkie zdjęcia ze studniówek. Wiemy, że studniówkę ma się tylko raz, dlatego chcemy, żebyście wyglądali na zdjęciach jak najlepiej."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie wideo na studniówkę?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak! W pakiecie Imprezowy+ teledysk wideo jest wliczony. W pozostałych pakietach można go dodać jako opcję dodatkową. Oferujemy również film na studniówkę — materiał nagrany wcześniej, który pokażecie podczas części artystycznej."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim terenie fotografujecie studniówki?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Studniówki fotografujemy najczęściej na terenie Krakowa i województwa małopolskiego, ale dojeżdżamy również na terenie podkarpackiego, śląskiego, świętokrzyskiego oraz całej Polski. Jeśli tego wymaga wydarzenie — dojedziemy lub dolecimy, gdzie trzeba!"
+        }
+      }
+    ]
+  })} />
+
   <!-- Hero Section -->
   <Hero
     actions={[
@@ -43,18 +101,34 @@ const metadata = {
     ]}
     image={{ 
       src: studniowkiCover, 
-      alt: 'Fotograf na studniówka',
+      alt: 'Fotograf na studniówkę i komers w Krakowie',
       width: 1200,
       height: 600
     }}
   >
     <Fragment slot="title">
-      Fotograf na studniówkę / komers
+      Fotograf na Studniówkę i Komers w Krakowie
     </Fragment>
     <Fragment slot="subtitle">
-      (+ wideo studniówkowe)
+      Profesjonalna <strong>fotografia studniówkowa w Krakowie</strong> — retusz w cenie, zdjęcia grupowe klas, ścianka, teledysk wideo. Pakiety od 1 do 3+ fotografów.
     </Fragment>
   </Hero>
+
+  <!-- SEO Content Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotografia studniówkowa w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Szukasz <strong>fotografa na studniówkę w Krakowie</strong>? Jesteś w dobrym miejscu! Specjalizujemy się w <strong>fotografii studniówkowej</strong> — uwieczniamy ten wyjątkowy wieczór pełen emocji, radości i pożegnania ze szkołą. Nasza ekipa to młodzi, energiczni fotografowie, którzy czują studniówkowy klimat i wiedzą, jak uchwycić najlepsze momenty.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        W naszej ofercie studniówkowej znajdziecie <strong>pakiety od 1 do 3+ fotografów</strong>, ze zdjęciami grupowymi klas, <strong>ścianką fotograficzną</strong>, <strong>teledyskiem wideo</strong> i wieloma opcjami dodatkowymi. Wszystkie pakiety zawierają <strong>retusz zdjęć w cenie</strong> — w przeciwieństwie do większości fotografów na rynku.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Studniówki fotografujemy głównie na terenie <strong>Krakowa</strong> i województwa <strong>małopolskiego</strong>, ale dojeżdżamy również na terenie <strong>podkarpackiego</strong>, <strong>śląskiego</strong>, <strong>świętokrzyskiego</strong> oraz <strong>całej Polski</strong>.
+      </p>
+    </div>
+  </section>
 
   <!-- Main Content Section -->
   <section class="py-16 bg-white dark:bg-gray-900">
@@ -189,7 +263,65 @@ const metadata = {
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia studniówkowa</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf na studniówkę?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Cena fotografa na studniówkę zależy od wybranego pakietu. Oferujemy pakiety od <strong>Podstawowego</strong> (1 fotograf, 500 zdjęć, 5h reportażu) po pakiet <strong>Imprezowy+</strong> (3+ fotografów, 1500+ zdjęć, ścianka, teledysk wideo). Dokładne wyceny otrzymacie po kontakcie — dopasowujemy ofertę do Waszych potrzeb i budżetu.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko otrzymamy zdjęcia ze studniówki?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Standardowy czas dostarczenia zdjęć ze studniówki to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy retuszujecie zdjęcia ze studniówki?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! W przeciwieństwie do większości fotografów na rynku, my <strong>retuszujemy wszystkie zdjęcia</strong> ze studniówek. Wiemy, że studniówkę ma się tylko raz, dlatego chcemy, żebyście wyglądali na zdjęciach jak najlepiej.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie wideo na studniówkę?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Tak! W pakiecie <strong>Imprezowy+</strong> teledysk wideo jest wliczony. W pozostałych pakietach można go dodać jako opcję dodatkową. Oferujemy również <a href="/oferta/video-eventowe" class="text-blue-600 dark:text-blue-400 hover:underline">film na studniówkę</a> — materiał nagrany wcześniej, który pokażecie podczas części artystycznej.
+          </p>
+        </div>
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie fotografujecie studniówki?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Studniówki fotografujemy najczęściej na terenie <strong>Krakowa</strong> i województwa <strong>małopolskiego</strong>, ale dojeżdżamy również na terenie <strong>podkarpackiego</strong>, <strong>śląskiego</strong>, <strong>świętokrzyskiego</strong> oraz <strong>całej Polski</strong>. Jeśli tego wymaga wydarzenie — dojedziemy lub dolecimy, gdzie trzeba!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Internal Links Section -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Sprawdź również nasze inne usługi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a href="/oferta/fotograf-na-urodziny-krakow" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Fotograf na urodziny</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna fotografia na urodziny, 18-tki i imprezy prywatne.</p>
+        </a>
+        <a href="/oferta/zdjecia-live" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Zdjęcia live</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Zdjęcia ze studniówki w czasie rzeczywistym na serwerze.</p>
+        </a>
+        <a href="/oferta/dodatkowe-uslugi-fotograficzne" class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">Dodatkowe usługi</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Fotobudka, ścianka, zdjęcia z drona na studniówkę.</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <Contact id="kontakt">
