@@ -3,13 +3,33 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 
 const metadata = {
-  title: 'Fotograf Klubowy i Koncertowy Kraków - Profesjonalna Fotografia Eventowa',
-  description: 'Profesjonalny fotograf na koncerty, imprezy klubowe i festiwale w Krakowie. Dynamiczne zdjęcia z wydarzeń muzycznych.',
+  title: 'Fotografia Koncertowa i Klubowa w Krakowie — Profesjonalne Zdjęcia z Koncertów | ImprezowyFotograf',
+  description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Sprzęt Full Frame, jasne obiektywy f/1.4, obróbka w cenie, dostawa w 24h. Sprawdź ofertę!',
+  canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-klubowy-koncertowy-krakow',
+  openGraph: {
+    title: 'Fotografia Koncertowa i Klubowa w Krakowie — Profesjonalne Zdjęcia z Koncertów',
+    description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Sprzęt Full Frame, jasne obiektywy f/1.4, obróbka w cenie, dostawa w 24h.',
+    url: 'https://imprezowyfotograf.pl/oferta/fotograf-klubowy-koncertowy-krakow',
+    images: [
+      {
+        url: imprezyKluboweCover,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'pl_PL',
+    type: 'website',
+    siteName: 'ImprezowyFotograf.pl',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+    title: 'Fotografia Koncertowa i Klubowa w Krakowie',
+    description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Obróbka w cenie, dostawa w 24h.',
+  },
 };
 
 import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
@@ -32,6 +52,36 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
     "serviceType": ["Fotografia koncertowa", "Fotografia klubowa", "Fotografia festiwalowa", "Fotografia muzyczna"],
     "priceRange": "$$"
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf na koncert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ceny fotografa na koncert w Krakowie zależą od długości wydarzenia, liczby fotografów oraz zakresu usług. Dla reportażu eventowego najczęściej wynoszą od 250 do 500 zł za godzinę, co obejmuje obróbkę zdjęć i dostawę materiałów."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak przygotować klub do sesji zdjęciowej podczas koncertu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zabezpieczcie przede wszystkim dostęp do głównej sceny — to najważniejsza rzecz, o którą prosimy organizatorów. Nic nie musisz dodatkowo przygotowywać: my przyjeżdżamy z własnym sprzętem (aparatami Full Frame, jasnymi obiektywami f/1.4 i lampami reporterskimi) i dostosowujemy się do warunków oświetleniowych typowych dla klubów. Jeśli planujesz również zdjęcia za kulisami, wystarczy oznajmić, że potrzebujesz dostępu do strefy backstage. Po imprezie dostarczamy gotowe, obrobione zdjęcia w ciągu 24–48 godzin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje fotograf eventowy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fotograf eventowy w Krakowie pobiera zazwyczaj od 200 do 600 zł za godzinę. Stawka dzienna (day rate) dla wydarzeń trwających 8–10 godzin może wynosić od 2 000 do 5 000 zł, w zależności od doświadczenia i zakresu usług."
+        }
+      }
+    ]
+  })} />
 
   <!-- Hero Section -->
   <Hero
@@ -49,17 +99,33 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
     ]}
     image={{ 
       src: imprezyKluboweCover, 
-      alt: 'Fotograf na imprezę klubową'
+      alt: 'Fotografia koncertowa i klubowa w Krakowie'
     }}
   >
     <Fragment slot="title">
-      Fotograf Klubowy i Koncertowy
+      Fotograf Klubowy i Koncertowy Kraków
     </Fragment>
 
     <Fragment slot="subtitle">
-      Profesjonalna fotografia z koncertów, festiwali i imprez klubowych. Uchwyć energię live i emocje muzyki na zdjęciach!
+      Profesjonalna fotografia koncertowa i klubowa w Krakowie — dynamiczne zdjęcia z koncertów, festiwali i imprez muzycznych, dostarczane w 24h.
     </Fragment>
   </Hero>
+
+  <!-- 🔴 NOWA SEKCJA: Fotografia koncertowa i klubowa w Krakowie -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotografia koncertowa i klubowa w Krakowie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Jeśli szukasz <strong>fotografa na koncert Kraków</strong>, który uchwyci całą energię występów na żywo, jesteś w dobrym miejscu. Specjalizujemy się w <strong>fotografii koncertowej w Krakowie</strong> — zarówno podczas małych klubowych spotkań muzycznych, jak i podczas dużych imprez festiwalowych. Nasza praca to dynamiczne zdjęcia z wydarzeń muzycznych, które oddają emocje artystów oraz atmosferę publiczności.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
+        Jako <strong>fotograf klubowy Kraków</strong> pracujemy w trudnych warunkach oświetleniowych typowych dla scen muzycznych. Służymy doświadczeniem i odpowiednim sprzętem: profesjonalne aparaty Full Frame oraz jasne obiektywy f/1.4–2.8, które pozwalają na uchwycenie nawet najsłabszych punktów świetlnych podczas występu.
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+        Wykonujemy również <strong>fotografię z festiwali w Krakowie</strong> i w całej Polsce — od kilkunastogodzinnych reportaży po sesje zdjęciowe z zespołami i solistami przed lub po występie. Jeśli potrzebujesz <strong>reportażu z wydarzeń muzycznych w Krakowie</strong> — zapraszamy do kontaktu. Najpierw omawiamy wszystkie szczegóły podczas bezpłatnej konsultacji.
+      </p>
+    </div>
+  </section>
 
   <!-- Main Content -->
   <section class="py-16 bg-white dark:bg-gray-900">
@@ -109,6 +175,37 @@ import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
         <div>
           <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia klubowa i koncertowa" class="rounded-lg shadow-lg">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔴 NOWA SEKCJA: Najczęstsze pytania (FAQ) -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia koncertowa</h2>
+      <div class="max-w-3xl mx-auto space-y-8">
+
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf na koncert?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Ceny fotografa na koncert w Krakowie zależą od długości wydarzenia, liczby fotografów oraz zakresu usług. Dla reportażu eventowego najczęściej wynoszą od <strong>250 do 500 zł za godzinę</strong>, co obejmuje obróbkę zdjęć i dostawę materiałów.
+          </p>
+        </div>
+
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak przygotować klub do sesji zdjęciowej podczas koncertu?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Zabezpieczcie przede wszystkim dostęp do głównej sceny — to najważniejsza rzecz, o którą prosimy organizatorów. Nic nie musisz dodatkowo przygotowywać: my przyjeżdżamy z własnym sprzętem (aparatami Full Frame, jasnymi obiektywami f/1.4 i lampami reporterskimi) i dostosowujemy się do warunków oświetleniowych typowych dla klubów. Jeśli planujesz również zdjęcia za kulisami, wystarczy oznajmić, że potrzebujesz dostępu do strefy backstage. Po imprezie dostarczamy gotowe, obrobione zdjęcia w ciągu 24–48 godzin.
+          </p>
+        </div>
+
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf eventowy?</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Fotograf eventowy w Krakowie pobiera zazwyczaj od <strong>200 do 600 zł za godzinę</strong>. Stawka dzienna (day rate) dla wydarzeń trwających 8–10 godzin może wynosić od 2 000 do 5 000 zł, w zależności od doświadczenia i zakresu usług.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>

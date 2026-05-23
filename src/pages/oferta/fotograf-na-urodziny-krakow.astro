@@ -1,6 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
+import coverUrodzinowe from '~/assets/images/covers/urodzinowe_cover.jpg';
+
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -44,7 +46,7 @@ const metadata = {
       },
     ]}
     image={{ 
-      src: 'https://images.unsplash.com/photo-1469444163033-ef3cab2f0c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', 
+      src: coverUrodzinowe, 
       alt: 'Fotograf na urodziny' 
     }}
   >
@@ -103,7 +105,7 @@ const metadata = {
         </div>
         
         <div>
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722623c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia urodzinowa" class="rounded-lg shadow-lg">
+          <img src={coverUrodzinowe} alt="Fotografia urodzinowa" class="rounded-lg shadow-lg">
         </div>
       </div>
     </div>

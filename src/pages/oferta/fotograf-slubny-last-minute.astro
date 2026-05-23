@@ -1,0 +1,194 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
+
+const metadata = {
+  title: 'Fotograf Ślubny Last Minute - Rezerwacje do 4 Miesięcy Wprzód',
+  description: 'Potrzebujesz fotografa ślubnego na ostatnią chwilę? Rezerwacje dostępne do 4 miesięcy wprzód. Profesjonalna fotografia ślubna w ostatniej chwili.',
+};
+---
+
+<Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Imprezowy Fotograf - Fotografia Ślubna Last Minute",
+    "description": "Fotograf ślubny last minute – rezerwacje dostępne do 4 miesięcy wprzód. Profesjonalna fotografia ślubna na krótki termin.",
+    "url": "https://imprezowyfotograf.pl/oferta/fotograf-slubny-last-minute",
+    "areaServed": [
+      {"@type": "City", "name": "Kraków"},
+      {"@type": "City", "name": "Warszawa"},
+      {"@type": "City", "name": "Katowice"},
+      {"@type": "Country", "name": "Polska"}
+    ],
+    "serviceType": ["Fotografia ślubna", "Reportaż ślubny", "Plener ślubny", "Sesja narzeczeńska"],
+    "priceRange": "$$$"
+  })} />
+
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zarezerwuj termin',
+        href: '/kontakt',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz portfolio',
+        href: '/portfolio',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Fotograf Ślubny Last Minute
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Rezerwacje dostępne do 4 miesięcy wprzód – idealne rozwiązanie dla par, które planują ślub na krótki termin. Profesjonalna fotografia ślubna bez długiego oczekiwania.
+    </Fragment>
+  </Hero>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Planujecie ślub na krótki termin?</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Rezerwacja do 4 miesięcy wprzód</h3>
+                <p class="text-gray-600 dark:text-gray-400">Maksymalnie 4 miesiące przed planowanym ślubem – dowolna data, jeśli jest jeszcze wolna.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Elastyczne terminy</h3>
+                <p class="text-gray-600 dark:text-gray-400">Krótki czas na organizację? Nie ma problemu – dostosujemy się do Twojego harmonogramu.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Pełna dokumentacja</h3>
+                <p class="text-gray-600 dark:text-gray-400">Od przygotowań po wesele – każdy ważny moment zostanie uwieczniony w pełnej rozdzielczości.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Details -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">W co wliczone?</h2>
+      
+      <Features
+        items={[
+          {
+            title: 'Reportaż ślubny',
+            description: 'Pełna dokumentacja ceremonii ślubnej i przyjęcia weselnego w stylu reportażowym, nawet na krótki termin.',
+            icon: 'tabler:heart-handshake',
+          },
+          {
+            title: 'Sesja przedślubna',
+            description: 'Romantyczna sesja narzeczeńska w plenerze lub studio – jeśli termin pozwala na dodatkowe spotkanie.',
+            icon: 'tabler:flower',
+          },
+          {
+            title: 'Sesja plenerowa',
+            description: 'Artystyczna sesja plenerowa dla Młodej Pary w pięknych sceneriach, możliwa w ramach większości pakietów.',
+            icon: 'tabler:sun',
+          },
+          {
+            title: 'Przygotowania',
+            description: 'Fotografowanie przygotowań Panny Młodej i Pana Młodego – każdy detal ma znaczenie.',
+            icon: 'tabler:sparkles',
+          },
+          {
+            title: 'Sesja rodzinna',
+            description: 'Zdjęcia rodzinne i grupowe z bliskimi podczas wesela – wspólne wspomnienia na zawsze.',
+            icon: 'tabler:users',
+          },
+          {
+            title: 'Teledysk ślubny',
+            description: 'Profesjonalny teledysk z najpiękniejszych chwil Waszego ślubu – dodatek do każdego pakietu.',
+            icon: 'tabler:video',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Wedding Process -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Przebieg współpracy</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Kontakt</h3>
+          <p class="text-gray-600 dark:text-gray-400">Wypełnij formularz lub zadzwoń – sprawdzamy dostępność terminów do 4 miesięcy wprzód.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Umowa</h3>
+          <p class="text-gray-600 dark:text-gray-400">Szybkie potwierdzenie rezerwacji i podpisanie umowy na取得成功 z wybranym pakietem.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Ceremonia</h3>
+          <p class="text-gray-600 dark:text-gray-400">Uwieczniamy przysięgę, emocje i wzruszenia podczas ceremonii ślubnej.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-xl font-bold text-pink-600 dark:text-pink-400">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Gotowe zdjęcia</h3>
+          <p class="text-gray-600 dark:text-gray-400">Otrzymujesz wyjątkowe zdjęcia ślubne po obróbce w dogodnym terminie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-slubny-last-minute"
+    title="Zarezerwuj fotografa last minute"
+    description="Wypełnij formularz, a skontaktujemy się z Tobą w sprawie dostępności terminów do 4 miesięcy wprzód."
+  />
+</Layout>

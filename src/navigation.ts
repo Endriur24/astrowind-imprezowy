@@ -32,7 +32,7 @@ export const footerData = {
         { text: 'Imprezy firmowe', href: getPermalink('/oferta/fotograf-na-konferencje-krakow') },
         { text: 'Koncerty i eventy', href: getPermalink('/oferta/fotograf-klubowy-koncertowy-krakow') },
         { text: 'Urodziny i przyjęcia', href: getPermalink('/oferta/fotograf-na-urodziny-krakow') },
-        { text: 'Fotografia ślubna', href: getPermalink('/oferta/fotograf-slubny-krakow') },
+        { text: 'Fotografia ślubna last minute', href: getPermalink('/oferta/fotograf-slubny-last-minute') },
         { text: 'Zdjęcia live', href: getPermalink('/oferta') },
         { text: 'Wideoreportaż', href: getPermalink('/oferta') },
       ],

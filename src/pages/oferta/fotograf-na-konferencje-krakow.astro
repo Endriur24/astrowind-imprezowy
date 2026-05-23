@@ -90,7 +90,7 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
         "name": "Ile kosztuje fotograf na konferencję?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Cena fotografa na konferencję zależy od wybranego pakietu. Pakiet podstawowy (do 4h, 100 zdjęć) zaczyna się od 1500 zł, pakiet rozszerzony (do 8h, 200 zdjęć) od 2000 zł, a pakiet premium z dwoma fotografami (do 10h, 400+ zdjęć) od 2500 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie."
+           "text": "Cena fotografa na konferencję zależy od długości wydarzenia. Stawka godzinowa wynosi 250 zł za godzinę, a stawka dzienna od 1800 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie."
         }
       },
       {
@@ -235,85 +235,67 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
   <Pricing
     title="Oferta — fotograf na konferencję"
     subtitle="Wybierz pakiet, który odpowiada Twoim oczekiwaniom, albo skontaktuj się z nami w celu dopasowania oferty specjalnie dla Ciebie!"
-    prices={[
-      {
-        title: 'Brązowy',
-        subtitle: 'Pakiet podstawowy',
-        price: 'od 1500 zł',
-        period: '1 fotograf / dzień',
-        items: [
-          {
-            description: '100 zdjęć po obróbce',
-          },
-          {
-            description: 'Do 4h reportażu',
-          },
-          {
-            description: 'Retusz w cenie',
-          },
-          {
-            description: 'Dostawa w 24h',
-          },
-        ],
-        callToAction: {
-          target: '_self',
-          text: 'Zarezerwuj pakiet',
-          href: '/kontakt',
-        },
-      },
-      {
-        title: 'Srebrny',
-        subtitle: 'Pakiet rozszerzony',
-        price: 'od 2000 zł',
-        period: '1 fotograf / dzień',
-        items: [
-          {
-            description: '200 zdjęć po obróbce',
-          },
-          {
-            description: 'Do 8h reportażu',
-          },
-          {
-            description: 'Retusz w cenie',
-          },
-          {
-            description: 'Dostawa w 24h',
-          },
-        ],
-        callToAction: {
-          target: '_self',
-          text: 'Zarezerwuj pakiet',
-          href: '/kontakt',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'Popularny',
-      },
-      {
-        title: 'Złoty',
-        subtitle: 'Pakiet Premium+',
-        price: 'od 2500 zł',
-        period: '2 fotografów (lub więcej) / dzień',
-        items: [
-          {
-            description: '400+ zdjęć po obróbce',
-          },
-          {
-            description: 'Do 10h reportażu',
-          },
-          {
-            description: 'Retusz w cenie',
-          },
-          {
-            description: 'Dostawa w 24h',
-          },
-        ],
-        callToAction: {
-          target: '_self',
-          text: 'Zarezerwuj pakiet',
-          href: '/kontakt',
-        },
-      },
-    ]}
+     prices={[
+       {
+         title: 'Brązowy',
+         subtitle: 'Pakiet godzinowy',
+         price: 'od 250 zł',
+         period: 'za godzinę',
+         items: [
+           {
+             description: '100+ zdjęć po obróbce / 4 godziny',
+           },
+           {
+             description: 'fullresolution + socialmedia (zdjęcia zoptymalizowane do publikacji na social media)',
+           },
+         ],
+         callToAction: {
+           target: '_self',
+           text: 'Zarezerwuj pakiet',
+           href: '/kontakt',
+         },
+       },
+       {
+         title: 'Srebrny',
+         subtitle: 'Pakiet dzienny',
+         price: 'od 1800 zł',
+         period: 'za dzień',
+         items: [
+           {
+             description: '200+ zdjęć po obróbce',
+           },
+           {
+             description: 'Do 8h reportażu',
+           }
+         ],
+         callToAction: {
+           target: '_self',
+           text: 'Zarezerwuj pakiet',
+           href: '/kontakt',
+         },
+         hasRibbon: true,
+         ribbonTitle: 'Popularny',
+       },
+       {
+         title: 'Złoty',
+         subtitle: 'Pakiet Premium+',
+         price: 'od 3600 zł',
+         period: '2 fotografów / dzień',
+         items: [
+           {
+             description: '400+ zdjęć po obróbce',
+           },
+           {
+             description: 'Do 10h reportażu',
+           }
+         ],
+         callToAction: {
+           target: '_self',
+           text: 'Zarezerwuj pakiet',
+           href: '/kontakt',
+         },
+       },
+     ]}
   />
 
   <!-- Additional Options -->
@@ -388,7 +370,7 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
     items={[
       {
         title: 'Ile kosztuje fotograf na konferencję?',
-        description: 'Cena fotografa na konferencję zależy od wybranego pakietu. Pakiet podstawowy (do 4h, 100 zdjęć) zaczyna się od 1500 zł, pakiet rozszerzony (do 8h, 200 zdjęć) od 2000 zł, a pakiet premium z dwoma fotografami (do 10h, 400+ zdjęć) od 2500 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie.',
+        description: 'Cena fotografa na konferencję zależy od długości wydarzenia. Stawka godzinowa wynosi 250 zł za godzinę, a stawka dzienna od 1800 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie.',
       },
       {
         title: 'Jak szybko otrzymamy zdjęcia z konferencji?',
