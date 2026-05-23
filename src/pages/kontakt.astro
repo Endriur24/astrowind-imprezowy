@@ -1,8 +1,19 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { createGenericPageSchema, siteUrl } from '~/utils/schema';
 
 import Hero from '~/components/widgets/Hero.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+
+const schema = createGenericPageSchema({
+  name: 'Kontakt - ImprezowyFotograf',
+  url: `${siteUrl}/kontakt`,
+  description: 'Skontaktuj się z nami, aby omówić fotografię na Twoje wydarzenie. Profesjonalna fotografia eventowa w Krakowie.',
+  breadcrumbItems: [
+    { position: 1, name: 'Strona główna', item: siteUrl },
+    { position: 2, name: 'Kontakt' },
+  ],
+});
 
 const metadata = {
   title: 'Kontakt - ImprezowyFotograf',
@@ -11,6 +22,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <!-- Hero Section -->
   <Hero>
     <Fragment slot="title">

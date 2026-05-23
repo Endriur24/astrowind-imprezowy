@@ -3,7 +3,7 @@ publishDate: 2024-02-10T00:00:00Z
 author: ImprezowyFotograf
 title: Studniówka - Jak zadbać o idealne zdjęcia?
 excerpt: Kompleksowy przewodnik po fotografii studniówkowej. Sprawdź, na co zwrócić uwagę przy wyborze fotografa i jak przygotować się do sesji.
-image: https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+image: ~/assets/images/portfolio/studniowka/zdjecia_studniowkowe_004.jpg
 category: Porady
 tags:
   - studniówka
@@ -60,7 +60,7 @@ Najlepsze rozwiązanie - krótka sesja przed studniówką i dokumentacja podczas
 
 ### Stroje
 - **Dla niej:** Elegancka suknia, idealnie dopasowana do figury. Pamiętaj o odpowiednim biustonoszu i butach.
-- **Dla niego:** Klasyczny garnitur lub smoking. Dobrze skrojony marynarka i idealnie dopasowane spodnie.
+- **Dla niego:** Klasyczny garnitur lub smoking. Dobrze skrojona marynarka i idealnie dopasowane spodnie.
 - **Dodatki:** Mucha, krawat, broszka, butonierka - detale robią różnicę!
 
 ### Fryzura i makijaż

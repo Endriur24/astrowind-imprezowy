@@ -1,11 +1,20 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
+import { createGenericPageSchema, siteUrl } from '~/utils/schema';
 
 const title = `Strona nie została znaleziona`;
+
+const schema = createGenericPageSchema({
+  name: 'Strona nie znaleziona - ImprezowyFotograf',
+  url: `${siteUrl}/404`,
+  description: 'Strona, której szukasz, nie istnieje. Wróć na stronę główną lub zobacz naszą ofertę.',
+});
 ---
 
 <Layout metadata={{ title }}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <section class="flex items-center h-full p-16">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">

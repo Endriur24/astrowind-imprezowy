@@ -3,6 +3,47 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createGenericPageSchema, siteUrl } from '~/utils/schema';
+
+const faqItems = [
+  {
+    title: 'Jak długo trzeba czekać na zdjęcia?',
+    description: 'Termin oddania zdjęć ustalamy indywidualnie dla każdego projektu / wydarzenia, w zależności od wielu czynników. Parametrami kluczowymi jest tutaj m.in. to, jakiego typu jest to impreza, na ile zdjęć sumarycznie zdjęć się umówiliśmy, czy oddajemy zdjęcia w partiach, czy robimy edycję live itd.\n\nW przypadku zdjęć live - oddajemy materiał na miejscu w "czasie rzeczywistym", czyli zaraz po edycji przez edytora. W przypadku np. konferencji (oraz innych wydarzeń, kiedy organizatorowi zależy na szybkiej publikacji relacji w social mediach) istnieje możliwość dostarczenia określonej puli jeszcze w trakcie trwania wydarzenia (po wcześniejszym ustaleniu). W pozostałych przypadkach termin na oddanie zdjęć wynosi od 72 godzin do 10 dni roboczych - standardowe zakresy podane zostały przy każdej z ofert indywidualnie.',
+  },
+  {
+    title: 'W jaki sposób dostarczamy zdjęcia?',
+    description: 'Zdjęcia dostarczamy zazwyczaj w postaci linka do katalogu online. Operujemy na dwóch standardowych rozdzielczościach plików: do social media / internetu - o rozdzielczości 2048 px na dłuższej krawędzi - oraz do druku w pełnej rozdzielczości (full resolution - FR).',
+  },
+  {
+    title: 'Czy oddajemy nieobrobione zdjęcia?',
+    description: 'Zawsze oddajemy umówioną liczbę zdjęć, a czasem nawet trochę więcej, jeśli wydarzenie tego wymaga (czyt. dużo się działo;). Nasi fotografowie przekazują do postprodukcji zdjęcia po wstępnej selekcji. Następnie materiał zostaje poddany selekcji finalnej, a ostatecznie obrobiony przez fotoedytora. Dla zachowania maksymalnej jakości i wydajności naszej pracy nie oferujemy zdjęć surowych, ani do wyboru, ani w żadnej innej formie. Podchodzimy do naszej pracy profesjonalnie i wybieramy tylko najlepsze kadry. Poza tym doskonale wiemy, że ciężko obejrzeć tysiąc zdjęć z wydarzenia - a co dopiero kilka tysięcy surowych plików.\n\n"RAWy" można porównać do ciasta na chleb - piekarz zwykle nie sprzedaje w piekarni takiego ciasta - my również wychodzimy z takiego założenia.',
+  },
+  {
+    title: 'Jakie są ceny za reportaż?',
+    description: 'Ceny reportaży bardzo zależą od ilości godzin fotografów "w terenie", liczby fotografów, umówionej ilości zdjęć, a także czasu oddania reportażu, usług specjalnych (ścianki, zdjęcia live itd.) i szczególnych innych wymagań - co do konkretnego zlecenia. Zachęcamy do wysłania zapytania, bądź kontaktu telefonicznego w celu przygotowania wyceny.',
+  },
+  {
+    title: 'Gdzie działamy?',
+    description: 'Zwykle fotografujemy na terenie Polski, jednak wyjazdy nie są nam straszne. Do tej pory wykonywaliśmy reportaże w krajach takich jak m.in. USA, Turcja, Islandia, Portugalia, Hiszpania, Monako, Włochy, Holandia, Grecja i wiele innych. Jesteśmy otwarci na nowe doświadczenia, podróże i kreatywne pomysły naszych klientów.',
+  },
+  {
+    title: 'Na jakim sprzęcie pracujemy?',
+    description: 'Sprzęt to tylko sprzęt, dobieramy go do specyfiki konkretnego zlecenia. Reportaże fotograficzne wykonujemy zazwyczaj na aparatach pełnoklatkowych - lustrzankach i bezlusterkowcach - a jako, że jesteśmy sporą grupą fotografów, to każdy ma swoje ulubione narzędzia pracy. Na specjalne życzenie zdarza nam się również wykonywać zdjęcia na małoobrazkowej błonie fotograficznej. Imprezy doświetlamy reporterskimi lampami błyskowymi w różnych konfiguracjach, a w niektórych sytuacjach korzystamy z oświetlenia typu LED RING własnego pomysłu.',
+  },
+];
+
+const faqSchemaItems = faqItems.map(q => ({ name: q.title, acceptedAnswer: { text: q.description } }));
+
+const schema = createGenericPageSchema({
+  name: 'FAQ - ImprezowyFotograf',
+  url: `${siteUrl}/faq`,
+  description: 'Najczęstsze pytania o naszą fotografię eventową. Dowiedz się więcej o naszych usługach i podejściu do pracy.',
+  breadcrumbItems: [
+    { position: 1, name: 'Strona główna', item: siteUrl },
+    { position: 2, name: 'FAQ' },
+  ],
+  faqItems: faqSchemaItems,
+});
 
 const metadata = {
   title: 'FAQ - ImprezowyFotograf',
@@ -11,6 +52,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <Hero>
     <Fragment slot="title">
       FAQ - często zadawane pytania
@@ -24,32 +67,7 @@ const metadata = {
   <FAQs
     title="Najczęściej zadawane pytania"
     columns={1}
-    items={[
-      {
-        title: 'Jak długo trzeba czekać na zdjęcia?',
-        description: 'Termin oddania zdjęć ustalamy indywidualnie dla każdego projektu / wydarzenia, w zależności od wielu czynników. Parametrami kluczowymi jest tutaj m.in. to, jakiego typu jest to impreza, na ile zdjęć sumarycznie zdjęć się umówiliśmy, czy oddajemy zdjęcia w partiach, czy robimy edycję live itd.\n\nW przypadku zdjęć live - oddajemy materiał na miejscu w "czasie rzeczywistym", czyli zaraz po edycji przez edytora. W przypadku np. konferencji (oraz innych wydarzeń, kiedy organizatorowi zależy na szybkiej publikacji relacji w social mediach) istnieje możliwość dostarczenia określonej puli jeszcze w trakcie trwania wydarzenia (po wcześniejszym ustaleniu). W pozostałych przypadkach termin na oddanie zdjęć wynosi od 72 godzin do 10 dni roboczych - standardowe zakresy podane zostały przy każdej z ofert indywidualnie.',
-      },
-      {
-        title: 'W jaki sposób dostarczamy zdjęcia?',
-        description: 'Zdjęcia dostarczamy zazwyczaj w postaci linka do katalogu online. Operujemy na dwóch standardowych rozdzielczościach plików: do social media / internetu - o rozdzielczości 2048 px na dłuższej krawędzi - oraz do druku w pełnej rozdzielczości (full resolution - FR).',
-      },
-      {
-        title: 'Czy oddajemy nieobrobione zdjęcia?',
-        description: 'Zawsze oddajemy umówioną liczbę zdjęć, a czasem nawet trochę więcej, jeśli wydarzenie tego wymaga (czyt. dużo się działo;). Nasi fotografowie przekazują do postprodukcji zdjęcia po wstępnej selekcji. Następnie materiał zostaje poddany selekcji finalnej, a ostatecznie obrobiony przez fotoedytora. Dla zachowania maksymalnej jakości i wydajności naszej pracy nie oferujemy zdjęć surowych, ani do wyboru, ani w żadnej innej formie. Podchodzimy do naszej pracy profesjonalnie i wybieramy tylko najlepsze kadry. Poza tym doskonale wiemy, że ciężko obejrzeć tysiąc zdjęć z wydarzenia - a co dopiero kilka tysięcy surowych plików.\n\n"RAWy" można porównać do ciasta na chleb - piekarz zwykle nie sprzedaje w piekarni takiego ciasta - my również wychodzimy z takiego założenia.',
-      },
-      {
-        title: 'Jakie są ceny za reportaż?',
-        description: 'Ceny reportaży bardzo zależą od ilości godzin fotografów "w terenie", liczby fotografów, umówionej ilości zdjęć, a także czasu oddania reportażu, usług specjalnych (ścianki, zdjęcia live itd.) i szczególnych innych wymagań - co do konkretnego zlecenia. Zachęcamy do wysłania zapytania, bądź kontaktu telefonicznego w celu przygotowania wyceny.',
-      },
-      {
-        title: 'Gdzie działamy?',
-        description: 'Zwykle fotografujemy na terenie Polski, jednak wyjazdy nie są nam straszne. Do tej pory wykonywaliśmy reportaże w krajach takich jak m.in. USA, Turcja, Islandia, Portugalia, Hiszpania, Monako, Włochy, Holandia, Grecja i wiele innych. Jesteśmy otwarci na nowe doświadczenia, podróże i kreatywne pomysły naszych klientów.',
-      },
-      {
-        title: 'Na jakim sprzęcie pracujemy?',
-        description: 'Sprzęt to tylko sprzęt, dobieramy go do specyfiki konkretnego zlecenia. Reportaże fotograficzne wykonujemy zazwyczaj na aparatach pełnoklatkowych - lustrzankach i bezlusterkowcach - a jako, że jesteśmy sporą grupą fotografów, to każdy ma swoje ulubione narzędzia pracy. Na specjalne życzenie zdarza nam się również wykonywać zdjęcia na małoobrazkowej błonie fotograficznej. Imprezy doświetlamy reporterskimi lampami błyskowymi w różnych konfiguracjach, a w niektórych sytuacjach korzystamy z oświetlenia typu LED RING własnego pomysłu.',
-      },
-    ]}
+    items={faqItems}
   />
 
   <CallToAction

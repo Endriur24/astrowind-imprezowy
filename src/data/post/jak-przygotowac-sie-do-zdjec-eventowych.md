@@ -3,7 +3,7 @@ publishDate: 2024-01-15T00:00:00Z
 author: ImprezowyFotograf
 title: Jak przygotować się do zdjęć eventowych?
 excerpt: Profesjonalne wskazówki, jak idealnie przygotować się na sesję fotograficzną podczas wydarzenia. Od stroju po makijaż - wszystko, co musisz wiedzieć!
-image: https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+image: ~/assets/images/portfolio/studniowka/zdjecia_studniowkowe_033.jpg
 category: Porady
 tags:
   - fotografia eventowa
@@ -24,7 +24,7 @@ Profesjonalny fotograf potrafi uchwycić najpiękniejsze chwile, ale odpowiednie
 
 ### Studniówka i bal maturalny
 - **Dla Pań:** Eleganckie suknie, dopasowane do figury. Unikaj zbyt dużych dekoltów i super krótkich spódnic.
-- **Dla Panów:** Klasyczny garnitur lub smoking. Pamiętaj o pasującej muchy lub krawacie.
+- **Dla Panów:** Klasyczny garnitur lub smoking. Pamiętaj o pasującej muszce lub krawacie.
 - **Kolory:** Stawiaj na stonowane kolory, które dobrze wyglądają na zdjęciach - czerń, biel, granat, zieleń.
 
 ### Imprezy firmowe
@@ -40,7 +40,7 @@ Profesjonalny fotograf potrafi uchwycić najpiękniejsze chwile, ale odpowiednie
 - **Sprawdź:** Zrób próbne zdjęcia w domowym oświetleniu, aby zobaczyć efekt końcowy.
 
 ### Fryzura
-- **Stabilizacja:** Użyj lakieru lub żelu, aby fryzura utrzymała się przez całą imprezę.
+- **Utrwalenie fryzury:** Użyj lakieru lub żelu, aby fryzura utrzymała się przez całą imprezę.
 - **Próbne uczesanie:** Zrób próbę fryzury dzień wcześniej, aby uniknąć niespodzianek.
 
 ## Detale, które robią różnicę
@@ -60,22 +60,22 @@ Profesjonalny fotograf potrafi uchwycić najpiękniejsze chwile, ale odpowiednie
 - **Uśmiech:** Znajdź swój naturalny, swobodny uśmiech.
 
 ### Relaks
-- **Odpoczynek:** Spać dobrze przed sesją - zmęczenie widać na zdjęciach.
+- **Odpoczynek:** Wyśpij się dobrze przed sesją - zmęczenie widać na zdjęciach.
 - **Spokój:** Pamiętaj, że to Twoja impreza - baw się dobrze!
 
 ## W dzień sesji
 
 ### Timing
 - **Rezerwa:** Przyjdź wcześniej, aby mieć czas na ostatnie poprawki.
-- **Spokojny start:** Nie spiesz się - wszystko musi być zrobione z głową.
+- **Spokojny start:** Nie spiesz się - wszystko musi być zrobione z rozwagą.
 
-### Przenosiny
-- **Zapasowe rzeczy:** Weź ze sobą zapasową koszulę czy makijaż.
+### Co zabrać ze sobą
+- **Zapasowe rzeczy:** Weź ze sobą zapasową koszulę i kosmetyki do poprawek.
 - **Awaryjny zestaw:** Chusteczki, proszek, lusterko.
 
 ## Podsumowanie
 
-Dobre przygotowanie to klucz sukcesu idealnych zdjęć eventowych. Pamiętaj, że najważniejsza jest naturalność i dobre samopoczucie. Ty wiesz najlepiej, w czym czujesz się świetnie - my pomożemy to uwiecznić!
+Dobre przygotowanie to klucz do idealnych zdjęć eventowych. Pamiętaj, że najważniejsza jest naturalność i dobre samopoczucie. Ty wiesz najlepiej, w czym czujesz się świetnie - my pomożemy to uwiecznić!
 
 ---
 *Potrzebujesz profesjonalnego fotografa na Twoje wydarzenie? Skontaktuj się z nami - chętnie pomożemy uwiecznić najważniejsze chwile!*

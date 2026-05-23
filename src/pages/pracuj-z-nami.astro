@@ -2,6 +2,17 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import { createGenericPageSchema, siteUrl } from '~/utils/schema';
+
+const schema = createGenericPageSchema({
+  name: 'Pracuj z nami - ImprezowyFotograf',
+  url: `${siteUrl}/pracuj-z-nami`,
+  description: 'Chcesz z nami pracować? Fotografować, filmować lub obrabiać materiały? Skontaktuj się z nami!',
+  breadcrumbItems: [
+    { position: 1, name: 'Strona główna', item: siteUrl },
+    { position: 2, name: 'Pracuj z nami' },
+  ],
+});
 
 const metadata = {
   title: 'Pracuj z nami - ImprezowyFotograf',
@@ -10,6 +21,8 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <Hero
     actions={[
       {

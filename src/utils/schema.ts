@@ -336,6 +336,102 @@ export function createHomePageSchema(): JsonLd {
   );
 }
 
+export function createGenericPageSchema(config: {
+  name: string;
+  url: string;
+  description?: string;
+  breadcrumbItems?: Array<{ position: number; name: string; item?: string }>;
+  faqItems?: Array<{ name: string; acceptedAnswer: { text: string } }>;
+}): JsonLd {
+  const schemas: JsonLd[] = [
+    createWebSiteSchema(),
+    createLocalBusinessSchema(),
+    createAddressSchema(),
+    createGeoSchema(),
+    createOpeningHoursSchema(),
+    ...createImageSchemas(),
+  ];
+
+  if (config.breadcrumbItems) {
+    schemas.push(createBreadcrumbSchema(config.url, config.breadcrumbItems));
+  }
+
+  if (config.faqItems && config.faqItems.length > 0) {
+    schemas.push(createFAQSchema(config.url, config.faqItems));
+  }
+
+  schemas.push(
+    createWebPageSchema({
+      name: config.name,
+      url: config.url,
+      description: config.description,
+      breadcrumbId: config.breadcrumbItems ? `${config.url}#breadcrumb` : undefined,
+      mainEntity:
+        config.faqItems && config.faqItems.length > 0
+          ? { "@id": `${config.url}#faq` }
+          : undefined,
+    })
+  );
+
+  return createGraph(...schemas);
+}
+
+export function createBlogPostSchema(config: {
+  title: string;
+  url: string | URL;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  image?: string;
+  author?: JsonLd;
+  breadcrumbItems?: Array<{ position: number; name: string; item?: string }>;
+}): JsonLd {
+  const url = String(config.url);
+  const schemas: JsonLd[] = [
+    createWebSiteSchema(),
+    createLocalBusinessSchema(),
+    createAddressSchema(),
+    createGeoSchema(),
+    createOpeningHoursSchema(),
+    ...createImageSchemas(),
+  ];
+
+  if (config.breadcrumbItems) {
+    schemas.push(createBreadcrumbSchema(url, config.breadcrumbItems));
+  }
+
+  schemas.push({
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: config.title,
+    description: config.description,
+    url: url,
+    isPartOf: { "@id": `${url}#webpage` },
+    ...(config.image ? { image: { "@type": "ImageObject", url: config.image } } : {}),
+    datePublished: config.datePublished,
+    dateModified: config.dateModified,
+    author: config.author || { "@id": `${siteUrl}/#organization` },
+    publisher: { "@id": `${siteUrl}/#organization` },
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    inLanguage: business.inLanguage,
+  });
+
+  schemas.push(
+    createWebPageSchema({
+      name: config.title,
+      url: url,
+      description: config.description,
+      breadcrumbId: config.breadcrumbItems ? `${url}#breadcrumb` : undefined,
+      ...(config.image ? { primaryImageOfPage: config.image } : {}),
+      datePublished: config.datePublished,
+      dateModified: config.dateModified,
+      author: config.author || { "@id": `${siteUrl}/#organization` },
+    })
+  );
+
+  return createGraph(...schemas);
+}
+
 export function createOfferPageGraph(config: {
   serviceName: string;
   serviceDescription: string;

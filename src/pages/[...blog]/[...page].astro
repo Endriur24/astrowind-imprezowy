@@ -8,6 +8,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { createGenericPageSchema, siteUrl } from '~/utils/schema';
 
 export const prerender = true;
 
@@ -19,6 +20,16 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
+
+const schema = createGenericPageSchema({
+  name: `Blog${currentPage > 1 ? ` — Strona ${currentPage}` : ''}`,
+  url: currentPage > 1 ? `${siteUrl}/blog/strona/${currentPage}` : `${siteUrl}/blog`,
+  description: 'Blog z wiadomościami, poradnikami i zasobami o fotografii eventowej i nie tylko.',
+  breadcrumbItems: [
+    { position: 1, name: 'Strona główna', item: siteUrl },
+    { position: 2, name: 'Blog' },
+  ],
+});
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
@@ -36,11 +47,12 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
+      subtitle="Blog z wiadomościami, poradnikami, zasobami i innymi ciekawostkami związanymi z fotografią eventową"
     >
-      The Blog
+      Blog
     </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
