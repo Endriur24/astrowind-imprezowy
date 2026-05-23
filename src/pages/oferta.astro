@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import ImageGrid from '~/components/widgets/ImageGrid.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { createHomePageSchema } from '~/utils/schema';
 
 // Import covers from src/assets/images
 import coverStudniowki from '~/assets/images/covers/studniowki_cover.jpg';
@@ -35,95 +36,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Usługi Fotograficzne i Wideo",
-    "description": "Profesjonalny fotograf imprezowy w Krakowie. Kompleksowe usługi fotograficzne i wideo na eventy: studniówki, konferencje, imprezy klubowe, eventy firmowe, urodziny, streaming wideo i więcej.",
-    "url": "https://imprezowyfotograf.pl/oferta",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/eventowy_cover.jpg",
-    "areaServed": [
-      {"@type": "City", "name": "Kraków"},
-      {"@type": "City", "name": "Warszawa"},
-      {"@type": "City", "name": "Katowice"},
-      {"@type": "City", "name": "Rzeszów"},
-      {"@type": "City", "name": "Tarnów"},
-      {"@type": "City", "name": "Kielce"},
-      {"@type": "Country", "name": "Polska"}
-    ],
-    "serviceType": [
-      "Fotografia imprezowa",
-      "Fotografia eventowa",
-      "Fotografia klubowa i koncertowa",
-      "Fotografia konferencyjna",
-      "Fotografia studencka",
-      "Streaming wideo",
-      "Wideo eventowe"
-    ],
-    "priceRange": "$$",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Usługi fotograficzne ImprezowyFotograf",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotograf na studniówkę", "description": "Zdjęcia ze studniówek i komersów w Krakowie. Pakiety od 1 do 3+ fotografów, retusz w cenie."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotograf eventowy", "description": "Zdjęcia z eventów firmowych w Krakowie i całej Polsce. Retusz w cenie, dostawa 24-72h."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotograf klubowy i koncertowy", "description": "Dynamiczne zdjęcia z koncertów i imprez klubowych w Krakowie. Pełen frame, jasne obiektywy, dostawa 24h."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotograf na konferencje", "description": "Profesjonalna dokumentacja konferencji i eventów branżowych. Zdjęcia w 24h, retusz w cenie."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fotograf na urodziny", "description": "Zdjęcia z urodzin, osiemnastek i imprez prywatnych w Krakowie. Retusz w cenie."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Zdjęcia live", "description": "Dostarczanie zdjęć w czasie rzeczywistym podczas trwania wydarzenia. Fotoedytor na miejscu."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Streaming wideo", "description": "Profesjonalne transmisje live z konferencji i eventów. Pełna obsługa AV."}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wideo eventowe", "description": "Teledyski, spoty promocyjne i relacje wideo z wydarzeń."}}
-      ]
-    }
-  }
-)} />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Ile kosztuje fotograf na imprezę w Krakowie?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cena fotografa na imprezę w Krakowie zależy od rodzaju wydarzenia, liczby godzin i zakresu usług. Stawka godzinowa wynosi zazwyczaj od 200 do 600 zł, a stawka dzienna od 2000 do 5000 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jak szybko otrzymam zdjęcia z imprezy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Standardowy czas dostarczenia zdjęć z imprezy to 24-72 godziny od zakończenia wydarzenia. Oferujemy również usługę zdjęć live, gdzie pierwsze zdjęcia trafiają do Ciebie jeszcze w trakcie trwania eventu."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy retuszujecie zdjęcia z imprez?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! W przeciwieństwie do wielu fotografów imprezowych, my retuszujemy wszystkie zdjęcia w cenie usługi. Wiemy, jak ważny jest dobry wygląd osób na zdjęciach przeznaczonych do publikacji w social media."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Na jakim terenie fotografujecie imprezy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Fotografujemy imprezy głównie na terenie Krakowa, Tarnowa, Rzeszowa, Warszawy, Katowic oraz Kielc, ale dojeżdżamy na terenie całej Polski i za granicą."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jakie usługi fotograficzne oferujecie?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oferujemy kompleksowe usługi fotograficzne i wideo: zdjęcia na studniówki, imprezy studenckie, eventy firmowe, konferencje, imprezy klubowe i koncertowe, urodziny, zdjęcia live, streaming wideo, wideo eventowe, reportaże specjalne, szkolenia foto i dodatkowe usługi takie jak fotobudka czy ścianka fotograficzna."
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(createHomePageSchema())} />
 
   <!-- SEO Content Section -->
   <section class="py-16 bg-gray-50 dark:bg-gray-800">

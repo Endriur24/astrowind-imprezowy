@@ -2,9 +2,33 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
+
+const faqData = [
+  { question: "Ile kosztuje fotograf na konferencję?", answer: "Cena fotografa na konferencję zależy od długości wydarzenia. Stawka godzinowa wynosi 250 zł za godzinę, a stawka dzienna od 1800 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie." },
+  { question: "Jak szybko otrzymamy zdjęcia z konferencji?", answer: "Zdjęcia z konferencji dostarczamy w ciągu 24 godzin od zakończenia wydarzenia. Oferujemy również usługę zdjęć live, gdzie pierwsze partie zdjęć trafiają do klienta jeszcze w trakcie trwania eventu dzięki obecności fotoedytora na miejscu." },
+  { question: "Czy retuszujecie zdjęcia z konferencji?", answer: "Tak! W przeciwieństwie do wielu fotografów eventowych, my retuszujemy wszystkie zdjęcia z konferencji w cenie usługi. Wiemy, jak ważny jest profesjonalny wygląd osób na zdjęciach biznesowych przeznaczonych do promocji na LinkedIn, Facebooku czy Instagramie." },
+  { question: "Na jakim terenie działacie?", answer: "Konferencje i eventy branżowe fotografujemy głównie na terenie Krakowa, Tarnowa, Rzeszowa, Warszawy, Katowic oraz Kielc, ale dojeżdżamy na terenie całej Polski. Realizujemy również reportaże poza granicami kraju — miejsce nie ma dla nas znaczenia." },
+  { question: "Czy oferujecie również nagrania wideo z konferencji?", answer: "Tak, oprócz reportażu fotograficznego oferujemy relacje wideo, teledyski, spoty promocyjne, rejestrację wywiadów i wypowiedzi, streaming live oraz inne formy filmowe dostosowane do potrzeb klienta." },
+  { question: "Czym są zdjęcia live?", answer: "Zdjęcia live to usługa, w której na lokację oprócz fotografa przyjeżdża również fotoedytor. Dzięki temu pierwsze partie zdjęć trafiają do klienta jeszcze w czasie trwania eventu — idealne do natychmiastowej publikacji na social media." },
+];
+
+const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: "Fotograf na Konferencję Kraków",
+  serviceDescription: "Profesjonalna fotografia na konferencje, eventy firmowe i wydarzenia branżowe. Zdjęcia w 24h, retusz w cenie, obsługa w całej Polsce.",
+  serviceUrl: `${siteUrl}/oferta/fotograf-na-konferencje-krakow`,
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: "Strona główna", item: siteUrl },
+    { position: 2, name: "Oferta", item: `${siteUrl}/oferta` },
+    { position: 3, name: "Fotograf na konferencję" },
+  ],
+});
 
 const metadata = {
   title: 'Fotograf na Konferencję Kraków | Profesjonalna Fotografia Eventowa',
@@ -23,109 +47,7 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
 ---
 
 <Layout metadata={metadata}>
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Fotografia Konferencyjna",
-    "description": "Profesjonalna fotografia na konferencje, eventy firmowe i wydarzenia branżowe. Zdjęcia w 24h, retusz w cenie, obsługa w całej Polsce.",
-    "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-konferencje-krakow",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/konferencje_cover.jpg",
-    "areaServed": [
-      {"@type": "City", "name": "Kraków"},
-      {"@type": "City", "name": "Warszawa"},
-      {"@type": "City", "name": "Katowice"},
-      {"@type": "City", "name": "Rzeszów"},
-      {"@type": "City", "name": "Tarnów"},
-      {"@type": "City", "name": "Kielce"},
-      {"@type": "Country", "name": "Polska"}
-    ],
-    "serviceType": ["Fotografia konferencyjna", "Fotografia eventowa", "Fotografia firmowa", "Zdjęcia live"],
-    "priceRange": "$$",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Pakiety fotografii konferencyjnej",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pakiet Brązowy - Podstawowy",
-            "description": "1 fotograf, do 4h reportażu, 100 zdjęć po obróbce, retusz w cenie, dostawa w 24h"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pakiet Srebrny - Rozszerzony",
-            "description": "1 fotograf, do 8h reportażu, 200 zdjęć po obróbce, retusz w cenie, dostawa w 24h"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pakiet Złoty - Premium+",
-            "description": "2 fotografów lub więcej, do 10h reportażu, 400+ zdjęć po obróbce, retusz w cenie, dostawa w 24h"
-          }
-        }
-      ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "50"
-    }
-  })} />
-
-  <!-- FAQ Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Ile kosztuje fotograf na konferencję?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-           "text": "Cena fotografa na konferencję zależy od długości wydarzenia. Stawka godzinowa wynosi 250 zł za godzinę, a stawka dzienna od 1800 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jak szybko otrzymam zdjęcia z konferencji?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Standardowy czas dostarczenia zdjęć z konferencji to 5-7 dni roboczych. Istnieje możliwość szybszego oddania w 72h lub 24h. Oferujemy również usługę live edit, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy retuszujecie zdjęcia z konferencji?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! W przeciwieństwie do wielu fotografów eventowych, my retuszujemy wszystkie zdjęcia z konferencji w cenie usługi. Wiemy, jak ważny jest profesjonalny wygląd osób na zdjęciach biznesowych przeznaczonych do promocji na LinkedIn, Facebooku czy Instagramie."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Na jakim terenie fotografujecie konferencje?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Konferencje i eventy branżowe fotografujemy głównie na terenie Krakowa, Tarnowa, Rzeszowa, Warszawy, Katowic oraz Kielc, ale dojeżdżamy na terenie całej Polski. Realizujemy również reportaże poza granicami kraju."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy oferujecie również nagrania wideo z konferencji?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak, oprócz reportażu fotograficznego oferujemy relacje wideo, teledyski, spoty promocyjne, rejestrację wywiadów i wypowiedzi, streaming live oraz inne formy filmowe dostosowane do potrzeb klienta."
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <!-- Hero Section -->
   <Hero
@@ -363,35 +285,10 @@ import KonferencjeCover from '~/assets/images/covers/konferencje_cover.jpg';
   </section>
 
   <!-- FAQs -->
-  <FAQs
-    title="Najczęściej zadawane pytania o fotografię konferencyjną"
-    subtitle="Odpowiedzi na pytania, które najczęściej zadają nam organizatorzy konferencji i eventów firmowych."
-    items={[
-      {
-        title: 'Ile kosztuje fotograf na konferencję?',
-        description: 'Cena fotografa na konferencję zależy od długości wydarzenia. Stawka godzinowa wynosi 250 zł za godzinę, a stawka dzienna od 1800 zł. Wszystkie pakiety zawierają retusz zdjęć w cenie.',
-      },
-      {
-        title: 'Jak szybko otrzymamy zdjęcia z konferencji?',
-        description: 'Zdjęcia z konferencji dostarczamy w ciągu 24 godzin od zakończenia wydarzenia. Oferujemy również usługę zdjęć live, gdzie pierwsze partie zdjęć trafiają do klienta jeszcze w trakcie trwania eventu dzięki obecności fotoedytora na miejscu.',
-      },
-      {
-        title: 'Czy retuszujecie zdjęcia z konferencji?',
-        description: 'Tak! W przeciwieństwie do wielu fotografów eventowych, my retuszujemy wszystkie zdjęcia z konferencji w cenie usługi. Wiemy, jak ważny jest profesjonalny wygląd osób na zdjęciach biznesowych przeznaczonych do promocji na LinkedIn, Facebooku czy Instagramie.',
-      },
-      {
-        title: 'Na jakim terenie działacie?',
-        description: 'Konferencje i eventy branżowe fotografujemy głównie na terenie Krakowa, Tarnowa, Rzeszowa, Warszawy, Katowic oraz Kielc, ale dojeżdżamy na terenie całej Polski. Realizujemy również reportaże poza granicami kraju — miejsce nie ma dla nas znaczenia.',
-      },
-      {
-        title: 'Czy oferujecie również nagrania wideo z konferencji?',
-        description: 'Tak, oprócz reportażu fotograficznego oferujemy relacje wideo, teledyski, spoty promocyjne, rejestrację wywiadów i wypowiedzi, streaming live oraz inne formy filmowe dostosowane do potrzeb klienta.',
-      },
-      {
-        title: 'Czym są zdjęcia live?',
-        description: 'Zdjęcia live to usługa, w której na lokację oprócz fotografa przyjeżdża również fotoedytor. Dzięki temu pierwsze partie zdjęć trafiają do klienta jeszcze w czasie trwania eventu — idealne do natychmiastowej publikacji na social media.',
-      },
-    ]}
+  <OfferFaq
+    heading="Najczęściej zadawane pytania o fotografię konferencyjną"
+    description="Odpowiedzi na pytania, które najczęściej zadają nam organizatorzy konferencji i eventów firmowych."
+    items={faqData}
   />
 
   <!-- Related Services Internal Linking -->

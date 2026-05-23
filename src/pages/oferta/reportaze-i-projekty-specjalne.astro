@@ -3,8 +3,30 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
 
 import repoSpecjalneCover from '~/assets/images/covers/repo_specjalne_cover.jpg';
+
+const faqData = [
+  { question: "Jakie projekty specjalne realizujecie?", answer: "Realizujemy <strong>reportaże z wyjazdów na zawody</strong>, <strong>eventy sportowe</strong>, zjazdy samochodowe, konkursy studenckich zespołów konstruktorskich i inne nieszablonowe wydarzenia. Oferujemy zarówno fotografię, jak i wideo." },
+  { question: "Czy fotografujecie za granicą?", answer: "Tak! Nasi fotografowie realizowali projekty m.in. w <strong>USA</strong>, <strong>Turcji</strong>, <strong>Monako</strong>, <strong>Portugalii</strong>, <strong>Hiszpanii</strong>, <strong>Holandii</strong>, <strong>Grecji</strong> i <strong>Włoszech</strong>. Działamy w zasadzie w <strong>dowolnym miejscu na świecie</strong>." },
+  { question: "Ile kosztuje reportaż specjalny?", answer: "Koszt reportażu specjalnego zależy od <strong>lokalizacji</strong>, liczby dni, zakresu usług i logistyki. Każdy projekt wyceniamy indywidualnie. Zapraszamy do kontaktu po szczegóły." },
+];
+
+const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: "Reportaże i Projekty Specjalne",
+  serviceDescription: "Wykonujemy zdjęcia na różnego rodzaju wydarzeniach i zawodach, w tym wyjazdy zagraniczne.",
+  serviceUrl: `${siteUrl}/oferta/reportaze-i-projekty-specjalne`,
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: "Strona główna", item: siteUrl },
+    { position: 2, name: "Oferta", item: `${siteUrl}/oferta` },
+    { position: 3, name: "Reportaże specjalne" },
+  ],
+});
 
 const metadata = {
   title: 'Reportaże i Projekty Specjalne — Wyjazdy, Zawody, Eventy Sportowe',
@@ -24,48 +46,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Reportaże i Projekty Specjalne",
-    "description": "Wykonujemy zdjęcia na różnego rodzaju wydarzeniach i zawodach, w tym wyjazdy zagraniczne.",
-    "url": "https://imprezowyfotograf.pl/oferta/reportaze-i-projekty-specjalne",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/repo_specjalne_cover.jpg",
-    "areaServed": {"@type": "Country", "name": "Polska"},
-    "serviceType": ["Reportaże fotograficzne", "Projekty specjalne", "Fotografia sportowa"],
-    "priceRange": "$$"
-  })} />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Jakie projekty specjalne realizujecie?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Realizujemy reportaże z wyjazdów na zawody, eventy sportowe, zjazdy samochodowe, konkursy studenckich zespołów konstruktorskich i inne nieszablonowe wydarzenia. Oferujemy zarówno fotografię, jak i wideo."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy fotografujecie za granicą?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! Nasi fotografowie realizowali projekty m.in. w USA, Turcji, Monako, Portugalii, Hiszpanii, Holandii, Grecji i Włoszech. Działamy w zasadnie w dowolnym miejscu na świecie."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Ile kosztuje reportaż specjalny?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Koszt reportażu specjalnego zależy od lokalizacji, liczby dni, zakresu usług i logistyki. Każdy projekt wyceniamy indywidualnie. Zapraszamy do kontaktu po szczegóły."
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <Hero
     image={{ 
@@ -129,31 +110,10 @@ const metadata = {
     gap={12}
   />
 
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — reportaże specjalne</h2>
-      <div class="max-w-3xl mx-auto space-y-8">
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie projekty specjalne realizujecie?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Realizujemy <strong>reportaże z wyjazdów na zawody</strong>, <strong>eventy sportowe</strong>, zjazdy samochodowe, konkursy studenckich zespołów konstruktorskich i inne nieszablonowe wydarzenia. Oferujemy zarówno fotografię, jak i wideo.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy fotografujecie za granicą?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Tak! Nasi fotografowie realizowali projekty m.in. w <strong>USA</strong>, <strong>Turcji</strong>, <strong>Monako</strong>, <strong>Portugalii</strong>, <strong>Hiszpanii</strong>, <strong>Holandii</strong>, <strong>Grecji</strong> i <strong>Włoszech</strong>. Działamy w zasadzie w <strong>dowolnym miejscu na świecie</strong>.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje reportaż specjalny?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Koszt reportażu specjalnego zależy od <strong>lokalizacji</strong>, liczby dni, zakresu usług i logistyki. Każdy projekt wyceniamy indywidualnie. Zapraszamy do kontaktu po szczegóły.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <OfferFaq
+    heading="Najczęstsze pytania — reportaże specjalne"
+    items={faqData}
+  />
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">

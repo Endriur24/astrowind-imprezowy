@@ -2,8 +2,31 @@
 import Layout from '../../layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
 
 import zdjeciaLiveCover from '~/assets/images/covers/zdjecia_live_cover.jpg';
+
+const faqData = [
+  { question: "Co to są zdjęcia live?", answer: "Zdjęcia live to usługa fotograficzna, w której zdjęcia są dostarczane <strong>niemal w czasie rzeczywistym</strong> — jeszcze podczas trwania wydarzenia. Na miejsce wysyłamy fotografa i fotoedytora, który na bieżąco przygotowuje pliki do publikacji." },
+  { question: "Ile kosztują zdjęcia live?", answer: "Koszt zdjęć live zależy od specyfiki wydarzenia, liczby godzin i wymaganej kadry. Usługa obejmuje <strong>fotografa oraz fotoedytora</strong> na miejscu. Zapraszamy do kontaktu po indywidualną wycenę." },
+  { question: "Jak szybko dostajemy zdjęcia?", answer: "Pierwsze partie zdjęć live trafiają do klienta jeszcze <strong>w trakcie trwania wydarzenia</strong> — zazwyczaj w ciągu kilkunastu minut od wykonania. Pełny reportaż retuszowany dostarczamy w standardowym terminie 24-72h." },
+  { question: "Na jakim terenie oferujecie zdjęcia live?", answer: "Zdjęcia live oferujemy na terenie <strong>całej Polski</strong>. Dojeżdżamy do Krakowa, Warszawy, Katowic, Rzeszowa, Wrocławia, Gdańska i innych miast. Możliwe są również realizacje za granicą." },
+];
+
+const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: "Zdjęcia Live — Fotografia w Czasie Rzeczywistym",
+  serviceDescription: "Dostarczamy zdjęcia niemal w czasie rzeczywistym, jeszcze w trakcie trwania wydarzenia. Fotoedytor na miejscu.",
+  serviceUrl: `${siteUrl}/oferta/zdjecia-live`,
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: "Strona główna", item: siteUrl },
+    { position: 2, name: "Oferta", item: `${siteUrl}/oferta` },
+    { position: 3, name: "Zdjęcia live" },
+  ],
+});
 
 const metadata = {
   title: 'Zdjęcia Live — Fotografia w Czasie Rzeczywistym na Eventy | ImprezowyFotograf',
@@ -23,56 +46,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Zdjęcia Live",
-    "description": "Dostarczamy zdjęcia niemal w czasie rzeczywistym, jeszcze w trakcie trwania wydarzenia. Fotoedytor na miejscu.",
-    "url": "https://imprezowyfotograf.pl/oferta/zdjecia-live",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/zdjecia_live_cover.jpg",
-    "areaServed": {"@type": "Country", "name": "Polska"},
-    "serviceType": ["Zdjęcia live", "Fotografia w czasie rzeczywistym"],
-    "priceRange": "$$"
-  })} />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Co to są zdjęcia live?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Zdjęcia live to usługa fotograficzną, w której zdjęcia są dostarczane niemal w czasie rzeczywistym — jeszcze podczas trwania wydarzenia. Na miejsce wysyłamy fotografa i fotoedytora, który na bieżąco przygotowuje pliki do publikacji."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Ile kosztują zdjęcia live?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Koszt zdjęć live zależy od specyfiki wydarzenia, liczby godzin i wymaganej kadry. Usługa obejmuje fotografa oraz fotoedytora na miejscu. Zapraszamy do kontaktu po indywidualną wycenę."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jak szybko dostajemy zdjęcia?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Pierwsze partie zdjęć live trafiają do klienta jeszcze w trakcie trwania wydarzenia — zazwyczaj w ciągu kilkunastu minut od wykonania. Pełny reportaż retuszowany dostarczamy w standardowym terminie 24-72h."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Na jakim terenie oferujecie zdjęcia live?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Zdjęcia live oferujemy na terenie całej Polski. Dojeżdżamy do Krakowa, Warszawy, Katowic, Rzeszowa, Wrocławia, Gdańska i innych miast. Możliwe są również realizacje za granicą."
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <Hero
     image={{ 
@@ -128,37 +102,10 @@ const metadata = {
     </div>
   </section>
 
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — zdjęcia live</h2>
-      <div class="max-w-3xl mx-auto space-y-8">
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Co to są zdjęcia live?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Zdjęcia live to usługa fotograficzna, w której zdjęcia są dostarczane <strong>niemal w czasie rzeczywistym</strong> — jeszcze podczas trwania wydarzenia. Na miejsce wysyłamy fotografa i fotoedytora, który na bieżąco przygotowuje pliki do publikacji.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztują zdjęcia live?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Koszt zdjęć live zależy od specyfiki wydarzenia, liczby godzin i wymaganej kadry. Usługa obejmuje <strong>fotografa oraz fotoedytora</strong> na miejscu. Zapraszamy do kontaktu po indywidualną wycenę.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko dostajemy zdjęcia?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Pierwsze partie zdjęć live trafiają do klienta jeszcze <strong>w trakcie trwania wydarzenia</strong> — zazwyczaj w ciągu kilkunastu minut od wykonania. Pełny reportaż retuszowany dostarczamy w standardowym terminie 24-72h.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie oferujecie zdjęcia live?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Zdjęcia live oferujemy na terenie <strong>całej Polski</strong>. Dojeżdżamy do Krakowa, Warszawy, Katowic, Rzeszowa, Wrocławia, Gdańska i innych miast. Możliwe są również realizacje za granicą.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <OfferFaq
+    heading="Najczęstsze pytania — zdjęcia live"
+    items={faqData}
+  />
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">

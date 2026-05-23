@@ -2,8 +2,30 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
 
 import videoEventoweCover from '~/assets/images/covers/video_eventowe_cover.jpg';
+
+const faqData = [
+  { question: "Ile kosztuje teledysk z eventu?", answer: "Koszt teledysku z eventu zależy od <strong>długości materiału</strong>, liczby kamer, godzin nagrania i zakresu postprodukcji. Każdy projekt wyceniamy indywidualnie — zapraszamy do kontaktu po darmową wycenę." },
+  { question: "Jakie formy wideo eventowego oferujecie?", answer: "Oferujemy <strong>teledyski z eventów</strong>, <strong>spoty promocyjne</strong>, nagrania wykładów i prelekcji, filmy instruktażowe, kursy edukacyjne, podcasty wideo, <strong>filmy z drona</strong>, materiały reklamowe i wizerunkowe, case study oraz inne formy filmowe." },
+  { question: "Czy montujecie również materiały?", answer: "Tak! Nie tylko nagrywamy, ale również <strong>montujemy materiały wideo</strong>. Oferujemy pełną postprodukcję — od montażu, przez kolorystykę, po lektora i grafiki. Możemy również pracować na materiałach stockowych dostarczonych przez klienta." },
+];
+
+const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: "Wideo Eventowe Kraków",
+  serviceDescription: "Kompleksowa usługa video z eventów: teledyski, spoty promocyjne, rejestracja wykładów i prelekcji.",
+  serviceUrl: `${siteUrl}/oferta/video-eventowe`,
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: "Strona główna", item: siteUrl },
+    { position: 2, name: "Oferta", item: `${siteUrl}/oferta` },
+    { position: 3, name: "Wideo eventowe" },
+  ],
+});
 
 const metadata = {
   title: 'Wideo Eventowe Kraków — Teledyski, Spoty Promocyjne, Relacje z Eventów',
@@ -23,48 +45,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Wideo Eventowe",
-    "description": "Kompleksowa usługa video z eventów: teledyski, spoty promocyjne, rejestracja wykładów i prelekcji.",
-    "url": "https://imprezowyfotograf.pl/oferta/video-eventowe",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/video_eventowe_cover.jpg",
-    "areaServed": {"@type": "Country", "name": "Polska"},
-    "serviceType": ["Wideo eventowe", "Teledyski", "Spoty promocyjne", "Rejestracja video"],
-    "priceRange": "$$"
-  })} />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Ile kosztuje teledysk z eventu?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Koszt teledysku z eventu zależy od długości materiału, liczby kamer, godzin nagrania i zakresu postprodukcji. Każdy projekt wyceniamy indywidualnie — zapraszamy do kontaktu po darmową wycenę."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jakie formy wideo eventowego oferujecie?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oferujemy teledyski z eventów, spoty promocyjne, nagrania wykładów i prelekcji, filmy instruktażowe, kursy edukacyjne, podcasty wideo, filmy z drona, materiały reklamowe i wizerunkowe, case study oraz inne formy filmowe."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy montujecie również materiały?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! Nie tylko nagrywamy, ale również montujemy materiały wideo. Oferujemy pełną postprodukcję — od montażu, przez kolorystykę, po lektora i grafiki. Możemy również pracować na materiałach stockowych dostarczonych przez klienta."
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <Hero
     image={{ 
@@ -120,31 +101,10 @@ const metadata = {
     </div>
   </section>
 
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — wideo eventowe</h2>
-      <div class="max-w-3xl mx-auto space-y-8">
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje teledysk z eventu?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Koszt teledysku z eventu zależy od <strong>długości materiału</strong>, liczby kamer, godzin nagrania i zakresu postprodukcji. Każdy projekt wyceniamy indywidualnie — zapraszamy do kontaktu po darmową wycenę.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jakie formy wideo eventowego oferujecie?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Oferujemy <strong>teledyski z eventów</strong>, <strong>spoty promocyjne</strong>, nagrania wykładów i prelekcji, filmy instruktażowe, kursy edukacyjne, podcasty wideo, <strong>filmy z drona</strong>, materiały reklamowe i wizerunkowe, case study oraz inne formy filmowe.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy montujecie również materiały?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Tak! Nie tylko nagrywamy, ale również <strong>montujemy materiały wideo</strong>. Oferujemy pełną postprodukcję — od montażu, przez kolorystykę, po lektora i grafiki. Możemy również pracować na materiałach stockowych dostarczonych przez klienta.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <OfferFaq
+    heading="Najczęstsze pytania — wideo eventowe"
+    items={faqData}
+  />
 
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">

@@ -1,0 +1,42 @@
+---
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  heading?: string;
+  description?: string;
+  items?: FaqItem[];
+  variant?: "white" | "muted";
+}
+
+const {
+  heading = "Najczęściej zadawane pytania",
+  description,
+  items = [],
+  variant = "muted",
+} = Astro.props as Props;
+
+const bgClass = variant === "white"
+  ? "bg-white dark:bg-gray-900"
+  : "bg-gray-50 dark:bg-gray-800";
+---
+
+<section class={`py-16 ${bgClass}`}>
+  <div class="container px-4 mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">{heading}</h2>
+      {description && <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{description}</p>}
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-8">
+      {items.map((item) => (
+        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">{item.question}</h3>
+          <div class="text-gray-600 dark:text-gray-400 leading-relaxed" set:html={item.answer} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

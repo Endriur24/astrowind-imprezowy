@@ -5,8 +5,32 @@ import Hero from '~/components/widgets/Hero.astro';
 import Contact from '~/components/widgets/Contact.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
 
 import studniowkiCover from '~/assets/images/covers/studniowki_cover.jpg';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
+
+const faqData = [
+  { question: "Ile kosztuje fotograf na studniówkę?", answer: "Cena fotografa na studniówkę zależy od wybranego pakietu. Oferujemy pakiety od <strong>Podstawowego</strong> (1 fotograf, 500 zdjęć, 5h reportażu) po pakiet <strong>Imprezowy+</strong> (3+ fotografów, 1500+ zdjęć, ścianka, teledysk wideo). Dokładne wyceny otrzymacie po kontakcie — dopasowujemy ofertę do Waszych potrzeb i budżetu." },
+  { question: "Jak szybko otrzymamy zdjęcia ze studniówki?", answer: "Standardowy czas dostarczenia zdjęć ze studniówki to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia." },
+  { question: "Czy retuszujecie zdjęcia ze studniówki?", answer: "Tak! W przeciwieństwie do większości fotografów na rynku, my <strong>retuszujemy wszystkie zdjęcia</strong> ze studniówek. Wiemy, że studniówkę ma się tylko raz, dlatego chcemy, żebyście wyglądali na zdjęciach jak najlepiej." },
+  { question: "Czy oferujecie wideo na studniówkę?", answer: "Tak! W pakiecie <strong>Imprezowy+</strong> teledysk wideo jest wliczony. W pozostałych pakietach można go dodać jako opcję dodatkową. Oferujemy również <a href=\"/oferta/video-eventowe\" class=\"text-blue-600 dark:text-blue-400 hover:underline\">film na studniówkę</a> — materiał nagrany wcześniej, który pokażecie podczas części artystycznej." },
+  { question: "Na jakim terenie fotografujecie studniówki?", answer: "Studniówki fotografujemy najczęściej na terenie <strong>Krakowa</strong> i województwa <strong>małopolskiego</strong>, ale dojeżdżamy również na terenie <strong>podkarpackiego</strong>, <strong>śląskiego</strong>, <strong>świętokrzyskiego</strong> oraz <strong>całej Polski</strong>. Jeśli tego wymaga wydarzenie — dojedziemy lub dolecimy, gdzie trzeba!" },
+];
+
+const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: "Fotograf na Studniówkę Kraków",
+  serviceDescription: "Profesjonalny fotograf na studniówkę w Krakowie. Zdjęcia pełne energii i nowoczesności, retusz w cenie.",
+  serviceUrl: `${siteUrl}/oferta/fotograf-na-studniowke`,
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: "Strona główna", item: siteUrl },
+    { position: 2, name: "Oferta", item: `${siteUrl}/oferta` },
+    { position: 3, name: "Fotograf na studniówkę" },
+  ],
+});
 
 const metadata = {
   title: 'Fotograf na Studniówkę Kraków — Zdjęcia, Wideo, Komers | ImprezowyFotograf',
@@ -26,69 +50,7 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Imprezowy Fotograf - Fotografia na Studniówkę",
-    "description": "Profesjonalny fotograf na studniówkę w Krakowie. Zdjęcia pełne energii i nowoczesności, retusz w cenie.",
-    "url": "https://imprezowyfotograf.pl/oferta/fotograf-na-studniowke",
-    "image": "https://imprezowyfotograf.pl/assets/images/covers/studniowki_cover.jpg",
-    "areaServed": [
-      {"@type": "City", "name": "Kraków"},
-      {"@type": "City", "name": "Warszawa"},
-      {"@type": "City", "name": "Katowice"},
-      {"@type": "Country", "name": "Polska"}
-    ],
-    "serviceType": ["Fotografia na studniówkę", "Fotografia imprezowa", "Zdjęcia live"],
-    "priceRange": "$$"
-  })} />
-
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Ile kosztuje fotograf na studniówkę?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cena fotografa na studniówkę zależy od wybranego pakietu. Oferujemy pakiety od Podstawowego (1 fotograf, 500 zdjęć, 5h reportażu) po pakiet Imprezowy+ (3+ fotografów, 1500+ zdjęć, ścianka, teledysk wideo). Dokładne wyceny otrzymacie po kontakcie — dopasowujemy ofertę do Waszych potrzeb i budżetu."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Jak szybko otrzymamy zdjęcia ze studniówki?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Standardowy czas dostarczenia zdjęć ze studniówki to 5-7 dni roboczych. Oferujemy również usługę zdjęć live — wtedy na lokację zabieramy fotoedytora, który przygotowuje pierwsze partie zdjęć jeszcze podczas trwania wydarzenia."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy retuszujecie zdjęcia ze studniówki?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! W przeciwieństwie do większości fotografów na rynku, my retuszujemy wszystkie zdjęcia ze studniówek. Wiemy, że studniówkę ma się tylko raz, dlatego chcemy, żebyście wyglądali na zdjęciach jak najlepiej."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Czy oferujecie wideo na studniówkę?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tak! W pakiecie Imprezowy+ teledysk wideo jest wliczony. W pozostałych pakietach można go dodać jako opcję dodatkową. Oferujemy również film na studniówkę — materiał nagrany wcześniej, który pokażecie podczas części artystycznej."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Na jakim terenie fotografujecie studniówki?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Studniówki fotografujemy najczęściej na terenie Krakowa i województwa małopolskiego, ale dojeżdżamy również na terenie podkarpackiego, śląskiego, świętokrzyskiego oraz całej Polski. Jeśli tego wymaga wydarzenie — dojedziemy lub dolecimy, gdzie trzeba!"
-        }
-      }
-    ]
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <!-- Hero Section -->
   <Hero
@@ -264,43 +226,10 @@ const metadata = {
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Najczęstsze pytania — fotografia studniówkowa</h2>
-      <div class="max-w-3xl mx-auto space-y-8">
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Ile kosztuje fotograf na studniówkę?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Cena fotografa na studniówkę zależy od wybranego pakietu. Oferujemy pakiety od <strong>Podstawowego</strong> (1 fotograf, 500 zdjęć, 5h reportażu) po pakiet <strong>Imprezowy+</strong> (3+ fotografów, 1500+ zdjęć, ścianka, teledysk wideo). Dokładne wyceny otrzymacie po kontakcie — dopasowujemy ofertę do Waszych potrzeb i budżetu.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Jak szybko otrzymamy zdjęcia ze studniówki?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Standardowy czas dostarczenia zdjęć ze studniówki to <strong>5-7 dni roboczych</strong>. Istnieje możliwość szybszego oddania w <strong>72h lub 24h</strong>. Oferujemy również usługę <strong>live edit</strong>, gdzie zdjęcia oddawane są jeszcze w trakcie trwania wydarzenia.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy retuszujecie zdjęcia ze studniówki?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Tak! W przeciwieństwie do większości fotografów na rynku, my <strong>retuszujemy wszystkie zdjęcia</strong> ze studniówek. Wiemy, że studniówkę ma się tylko raz, dlatego chcemy, żebyście wyglądali na zdjęciach jak najlepiej.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Czy oferujecie wideo na studniówkę?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Tak! W pakiecie <strong>Imprezowy+</strong> teledysk wideo jest wliczony. W pozostałych pakietach można go dodać jako opcję dodatkową. Oferujemy również <a href="/oferta/video-eventowe" class="text-blue-600 dark:text-blue-400 hover:underline">film na studniówkę</a> — materiał nagrany wcześniej, który pokażecie podczas części artystycznej.
-          </p>
-        </div>
-        <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Na jakim terenie fotografujecie studniówki?</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Studniówki fotografujemy najczęściej na terenie <strong>Krakowa</strong> i województwa <strong>małopolskiego</strong>, ale dojeżdżamy również na terenie <strong>podkarpackiego</strong>, <strong>śląskiego</strong>, <strong>świętokrzyskiego</strong> oraz <strong>całej Polski</strong>. Jeśli tego wymaga wydarzenie — dojedziemy lub dolecimy, gdzie trzeba!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <OfferFaq
+    heading="Najczęstsze pytania — fotografia studniówkowa"
+    items={faqData}
+  />
 
   <!-- Internal Links Section -->
   <section class="py-16 bg-white dark:bg-gray-900">
