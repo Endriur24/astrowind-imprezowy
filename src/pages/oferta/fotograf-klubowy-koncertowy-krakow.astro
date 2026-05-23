@@ -6,13 +6,13 @@ import Features from '~/components/widgets/Features.astro';
 import Gallery from '~/components/widgets/Gallery.astro';
 import ContactForm from '~/components/widgets/ContactForm.astro';
 
+import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
+
 const metadata = {
   title: 'Fotografia Koncertowa i Klubowa w Krakowie — Profesjonalne Zdjęcia z Koncertów | ImprezowyFotograf',
   description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Sprzęt Full Frame, jasne obiektywy f/1.4, obróbka w cenie, dostawa w 24h. Sprawdź ofertę!',
   canonical: 'https://imprezowyfotograf.pl/oferta/fotograf-klubowy-koncertowy-krakow',
   openGraph: {
-    title: 'Fotografia Koncertowa i Klubowa w Krakowie — Profesjonalne Zdjęcia z Koncertów',
-    description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Sprzęt Full Frame, jasne obiektywy f/1.4, obróbka w cenie, dostawa w 24h.',
     url: 'https://imprezowyfotograf.pl/oferta/fotograf-klubowy-koncertowy-krakow',
     images: [
       {
@@ -23,16 +23,11 @@ const metadata = {
     ],
     locale: 'pl_PL',
     type: 'website',
-    siteName: 'ImprezowyFotograf.pl',
   },
   twitter: {
     cardType: 'summary_large_image',
-    title: 'Fotografia Koncertowa i Klubowa w Krakowie',
-    description: 'Profesjonalna fotografia koncertowa i klubowa w Krakowie. Obróbka w cenie, dostawa w 24h.',
   },
 };
-
-import imprezyKluboweCover from '~/assets/images/covers/klubowe_cover.jpg';
 ---
 
 <Layout metadata={metadata}>

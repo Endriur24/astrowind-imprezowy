@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 // IMPORTANT: Disable prerendering to ensure this endpoint is always rendered on-demand
 export const prerender = false;
 
-export const GET: APIRoute = async ({ request, locals, redirect }) => {
+export const GET: APIRoute = async ({ request: _request, locals: _locals, redirect: _redirect }) => {
   
 
   //example response
