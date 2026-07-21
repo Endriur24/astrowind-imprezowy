@@ -59,7 +59,7 @@ const schema = createOfferPageGraph({
 });
 
 const metadata = {
-  title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1 | ImprezowyFotograf',
+  title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1',
   description:
     'Szukasz alternatywy dla fotobudki na wesele? Nasze mobilne studio fotograficzne z wydrukiem na miejscu dostarcza zdjęcia 1:1 — prosto do gościa, bez wspólnej galerii dla wszystkich. Kraków i cała Polska.',
   canonical: 'https://imprezowyfotograf.pl/oferta/studio-fotograficzne-alternatywa-fotobudki',
@@ -70,6 +70,7 @@ const metadata = {
     title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1',
     description:
       'Mobilne studio fotograficzne z wydrukiem na miejscu. Zdjęcia trafiają tylko do Ciebie — bez wspólnej galerii dla wszystkich gości.',
+    image: '/og-default.jpg',
   },
   twitter: {
     cardType: 'summary_large_image',
@@ -84,7 +85,7 @@ const metadata = {
   <Hero
     image={{
       src: studioCover,
-      alt: 'Mobilne studio fotograficzne na imprezie'
+      alt: 'Mobilne studio fotograficzne na imprezie',
     }}
     actions={[
       {
@@ -120,18 +121,9 @@ const metadata = {
         <strong>profesjonalny fotograf prowadzący sesję</strong>, wydruk gotowy jeszcze podczas imprezy oraz cyfrowa
         wersja zdjęcia w pełnej rozdzielczości — dostarczana <strong>wyłącznie osobie, która jest na zdjęciu</strong>.
       </p>
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-        Zdjęcia cyfrowe z poszanowaniem prywatności gości
-      </h2>
-      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
-        Ta z pozoru drobna rónica na prawdę ma znaczenie - niekiedy goście chcą mieć kontrolę nad tym kto zobaczy ich
-        pamiątki. Wszystkie konkurencyjne rozwiązania dostarczają zdjęcia w <strong>wspólnej galerii</strong> — każdy, kto
-        ma link, może przewijać zdjęcia innych osób. W naszym modelu <strong>1:1</strong> każdy gość skanuje swój indywidualny
-        kod QR i dostaje wyłącznie swoje zdjęcia. Nikt poza nim nie ma do nich dostępu, chyba że sam zdecyduje się je udostępnić.
-      </p>
       <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
-        Realizujemy mobilnym studiem fotograficznym głównie w <strong>Krakowie i Małopolsce</strong>, ale
-        dojeżdżamy również do innych miast w całej <strong>Polsce</strong>.
+        Realizujemy mobilnym studiem fotograficznym głównie w <strong>Krakowie i Małopolsce</strong>, ale dojeżdżamy
+        również do innych miast w całej <strong>Polsce</strong>.
       </p>
     </div>
   </section>
@@ -140,64 +132,65 @@ const metadata = {
   <section class="py-16 bg-white dark:bg-gray-900">
     <div class="container px-4 mx-auto">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Dlaczego to nie jest zwykła fotobudka</h2>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          Dlaczego to nie jest zwykła fotobudka
+        </h2>
         <div class="space-y-4">
-            <div class="flex items-start space-x-3">
-              <div
-                class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-              >
-                <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Prywatność 1:1</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Każdy gość otrzymuje link tylko do swoich zdjęć — nie do galerii z twarzami wszystkich uczestników
-                  imprezy.
-                </p>
-              </div>
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
             </div>
-
-            <div class="flex items-start space-x-3">
-              <div
-                class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-              >
-                <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Wydruk od ręki</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Pamiątkowa odbitka trafia do gościa jeszcze podczas trwania imprezy, bez czekania do następnego dnia.
-                </p>
-              </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Prywatność 1:1</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Każdy gość otrzymuje link tylko do swoich zdjęć — nie do galerii z twarzami wszystkich uczestników
+                imprezy.
+              </p>
             </div>
+          </div>
 
-            <div class="flex items-start space-x-3">
-              <div
-                class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-              >
-                <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Jakość studyjna</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Profesjonalne oświetlenie, kadrowanie i retusz — prowadzi fotograf, nie automat z rekwizytami.
-                </p>
-              </div>
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Wydruk od ręki</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Pamiątkowa odbitka trafia do gościa jeszcze podczas trwania imprezy, bez czekania do następnego dnia.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Jakość studyjna</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Profesjonalne oświetlenie, kadrowanie i retusz — prowadzi fotograf, nie automat z rekwizytami.
+              </p>
             </div>
           </div>
         </div>
@@ -314,22 +307,25 @@ const metadata = {
         <div>
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Zobacz, jak to działa</h2>
           <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-            Gość skanuje kod QR telefonem — zdjęcie pojawia się natychmiast na ekranie, bez logowania i instalowania aplikacji.
+            Gość skanuje kod QR telefonem — zdjęcie pojawia się natychmiast na ekranie, bez logowania i instalowania
+            aplikacji.
           </p>
           <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-            Cały proces zajmuje kilka sekund: aparat w telefonie rozpoznaje kod, przeglądarka otwiera się sama, a zdjęcie w pełnej rozdzielczości czeka już gotowe do pobrania lub udostępnienia.
+            Cały proces zajmuje kilka sekund: aparat w telefonie rozpoznaje kod, przeglądarka otwiera się sama, a
+            zdjęcie w pełnej rozdzielczości czeka już gotowe do pobrania lub udostępnienia.
           </p>
         </div>
         <div class="flex justify-center lg:justify-end">
-          <div class="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-gray-900 dark:border-gray-700 bg-gray-900">
+          <div
+            class="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-gray-900 dark:border-gray-700 bg-gray-900"
+          >
             <video
               src="/videos/skanowanie_kodu_qr.mp4"
               autoplay
               loop
               muted
               playsinline
-              class="w-full h-full object-cover"
-            ></video>
+              class="w-full h-full object-cover"></video>
           </div>
         </div>
       </div>
@@ -533,6 +529,7 @@ const metadata = {
               Wydruki + prywatny link 1:1 do każdego zdjęcia
             </li>
           </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-secondary w-full block text-center">Zapytaj o wycenę</a>
         </div>
 
         <div class="bg-teal-600 text-white rounded-lg p-8 border-2 border-teal-600 relative">
@@ -572,6 +569,7 @@ const metadata = {
               Opcjonalna galeria hitów dla pary/solenizanta
             </li>
           </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-primary w-full block text-center">Zapytaj o wycenę</a>
         </div>
 
         <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
@@ -597,6 +595,7 @@ const metadata = {
               Pełna personalizacja tła i ramki + galeria hitów w cenie
             </li>
           </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-secondary w-full block text-center">Zapytaj o wycenę</a>
         </div>
       </div>
     </div>
