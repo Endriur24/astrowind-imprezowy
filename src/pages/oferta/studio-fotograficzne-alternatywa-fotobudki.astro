@@ -70,7 +70,13 @@ const metadata = {
     title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1',
     description:
       'Mobilne studio fotograficzne z wydrukiem na miejscu. Zdjęcia trafiają tylko do Ciebie — bez wspólnej galerii dla wszystkich gości.',
-    image: '/og-default.jpg',
+    images: [
+      {
+        url: studioCover,
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     cardType: 'summary_large_image',
@@ -100,7 +106,7 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">Fotobudka? Coś więcej</Fragment>
+    <Fragment slot="title">Alternatywa fotobudki na wesele — coś więcej</Fragment>
 
     <Fragment slot="subtitle">
       Nasze <strong>mobilne studio fotograficzne</strong> to alternatywa fotobudki na wesele, studniówkę, osiemnastkę czy
@@ -337,7 +343,7 @@ const metadata = {
     (function() {
       const video = document.getElementById('studio-qr-video');
       if (!video) return;
-      const played = false;
+      let played = false;
       function tryPlay() {
         if (played) return;
         played = true;
