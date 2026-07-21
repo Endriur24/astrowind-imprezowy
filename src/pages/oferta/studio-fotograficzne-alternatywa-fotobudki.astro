@@ -325,12 +325,31 @@ const metadata = {
               loop
               muted
               playsinline
-              class="w-full h-full object-cover"></video>
+              class="w-full h-full object-cover"
+              id="studio-qr-video"></video>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <script is:inline data-astro-rerun>
+    (function() {
+      const video = document.getElementById('studio-qr-video');
+      if (!video) return;
+      const played = false;
+      function tryPlay() {
+        if (played) return;
+        played = true;
+        const p = video.play();
+        if (p && p.catch) p.catch(function() {});
+      }
+      video.load();
+      video.addEventListener('loadeddata', tryPlay, { once: true });
+      video.addEventListener('canplay', tryPlay, { once: true });
+      setTimeout(tryPlay, 1500);
+    })();
+  </script>
 
   <!-- Comparison: fotobudka vs nasze studio -->
   <section class="py-16 bg-gray-50 dark:bg-gray-800">
