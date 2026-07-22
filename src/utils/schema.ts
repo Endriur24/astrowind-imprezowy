@@ -401,17 +401,28 @@ export function createBlogPostSchema(config: {
   }
 
   schemas.push({
-    "@type": "Article",
+    "@type": "BlogPosting",
     "@id": `${url}#article`,
     headline: config.title,
     description: config.description,
     url: url,
     isPartOf: { "@id": `${url}#webpage` },
-    ...(config.image ? { image: { "@type": "ImageObject", url: config.image } } : {}),
+    ...(config.image
+      ? { image: { "@type": "ImageObject", url: config.image, width: 1200, height: 630 } }
+      : {}),
     datePublished: config.datePublished,
     dateModified: config.dateModified,
-    author: config.author || { "@id": `${siteUrl}/#organization` },
-    publisher: { "@id": `${siteUrl}/#organization` },
+    author: config.author || {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: business.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: business.name,
+      logo: { "@type": "ImageObject", url: `${siteUrl}${business.logo}` },
+    },
     mainEntityOfPage: { "@id": `${url}#webpage` },
     inLanguage: business.inLanguage,
   });
@@ -470,6 +481,25 @@ export function createOfferPageGraph(config: {
       unitText: config.unitText,
     })
   );
+
+  schemas.push({
+    "@type": "Product",
+    "@id": `${config.serviceUrl}#product`,
+    name: config.serviceName,
+    description: config.serviceDescription,
+    ...(config.serviceImage ? { image: config.serviceImage } : {}),
+    brand: { "@type": "Brand", name: business.name },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: config.priceCurrency || "PLN",
+      ...(config.price ? { price: config.price } : {}),
+      url: config.serviceUrl,
+      seller: {
+        "@type": "Organization",
+        name: business.name,
+      },
+    },
+  });
 
   if (config.faqItems && config.faqItems.length > 0) {
     schemas.push(createFAQSchema(config.serviceUrl, config.faqItems));
