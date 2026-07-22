@@ -411,7 +411,7 @@ export function createBlogPostSchema(config: {
       ? { image: { "@type": "ImageObject", url: config.image, width: 1200, height: 630 } }
       : {}),
     datePublished: config.datePublished,
-    dateModified: config.dateModified,
+    dateModified: config.dateModified >= config.datePublished ? config.dateModified : config.datePublished,
     author: config.author || {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
@@ -421,7 +421,7 @@ export function createBlogPostSchema(config: {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: business.name,
-      logo: { "@type": "ImageObject", url: `${siteUrl}${business.logo}` },
+      logo: { "@type": "ImageObject", url: `${siteUrl}${business.logo}`, width: 1000, height: 1000 },
     },
     mainEntityOfPage: { "@id": `${url}#webpage` },
     inLanguage: business.inLanguage,

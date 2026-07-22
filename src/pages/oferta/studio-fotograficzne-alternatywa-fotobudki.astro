@@ -61,15 +61,15 @@ const schema = createOfferPageGraph({
 });
 
 const metadata = {
-  title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1',
+  title: 'Alternatywa fotobudki na wesele — studio 1:1',
   description:
-    'Szukasz alternatywy dla fotobudki na wesele? Nasze mobilne studio fotograficzne z wydrukiem na miejscu dostarcza zdjęcia 1:1 — prosto do gościa, bez wspólnej galerii dla wszystkich. Kraków i cała Polska.',
+    'Mobilne studio fotograficzne zamiast fotobudki na wesele. Profesjonalny fotograf, wydruk na miejscu, prywatne zdjęcia 1:1 dla każdego gościa. Kraków i cała Polska.',
   canonical: 'https://imprezowyfotograf.pl/oferta/studio-fotograficzne-alternatywa-fotobudki',
   openGraph: {
     url: 'https://imprezowyfotograf.pl/oferta/studio-fotograficzne-alternatywa-fotobudki',
     locale: 'pl_PL',
     type: 'website',
-    title: 'Alternatywa Fotobudki na Wesele i Imprezy — Zdjęcia 1:1',
+    title: 'Alternatywa fotobudki na wesele — studio 1:1',
     description:
       'Mobilne studio fotograficzne z wydrukiem na miejscu. Zdjęcia trafiają tylko do Ciebie — bez wspólnej galerii dla wszystkich gości.',
     images: [
@@ -82,12 +82,14 @@ const metadata = {
   },
   twitter: {
     cardType: 'summary_large_image',
+    title: 'Alternatywa fotobudki na wesele — studio 1:1',
   },
 };
 ---
 
 <Layout metadata={metadata}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <meta name="twitter:title" content={metadata.title} />
 
   <!-- Hero Section -->
   <Hero
@@ -130,7 +132,9 @@ const metadata = {
         wersja zdjęcia w pełnej rozdzielczości — dostarczana <strong>wyłącznie osobie, która jest na zdjęciu</strong>.
       </p>
       <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto text-center">
-        Realizujemy mobilnym studiem fotograficznym głównie w <strong>Krakowie i Małopolsce</strong>, ale dojeżdżamy
+        Klasyczna <strong>fotobudka na wesele</strong> to wciąż popularny wybór, ale nasze studio daje gościom
+        prywatność i jakość, której automat nie zapewni. Realizujemy mobilnym studiem fotograficznym głównie w
+        <strong>Krakowie i Małopolsce</strong>, ale dojeżdżamy
         również do innych miast w całej <strong>Polsce</strong>.
       </p>
     </div>
