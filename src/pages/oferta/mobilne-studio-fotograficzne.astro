@@ -1,0 +1,664 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Gallery from '~/components/widgets/Gallery.astro';
+import ContactForm from '~/components/widgets/ContactForm.astro';
+import OfferFaq from '~/components/offer/OfferFaq.astro';
+import { createOfferPageGraph, siteUrl } from '~/utils/schema';
+
+import studioCover from '~/assets/images/covers/studio_fotograficzne_cover.jpg';
+
+const faqData = [
+  {
+    question: 'Czym jest mobilne studio fotograficzne?',
+    answer: 'To stanowisko do zdjęć portretowych, które przywozimy na Twoje wydarzenie: profesjonalne oświetlenie studyjne, tło i sprzęt fotograficzny. Fotograf prowadzi krótkie sesje gości, a operator zajmuje się drukiem. Goście odbierają wydruki na miejscu oraz wersje cyfrowe przez indywidualne kody QR.',
+  },
+  {
+    question: 'Ile kosztuje mobilne studio fotograficzne?',
+    answer: 'Pakiet Mini kosztuje <strong>od 1500 zł brutto za 2 godziny</strong>, Standard <strong>od 2400 zł brutto za 4 godziny</strong>, a Premium <strong>od 3400 zł brutto za 6 godzin</strong>. To oferta mobilnego studia z fotografem i operatorem druku. Ostateczna wycena zależy od lokalizacji, liczby gości, czasu pracy i personalizacji. Podaj datę oraz miejsce wydarzenia — przygotujemy ofertę.',
+  },
+  {
+    question: 'Czy mobilne studio fotograficzne sprawdzi się zamiast fotobudki na wesele?',
+    answer: 'Tak, jeśli zależy Wam na portretach gości wykonywanych przez fotografa przy oświetleniu studyjnym. Możemy fotografować indywidualnie, w parach i małych grupach. Goście otrzymują pamiątkowe wydruki podczas wesela. Styl tła i oprawę zdjęć ustalamy przed wydarzeniem.',
+  },
+  {
+    question: 'Co trzeba przygotować do rozstawienia mobilnego studia?',
+    answer: 'Przed rezerwacją ustalamy z organizatorem lub obsługą sali miejsce na tło, oświetlenie, stanowisko druku i swobodne ustawienie gości. Potrzebujemy dostępu do zasilania. Wymiary stanowiska i warunki montażu potwierdzamy dla konkretnej lokalizacji. Rozstawienie zajmuje zwykle około 30–45 minut przed rozpoczęciem sesji.',
+  },
+  {
+    question: 'Czy zdjęcia są drukowane na miejscu?',
+    answer: 'Tak. Operator obsługuje druk, a fotograf może w tym czasie prowadzić kolejne sesje. Goście odbierają odbitki jeszcze podczas imprezy. <strong>Standardowy wydruk 10×15 cm jest uwzględniony w wycenie</strong>. Oferujemy również format 15×20 cm i paski 5×15 cm z kilkoma zdjęciami jednej osoby lub grupy. Wybór formatu i personalizacji ustalamy przed rezerwacją.',
+  },
+  {
+    question: 'Jak goście odbierają zdjęcia cyfrowe?',
+    answer: 'Indywidualny kod QR prowadzi do zdjęć przypisanych do danego gościa, zamiast do wspólnej galerii wszystkich uczestników. Link otwiera się w przeglądarce telefonu <strong>bez logowania i instalowania aplikacji</strong>. Gość może pobrać zdjęcia i sam zdecydować o ich udostępnieniu.',
+  },
+  {
+    question: 'Jakie formaty wydruków są dostępne?',
+    answer: 'Drukujemy zdjęcia w formatach <strong>10×15 cm</strong> i <strong>15×20 cm</strong> oraz paski <strong>5×15 cm</strong>. Standard 10×15 cm jest uwzględniony w wycenie. Na pasku możemy umieścić kilka ujęć jednej osoby lub grupy osób. Format wydruków ustalamy przy zamówieniu.',
+  },
+  {
+    question: 'Co można pobrać po zeskanowaniu kodu QR na pasku zdjęć?',
+    answer: 'Pod kodem QR są dostępne <strong>wszystkie zdjęcia składające się na pasek oraz sam gotowy pasek w wersji cyfrowej</strong>. Możesz więc pobrać zarówno pojedyncze ujęcia, jak i całą kompozycję.',
+  },
+  {
+    question: 'Czy mogę otrzymać zdjęcia w formacie do Instagram Stories?',
+    answer: 'Tak. Możemy również dostarczyć gotowy wariant dopasowany do proporcji publikacji w social media, na przykład <strong>Instagram Stories</strong>. Dostępność takiej wersji i jej oprawę ustalamy przy zamówieniu.',
+  },
+  {
+    question: 'Czy mobilne studio zastępuje reportaż z imprezy?',
+    answer: 'Studio służy do krótkich sesji w przygotowanym miejscu. Reportaż pokazuje przebieg wydarzenia: zabawę, przemówienia, tort czy reakcje gości. Możesz zamówić obie usługi i ustalić z nami ich harmonogram. Dodatek z drukiem do pakietów reportażu urodzinowego ma osobny zakres i cennik.',
+  },
+  {
+    question: 'Czy dojeżdżacie poza Kraków?',
+    answer: 'Tak. Działamy głównie w <strong>Krakowie i Małopolsce</strong>, a mobilne studio fotograficzne możemy przygotować na wydarzenia w całej Polsce. Dostępność terminu i koszt dojazdu potwierdzamy w wycenie.',
+  },
+  {
+    question: 'Czy można dopasować zdjęcia do wesela lub wydarzenia firmowego?',
+    answer: 'Tak, ustalamy tło i oprawę zdjęć odpowiednią do wydarzenia. Standard obejmuje personalizowaną ramkę lub tło, a Premium pełną personalizację oraz wybraną galerię dla organizatora. Zakres projektu potwierdzamy przed realizacją.',
+  },
+];
+
+const faqSchemaItems = faqData.map((q) => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
+
+const schema = createOfferPageGraph({
+  serviceName: 'Mobilne studio fotograficzne Kraków — wesele i eventy',
+  serviceDescription:
+    'Mobilne studio fotograficzne na wesele i imprezy w Krakowie. Zdjęcia cyfrowe 1:1 — prosto do gościa, bez wspólnej galerii dla wszystkich. Wydruk na miejscu.',
+  serviceUrl: `${siteUrl}/oferta/mobilne-studio-fotograficzne`,
+  serviceImage: new URL(studioCover.src, siteUrl).href,
+  price: '1500',
+  unitText: 'pakiet Mini, 2 godziny; cena brutto od',
+  priceCurrency: 'PLN',
+  faqItems: faqSchemaItems,
+  breadcrumbItems: [
+    { position: 1, name: 'Strona główna', item: siteUrl },
+    { position: 2, name: 'Oferta', item: `${siteUrl}/oferta` },
+    { position: 3, name: 'Mobilne studio fotograficzne' },
+  ],
+});
+
+const metadata = {
+  ignoreTitleTemplate: true,
+  title: 'Mobilne studio fotograficzne Kraków | Wesele i eventy',
+  description:
+    'Mobilne studio fotograficzne na wesele i eventy. Fotograf, oświetlenie studyjne i wydruki na miejscu. Od 1500 zł brutto za 2 godziny. Kraków i cała Polska.',
+  canonical: 'https://imprezowyfotograf.pl/oferta/mobilne-studio-fotograficzne',
+  openGraph: {
+    url: 'https://imprezowyfotograf.pl/oferta/mobilne-studio-fotograficzne',
+    locale: 'pl_PL',
+    type: 'website',
+    title: 'Mobilne studio fotograficzne Kraków | Wesele i eventy',
+    description:
+      'Portrety gości, fotograf i operator druku, światło studyjne oraz zdjęcia przez QR. Sprawdź pakiety mobilnego studia na wesele i eventy od 1500 zł brutto.',
+    images: [
+      {
+        url: studioCover,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+    title: 'Mobilne studio fotograficzne Kraków | Wesele i eventy',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Hero Section -->
+  <Hero
+    image={{
+      src: studioCover,
+      alt: 'Mobilne studio fotograficzne na imprezie',
+    }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Zapytaj o wycenę',
+        href: '#formularz-studio-fotograficzne',
+      },
+      {
+        variant: 'secondary',
+        text: 'Zobacz cennik studia',
+        href: '#cennik-studio',
+      },
+    ]}
+  >
+    <Fragment slot="title">Mobilne studio fotograficzne na wesele i eventy</Fragment>
+
+    <Fragment slot="subtitle">
+      Portrety Twoich gości przy profesjonalnym oświetleniu studyjnym, wydruki na miejscu i zdjęcia cyfrowe przez QR.
+      Fotograf i operator druku zadbają o sesję oraz pamiątki. <strong>Od 1500 zł brutto za 2 godziny</strong>.
+      Kraków, Małopolska i dojazd na wydarzenia w całej Polsce.
+    </Fragment>
+  </Hero>
+
+  <nav aria-label="Na tej stronie" class="container px-4 mx-auto py-6 flex flex-wrap justify-center gap-4 text-teal-700 dark:text-teal-400">
+    <a href="#cennik-studio" class="underline">Cennik</a>
+    <a href="#gallery-offers-studio-na-impreze" class="underline">Przykładowe zdjęcia</a>
+    <a href="#formaty-wydrukow" class="underline">Formaty wydruków</a>
+    <a href="#studio-na-wesele" class="underline">Studio na wesele</a>
+    <a href="#studio-na-event" class="underline">Studio na event</a>
+    <a href="#organizacja-studia" class="underline">Przygotowanie sali</a>
+  </nav>
+
+  <section class="py-12 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Mobilne studio fotograficzne w Krakowie — sesja na Twojej imprezie</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">Przywozimy na salę sprzęt, oświetlenie studyjne i tło, tworząc miejsce do portretów. Fotograf pomaga gościom ustawić się do zdjęcia, a operator przygotowuje wydruki. Możecie podejść pojedynczo, w parze lub z najbliższymi — po pamiątkę z wesela, osiemnastki czy spotkania firmowego.</p>
+      <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Szukasz czegoś <strong>zamiast fotobudki</strong>? Mobilne studio łączy krótką sesję prowadzoną przez fotografa z odbitkami gotowymi podczas imprezy. Cyfrowe zdjęcia goście odbierają przez indywidualne kody QR. Wybierz <a href="#gallery-offers-studio-na-impreze" class="underline">przykładowe zdjęcia i ramki</a>, aby zobaczyć efekt.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="cennik-studio" class="py-16 bg-gray-50 dark:bg-gray-800 scroll-mt-24">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">Mobilne studio fotograficzne — cena i pakiety</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12">
+        Wynajem mobilnego studia z fotografem, operatorem druku i oświetleniem studyjnym kosztuje od 1500 zł brutto za 2 godziny.
+        Standardowe wydruki <strong>10×15 cm są uwzględnione w wycenie</strong>, a zdjęcia cyfrowe goście odbierają przez indywidualne linki.
+        Dostępne są również wydruki 15×20 cm, paski 5×15 cm i warianty do social media — zakres ustalamy przy zamówieniu.
+        Wszystkie podane ceny są kwotami brutto. Dokładną wycenę dopasowujemy do lokalizacji, czasu pracy, liczby gości i personalizacji.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Mini</h3>
+          <p class="text-3xl font-bold text-teal-600 dark:text-teal-400 mb-4">od 1500 zł brutto</p>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Kameralna impreza · 2 godziny</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              2 godziny pracy studia
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Wydruki + prywatny link 1:1 do każdego zdjęcia
+            </li>
+          </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-secondary w-full block text-center">Zapytaj o termin</a>
+        </div>
+
+        <div class="bg-teal-600 text-white rounded-lg p-8 border-2 border-teal-600 relative">
+          <div
+            class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-teal-600 text-white px-3 py-1 text-sm rounded-full"
+          >
+            Najpopularniejszy
+          </div>
+          <h3 class="text-xl font-bold mb-2">Standard</h3>
+          <p class="text-3xl font-bold mb-4">od 2400 zł brutto</p>
+          <p class="mb-6 opacity-90">Wesele lub większa impreza · 4 godziny</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              4 godziny pracy studia
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Personalizowana ramka/tło pod charakter imprezy
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Opcjonalna galeria hitów dla pary/solenizanta
+            </li>
+          </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-primary w-full block text-center">Zapytaj o termin</a>
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Premium</h3>
+          <p class="text-3xl font-bold text-teal-600 dark:text-teal-400 mb-4">od 3400 zł brutto</p>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Pełna obsługa dużego wydarzenia · 6 godzin</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              6 godzin pracy studia
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Pełna personalizacja tła i ramki + galeria hitów w cenie
+            </li>
+          </ul>
+          <a href="#formularz-studio-fotograficzne" class="btn-secondary w-full block text-center">Zapytaj o termin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          Portrety gości, wydruki i zdjęcia w telefonie
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Prywatność 1:1</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Każdy gość otrzymuje link tylko do swoich zdjęć — nie do galerii z twarzami wszystkich uczestników
+                imprezy.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Wydruk od ręki</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Pamiątkowa odbitka trafia do gościa jeszcze podczas trwania imprezy, bez czekania do następnego dnia.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div
+              class="w-6 h-6 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              <svg class="w-3 h-3 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Jakość studyjna</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Fotograf dobiera światło, kadr i pozę. Dzięki oświetleniu studyjnemu portrety mają spójny charakter przez całą sesję.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Details -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+        Co obejmuje wynajem mobilnego studia z obsługą
+      </h2>
+
+      <Features
+        items={[
+          {
+            title: 'Prywatna dystrybucja 1:1',
+            description: 'Każde zdjęcie trafia indywidualnym linkiem tylko do osoby, która jest na fotografii.',
+            icon: 'tabler:lock',
+          },
+          {
+            title: 'Fotograf prowadzący sesję',
+            description: 'Profesjonalista prowadzi kadr, ustawia pozę i dba o jakość każdego ujęcia.',
+            icon: 'tabler:camera',
+          },
+          {
+            title: 'Wydruk na miejscu',
+            description: 'Standard 10×15 cm uwzględniony w wycenie. Dostępne również wydruki 15×20 cm oraz paski 5×15 cm.',
+            icon: 'tabler:printer',
+          },
+          {
+            title: 'Cyfrowa wersja po retuszu',
+            description:
+              'Pełna rozdzielczość, gotowa do pobrania i publikacji — jeśli gość sam zdecyduje się ją udostępnić.',
+            icon: 'tabler:wand',
+          },
+          {
+            title: 'Opcjonalna galeria hitów',
+            description: 'Dla pary młodej lub solenizanta — osobna, wybrana galeria najlepszych ujęć z całej imprezy.',
+            icon: 'tabler:photo',
+          },
+          {
+            title: 'Personalizacja tła i ramki',
+            description: 'Dopasowanie scenerii i oprawy zdjęcia do charakteru wydarzenia.',
+            icon: 'tabler:palette',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section id="formaty-wydrukow" class="py-12 bg-white dark:bg-gray-900 scroll-mt-24">
+    <div class="container px-4 mx-auto max-w-5xl">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Wydruki na miejscu: 10×15, 15×20 i paski 5×15 cm</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-8">Wybierz klasyczną odbitkę, większy format lub pasek z kilkoma ujęciami. Standardowe zdjęcia 10×15 cm są uwzględnione w wycenie. Pozostałe formaty ustalamy przy zamówieniu.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">10×15 cm — standard</h3>
+          <p class="text-gray-600 dark:text-gray-400">Klasyczna odbitka portretu, zdjęcia pary lub grupy. Ten format jest uwzględniony w wycenie mobilnego studia.</p>
+        </div>
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">15×20 cm — większa odbitka</h3>
+          <p class="text-gray-600 dark:text-gray-400">Większy wydruk zdjęcia, który możesz wybrać przy ustalaniu zakresu usługi.</p>
+        </div>
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">5×15 cm — pasek zdjęć</h3>
+          <p class="text-gray-600 dark:text-gray-400">Kilka zdjęć jednej osoby lub grupy na jednym pasku. Pod kodem QR pobierzesz wszystkie ujęcia składające się na pasek i sam pasek w wersji cyfrowej.</p>
+        </div>
+      </div>
+      <div class="mt-8 rounded-lg border border-teal-600 p-6">
+        <p class="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2">Nowość</p>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Gotowy wariant do social media, także Instagram Stories</h3>
+        <p class="text-gray-600 dark:text-gray-400">Możemy dostarczyć również kompozycję dopasowaną do proporcji publikacji w social media — na przykład relacji na Instagramie. Otrzymujesz gotowy wariant do udostępnienia. Powiedz nam przy zamówieniu, do jakiej publikacji mamy go przygotować.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Jak działa mobilne studio fotograficzne?</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-xl font-bold text-teal-600 dark:text-teal-400">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Rozstawiamy studio</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Profesjonalne oświetlenie i tło w wybranym miejscu sali lub imprezy — ok. 30–45 minut przed rozpoczęciem.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-xl font-bold text-teal-600 dark:text-teal-400">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Fotografujemy gości</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            W parach, grupach lub indywidualnie — przez cały czas trwania sesji, w tempie dopasowanym do kolejki.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-xl font-bold text-teal-600 dark:text-teal-400">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Wydruk w kilka minut</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Gość dostaje odbitkę do ręki jeszcze na imprezie — nie musi na nią czekać do następnego dnia.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-xl font-bold text-teal-600 dark:text-teal-400">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Prywatny link 1:1</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Gość skanuje swój indywidualny kod QR i dostaje wyłącznie swoje zdjęcia — bez logowania, bez aplikacji.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video: skanowanie QR -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Zobacz, jak to działa</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+            Gość skanuje kod QR telefonem — zdjęcie pojawia się natychmiast na ekranie, bez logowania i instalowania
+            aplikacji.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            Cały proces zajmuje kilka sekund: aparat w telefonie rozpoznaje kod, przeglądarka otwiera się sama, a
+            zdjęcie w pełnej rozdzielczości czeka już gotowe do pobrania lub udostępnienia.
+          </p>
+        </div>
+        <div class="flex justify-center lg:justify-end">
+          <div
+            class="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-gray-900 dark:border-gray-700 bg-gray-900"
+          >
+            <video
+              src="/videos/skanowanie_kodu_qr.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              class="w-full h-full object-cover"
+              id="studio-qr-video"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline data-astro-rerun>
+    (function() {
+      const video = document.getElementById('studio-qr-video');
+      if (!video) return;
+      let played = false;
+      function tryPlay() {
+        if (played) return;
+        played = true;
+        const p = video.play();
+        if (p && p.catch) p.catch(function() {});
+      }
+      video.load();
+      video.addEventListener('loadeddata', tryPlay, { once: true });
+      video.addEventListener('canplay', tryPlay, { once: true });
+      setTimeout(tryPlay, 1500);
+    })();
+  </script>
+
+  <section class="py-12 bg-gray-50 dark:bg-gray-800">
+    <div class="container px-4 mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Mobilne studio fotograficzne a fotobudka — co wybrać?</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-6">Jeśli szukasz alternatywy dla fotobudki, porównaj sposób pracy i efekt zdjęć. W naszym mobilnym studiu sesję prowadzi fotograf, który dobiera światło i pomaga w pozowaniu. Fotobudki różnią się wyposażeniem oraz zakresem obsługi — warto sprawdzić konkretną ofertę.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-gray-700 dark:text-gray-300">
+          <caption class="sr-only">Co otrzymujesz w mobilnym studiu Imprezowy Fotograf</caption>
+          <thead><tr class="border-b border-gray-300 dark:border-gray-600"><th scope="col" class="p-3">Element usługi</th><th scope="col" class="p-3">Nasze mobilne studio</th></tr></thead>
+          <tbody>
+            <tr class="border-b border-gray-300 dark:border-gray-600"><th scope="row" class="p-3">Sesja</th><td class="p-3">Portrety indywidualne, par i małych grup prowadzone przez fotografa</td></tr>
+            <tr class="border-b border-gray-300 dark:border-gray-600"><th scope="row" class="p-3">Światło i tło</th><td class="p-3">Profesjonalne oświetlenie studyjne i sceneria uzgodniona przed imprezą</td></tr>
+            <tr class="border-b border-gray-300 dark:border-gray-600"><th scope="row" class="p-3">Pamiątki dla gości</th><td class="p-3">Wydruki na miejscu przygotowywane przez operatora druku</td></tr>
+            <tr><th scope="row" class="p-3">Zdjęcia cyfrowe</th><td class="p-3">Indywidualne linki przez QR, bez instalowania aplikacji</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto max-w-4xl space-y-10">
+      <div id="studio-na-wesele" class="scroll-mt-24">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Mobilne studio fotograficzne na wesele</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Zaproście gości na portrety w parach, z rodziną lub przyjaciółmi. Fotograf pomaga w ustawieniu do zdjęcia, a odbitka staje się pamiątką zabieraną do domu. Godziny sesji ustalamy z Wami tak, aby pasowały do planu wesela, posiłków i zabawy. Personalizowana ramka może nawiązywać do oprawy przyjęcia.</p>
+      </div>
+      <div id="studio-na-event" class="scroll-mt-24">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Mobilne studio fotograficzne na event firmowy</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Na bankiecie, jubileuszu firmy lub integracji studio tworzy strefę zdjęć uczestników. Tło i oprawę wydruków dopasowujemy do ustalonego projektu wydarzenia. Jeśli potrzebujesz także relacji z przemówień i zabawy, połącz studio z <a href="/oferta/fotograf-eventowy-krakow" class="underline">reportażem fotografa eventowego</a>.</p>
+      </div>
+      <div id="organizacja-studia" class="scroll-mt-24">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Jak przygotować miejsce na mobilne studio?</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Przed wydarzeniem uzgadniamy z salą miejsce na tło, lampy, stanowisko druku i kolejkę gości oraz dostęp do zasilania. Rozstawiamy sprzęt zwykle 30–45 minut przed sesją. Wymiary stanowiska i warunki montażu potwierdzamy dla wybranej lokalizacji. W zapytaniu podaj datę, adres, liczbę gości i planowany czas pracy — dobierzemy pakiet i ustalimy logistykę.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dla jakich wydarzeń -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+        Mobilne studio na studniówkę, osiemnastkę i przyjęcia
+      </h2>
+
+      <Features
+        items={[
+          {
+            title: 'Wesela',
+            description: 'Portrety pary młodej i bliskich oraz odbitki dla gości podczas wesela.',
+            icon: 'tabler:heart',
+          },
+          {
+            title: 'Studniówki i osiemnastki',
+            description: 'Portrety z przyjaciółmi przy świetle studyjnym i wydruki na pamiątkę.',
+            icon: 'tabler:school',
+          },
+          {
+            title: 'Wieczory panieńskie i kawalerskie',
+            description: 'Krótka sesja indywidualna i wspólne zdjęcia uczestników przyjęcia.',
+            icon: 'tabler:confetti',
+          },
+          {
+            title: 'Imprezy firmowe i integracyjne',
+            description: 'Strefa portretów uczestników z oprawą zdjęć dopasowaną do wydarzenia.',
+            icon: 'tabler:building-skyscraper',
+          },
+          {
+            title: 'Komunie i chrzciny',
+            description: 'Rodzinne portrety i odbitki wręczane bliskim podczas spotkania.',
+            icon: 'tabler:gift',
+          },
+          {
+            title: 'Jubileusze i rocznice',
+            description: 'Elegancka atrakcja dopasowana do kameralnego charakteru wydarzenia.',
+            icon: 'tabler:award',
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <Gallery
+    folderPath="offers/studio-na-impreze"
+    title="Mobilne studio fotograficzne — przykładowe zdjęcia"
+    subtitle="Zobacz, jak wyglądają zdjęcia z naszego mobilnego studia fotograficznego — z personalizowaną ramką dopasowaną do charakteru wydarzenia."
+    minColumnWidth={200}
+    gap={12}
+  />
+
+  <!-- FAQ Section -->
+  <OfferFaq heading="Mobilne studio fotograficzne — pytania i odpowiedzi" items={faqData} />
+
+  <!-- Internal Links -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container px-4 mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        Sprawdź również nasze inne usługi
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <a
+          href="/oferta/fotograf-slubny-last-minute"
+          class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+        >
+          <h3
+            class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+          >
+            Fotograf ślubny last minute
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Profesjonalna fotografia ślubna na krótki termin.</p>
+        </a>
+        <a
+          href="/oferta/fotograf-na-urodziny-krakow"
+          class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+        >
+          <h3
+            class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+          >
+            Fotograf na urodziny
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Profesjonalna fotografia na urodziny, 18-tki i imprezy prywatne.
+          </p>
+        </a>
+        <a
+          href="/oferta/dodatkowe-uslugi-fotograficzne"
+          class="group block bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+        >
+          <h3
+            class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+          >
+            Dodatkowe usługi
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Fotobudka, ścianka live, zdjęcia z drona i inne atrakcje.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <ContactForm
+    formName="formularz-studio-fotograficzne"
+    title="Zarezerwuj mobilne studio fotograficzne"
+    description="Podaj datę, miejsce, liczbę gości i planowane godziny pracy. Potwierdzimy dostępność i przygotujemy wycenę mobilnego studia."
+  />
+</Layout>

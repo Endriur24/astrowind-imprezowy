@@ -38,7 +38,7 @@ Fotobudka od lat króluje na polskich weselach — jest rozpoznawalna, stosunkow
 
 ### Wspólna galeria dla wszystkich gości
 
-Zdjęcia z fotobudki trafiają zazwyczaj do jednej galerii online. Każdy, kto ma link, widzi zdjęcia wszystkich gości — łącznie z ujęciami, których niektórzy woleliby nie udostępniać w szerszym gronie. Brak prywatności to najczęstszy powód, dla którego pary rozważają [alternatywę fotobudki na wesele](/oferta/studio-fotograficzne-alternatywa-fotobudki).
+Zdjęcia z fotobudki trafiają zazwyczaj do jednej galerii online. Każdy, kto ma link, widzi zdjęcia wszystkich gości — łącznie z ujęciami, których niektórzy woleliby nie udostępniać w szerszym gronie. Brak prywatności to najczęstszy powód, dla którego pary rozważają [alternatywę fotobudki na wesele](/oferta/mobilne-studio-fotograficzne).
 
 ### Automat zamiast profesjonalisty
 
@@ -120,7 +120,7 @@ W porównaniu do fotobudki, która często kosztuje podobnie lub więcej, mobiln
 - obecność profesjonalnego fotografa,
 - możliwość personalizacji tła i ramki.
 
-Szczegółowy cennik i pełną listę tego, co wchodzi w skład każdego pakietu, znajdziesz na stronie [oferty mobilnego studia fotograficznego](/oferta/studio-fotograficzne-alternatywa-fotobudki).
+Szczegółowy cennik i pełną listę tego, co wchodzi w skład każdego pakietu, znajdziesz na stronie [oferty mobilnego studia fotograficznego](/oferta/mobilne-studio-fotograficzne).
 
 ## Jak wygląda sesja w mobilnym studiu?
 
@@ -174,7 +174,7 @@ Kluczowe zalety:
 - **Personalizacja** — tło i ramka dopasowane do charakteru Twojego wydarzenia.
 - **Brak aplikacji** — goście skanują kod QR i od razu mają dostęp do zdjęć.
 
-Chcesz poznać szczegóły i zobaczyć przykładowe zdjęcia z realizacji? Sprawdź pełną ofertę [mobilnego studia fotograficznego — alternatywy fotobudki](/oferta/studio-fotograficzne-alternatywa-fotobudki) albo zapytaj o wycenę przez formularz kontaktowy.
+Chcesz poznać szczegóły i zobaczyć przykładowe zdjęcia z realizacji? Sprawdź pełną ofertę [mobilnego studia fotograficznego — alternatywy fotobudki](/oferta/mobilne-studio-fotograficzne) albo zapytaj o wycenę przez formularz kontaktowy.
 
 ---
 *Planujesz wesele w Krakowie lub w innym miejscu w Polsce? Skontaktuj się z nami — przygotujemy wycenę mobilnego studia fotograficznego dopasowaną do Twoich potrzeb.*
