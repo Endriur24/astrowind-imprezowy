@@ -10,13 +10,14 @@ import OfferFaq from '~/components/offer/OfferFaq.astro';
 import { createOfferPageGraph, siteUrl } from '~/utils/schema';
 
 const faqData = [
-  { question: "Ile kosztuje fotograf na 18 urodziny?", answer: "Fotograf na 18 urodziny kosztuje u nas <strong>600 zł za pakiet Mini</strong> (2 godziny, 50 zdjęć po obróbce), <strong>1200 zł za Standard</strong> (4 godziny, 150 zdjęć) lub <strong>2000 zł za Premium</strong> (6 godzin, 250+ zdjęć). Pakiety obejmują galerię online. Warunki i ewentualny koszt dojazdu ustalamy przy wycenie konkretnego miejsca." },
-  { question: "Na ile godzin zamówić fotografa na osiemnastkę?", answer: "Wybierz 2 godziny, jeśli zależy Ci na krótkim reportażu, portretach i zdjęciach z bliskimi. Pakiet 4-godzinny pozwala uwzględnić więcej zabawy, a 6-godzinny — dłuższą relację z przyjęcia. Godziny pracy warto dopasować do planowanej pory tortu, życzeń i zdjęć grupowych." },
+  { question: "Ile kosztuje fotograf na 18 urodziny?", answer: "Fotograf na 18 urodziny kosztuje u nas <strong>600 zł za pakiet Mini</strong> (2 godziny, 50 zdjęć po obróbce), <strong>1200 zł za Standard</strong> (4 godziny, 150 zdjęć) lub <strong>2000 zł za Premium</strong> (6 godzin, 250+ zdjęć). Pakiety obejmują galerię online. Do każdego z nich możesz dokupić <strong>druk zdjęć na miejscu za dodatkowe 900 zł za 2 godziny</strong>. Warunki i ewentualny koszt dojazdu ustalamy przy wycenie konkretnego miejsca." },
+  { question: "Co obejmuje dodatek z drukowaniem zdjęć na miejscu?", answer: "Do pakietu Mini, Standard lub Premium możesz dodać <strong>druk zdjęć na miejscu za 900 zł za 2 godziny obsługi</strong>. Cena dodatku obejmuje operatora druku, profesjonalne fotograficzne oświetlenie studyjne i <strong>wydruki bez limitu przez te 2 godziny</strong>. Obsługę druku można przedłużyć — <strong>każda kolejna godzina kosztuje 400 zł</strong>, z wydrukami bez limitu w tym czasie. Koszt dodatku doliczamy do ceny wybranego pakietu fotograficznego." },
+  { question: "Na ile godzin zamówić fotografa na osiemnastkę?", answer: "Wybierz 2 godziny, jeśli zależy Ci na krótkim reportażu, portretach i zdjęciach z bliskimi. Pakiet 4-godzinny pozwala uwzględnić więcej zabawy, a 6-godzinny - dłuższą relację z przyjęcia. Godziny pracy warto dopasować do planowanej pory tortu, życzeń i zdjęć grupowych." },
   { question: "Jakie zdjęcia robicie na 18 urodzinach?", answer: "Fotografujemy zabawę, życzenia, tort, dekoracje oraz naturalne emocje gości. Ustalamy też czas na portrety solenizanta i zdjęcia z rodziną oraz znajomymi. Zakres reportażu dopasowujemy do harmonogramu i wybranego pakietu." },
   { question: "Kiedy otrzymam zdjęcia z osiemnastki?", answer: "Standardowy czas dostarczenia zdjęć to <strong>5–7 dni roboczych</strong>. Możliwość szybszego oddania w 72h lub 24h oraz usługę live edit, czyli zdjęcia jeszcze w trakcie imprezy, ustalamy przed rezerwacją." },
-  { question: "Czy cena obejmuje obróbkę i retusz?", answer: "Wszystkie oddawane zdjęcia przechodzą obróbkę kolorystyczną i kadrowanie. Pakiet Standard obejmuje dodatkowo retusz 5 zdjęć, a Premium — 15 zdjęć. Gotowe fotografie udostępniamy w galerii online." },
+  { question: "Czy cena obejmuje obróbkę i retusz?", answer: "Wszystkie oddawane zdjęcia przechodzą obróbkę kolorystyczną i kadrowanie. Pakiet Standard obejmuje dodatkowo retusz 5 zdjęć, a Premium - 15 zdjęć. Gotowe fotografie udostępniamy w galerii online." },
   { question: "Czy fotografujecie osiemnastki poza Krakowem?", answer: "Tak, fotografujemy osiemnastki w Krakowie i dojeżdżamy również do innych miejscowości. W zapytaniu podaj miejsce przyjęcia, datę i przewidywane godziny pracy, abyśmy mogli potwierdzić dostępność oraz warunki dojazdu." },
-  { question: "Czy sesja na 18 urodziny jest tym samym co reportaż z imprezy?", answer: "Reportaż pokazuje przebieg przyjęcia i emocje gości. Krótkie portrety solenizanta możemy zaplanować przy okazji imprezy, w ramach ustalonych godzin pracy. Jeśli interesuje Cię osobna sesja zdjęciowa na 18 urodziny, opisz swój pomysł w formularzu — ustalimy zakres i wycenę." },
+  { question: "Czy sesja na 18 urodziny jest tym samym co reportaż z imprezy?", answer: "Reportaż pokazuje przebieg przyjęcia i emocje gości. Krótkie portrety solenizanta możemy zaplanować przy okazji imprezy, w ramach ustalonych godzin pracy. Jeśli interesuje Cię osobna sesja zdjęciowa na 18 urodziny, opisz swój pomysł w formularzu - ustalimy zakres i wycenę." },
 ];
 
 const faqSchemaItems = faqData.map(q => ({ name: q.question, acceptedAnswer: { text: q.answer } }));
@@ -78,16 +79,16 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Reportaż z osiemnastki, portrety i zdjęcia z bliskimi. Pakiety od 600 zł za 2 godziny — sprawdź cennik i zapytaj o swój termin.
+      Reportaż z osiemnastki, portrety i zdjęcia z bliskimi. Pakiety od 600 zł za 2 godziny - sprawdź cennik i zapytaj o swój termin.
     </Fragment>
   </Hero>
 
   <!-- SEO Content Section -->
   <section class="py-16 bg-gray-50 dark:bg-gray-800">
     <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na osiemnastkę w Krakowie — zdjęcia z Twojej imprezy</h2>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na osiemnastkę w Krakowie - zdjęcia z Twojej imprezy</h2>
       <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
-        Szukasz <strong>fotografa na urodziny w Krakowie</strong>? Dokumentujemy wszystkie rodzaje imprez urodzinowych — od <strong>osiemnastek</strong>, przez <strong>urodziny dziecięce</strong>, aż po <strong>urodziny dla dorosłych</strong>. Każda impreza jest inna, dlatego dostosowujemy styl fotografii do charakteru wydarzenia.
+        Szukasz <strong>fotografa na urodziny w Krakowie</strong>? Dokumentujemy wszystkie rodzaje imprez urodzinowych - od <strong>osiemnastek</strong>, przez <strong>urodziny dziecięce</strong>, aż po <strong>urodziny dla dorosłych</strong>. Każda impreza jest inna, dlatego dostosowujemy styl fotografii do charakteru wydarzenia.
       </p>
       <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl mx-auto mb-6 text-center">
         Nasza oferta urodzinowa obejmuje <strong>fotografię reportażową</strong>, zdjęcia grupowe z rodziną i przyjaciółmi, portrety solenizanta oraz dokumentację dekoracji i detali. Wszystkie zdjęcia przechodzą <strong>obróbkę kolorystyczną i kadrowanie</strong>, a zakres dodatkowego retuszu zależy od pakietu.
@@ -293,8 +294,8 @@ const metadata = {
   <!-- Pricing -->
   <section id="cennik" class="py-16 bg-white dark:bg-gray-900 scroll-mt-24">
     <div class="container px-4 mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na 18 urodziny — cena i pakiety</h2>
-      <p class="max-w-3xl mx-auto mb-10 text-center text-lg text-gray-600 dark:text-gray-400">Ile kosztuje fotograf na 18? Pakiety na osiemnastki i inne urodziny zaczynają się od <strong>600 zł za 2 godziny</strong>. Wybierz czas reportażu dopasowany do planu przyjęcia. Każdy pakiet obejmuje zdjęcia po obróbce i galerię online.</p>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Fotograf na 18 urodziny - cena i pakiety</h2>
+      <p class="max-w-3xl mx-auto mb-10 text-center text-lg text-gray-600 dark:text-gray-400">Ile kosztuje fotograf na 18? Pakiety na osiemnastki i inne urodziny zaczynają się od <strong>600 zł za 2 godziny</strong>. Wybierz czas reportażu dopasowany do planu przyjęcia. Każdy pakiet obejmuje zdjęcia po obróbce i galerię online. Do każdego pakietu możesz dokupić <a href="#druk-na-miejscu" class="underline">druk zdjęć na miejscu za dodatkowe 900 zł za 2 godziny obsługi</a>.</p>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
@@ -342,18 +343,8 @@ const metadata = {
               </svg>
               150 zdjęć po obróbce
             </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              5 zdjęć retuszowanych
-            </li>
-            <li class="flex items-center">
-              <svg class="w-4 h-4 text-white mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Krótki film z imprezy
-            </li>
+
+
           </ul>
           <p class="text-2xl font-bold mb-4">1200 zł</p>
         </div>
@@ -374,21 +365,29 @@ const metadata = {
               </svg>
               250+ zdjęć po obróbce
             </li>
-            <li class="flex items-center text-gray-600 dark:text-gray-400">
-              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              15 zdjęć retuszowanych
-            </li>
-            <li class="flex items-center text-gray-600 dark:text-gray-400">
-              <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              Sesje z gośćmi
-            </li>
+
           </ul>
           <p class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2000 zł</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="druk-na-miejscu" class="py-12 bg-gray-50 dark:bg-gray-800 scroll-mt-24">
+    <div class="container px-4 mx-auto max-w-4xl">
+      <div class="rounded-lg border border-green-600 p-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 mb-3">Dodatek do Mini, Standard lub Premium</p>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Druk zdjęć na miejscu</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">Goście otrzymują pamiątkowe odbitki jeszcze podczas imprezy. Dodatek możesz dokupić do dowolnego pakietu fotograficznego.</p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-400 mb-6">
+          <li>2 godziny obsługi druku na miejscu</li>
+          <li>Operator druku</li>
+          <li>Profesjonalne fotograficzne oświetlenie studyjne</li>
+          <li>Wydruki bez limitu w czasie obsługi druku</li>
+          <li>Możliwość przedłużenia: +400 zł za każdą kolejną godzinę</li>
+        </ul>
+        <p class="text-2xl font-bold text-gray-900 dark:text-white mb-3">+900 zł / 2 godziny</p>
+        <p class="text-gray-600 dark:text-gray-400">Cena dodatku jest doliczana do wybranego pakietu: Mini z drukiem - 1500 zł, Standard z drukiem - 2100 zł, Premium z drukiem - 2900 zł. Podstawowa cena dodatku obejmuje 2 godziny obsługi druku. Każda kolejna godzina to <strong>+400 zł</strong>, z wydrukami bez limitu w tym czasie.</p>
       </div>
     </div>
   </section>
@@ -404,7 +403,7 @@ const metadata = {
 
   <!-- FAQ Section -->
   <OfferFaq
-    heading="Fotograf na osiemnastkę — pytania o cenę i reportaż"
+    heading="Fotograf na osiemnastkę - pytania o cenę i reportaż"
     items={faqData}
   />
 
@@ -432,7 +431,7 @@ const metadata = {
   <!-- Contact Form -->
   <ContactForm
     formName="formularz-urodziny"
-    title="Zarezerwuj fotografa na 18 urodziny"
+    title="Zarezerwuj fotografa na urodziny"
     description="Podaj datę, miejsce osiemnastki i planowane godziny reportażu. Potwierdzimy dostępność i dobierzemy pakiet."
   />
 </Layout>
